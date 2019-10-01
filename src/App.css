@@ -20,3 +20,17 @@
 .App-link {
   color: #09d3ac;
 }
+
+.content {
+  flex: 1 0 auto;
+}
+.footer {
+  flex-shrink: 0;
+  background-color: #f2f2f2;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}

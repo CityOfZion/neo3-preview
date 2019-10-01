@@ -1,8 +1,13 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import { connect } from 'react-redux'
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
 
+import Footer from './components/footer/Footer'
+import Navigation from './components/navigation/Navigation'
 import { fetchBlock } from './actions/blockActions'
-import logo from './logo.svg'
+import LandingPage from './containers/LandingPage'
+import Transactions from './containers/Transactions'
+import Blocks from './containers/Blocks'
 import './App.css'
 
 const mapStateToProps = state => ({
@@ -15,24 +20,27 @@ const mapDispatchToProps = dispatch => ({
 
 function App(props) {
   return (
-    <div className="App">
-      <button onClick={() => props.fetchBlock(1)}>Test redux action</button>
-      <pre>{JSON.stringify(props)}</pre>
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Fragment>
+      <div className="content">
+        <Router>
+          <div>
+            <Navigation />
+            <Switch>
+              <Route path="/transactions">
+                <Transactions />
+              </Route>
+              <Route path="/blocks">
+                <Blocks />
+              </Route>
+              <Route path="/">
+                <LandingPage />
+              </Route>
+            </Switch>
+          </div>
+        </Router>
+      </div>
+      <Footer />
+    </Fragment>
   )
 }
 
