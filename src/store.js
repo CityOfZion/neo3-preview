@@ -7,10 +7,8 @@ import rootReducer from './reducers/rootReducer'
 const INITIAL_STATE = {
   blocks: {
     isLoading: false,
-    isStaleData: false,
     items: [],
-    selected: {},
-    currentPage: 0,
+    cached: {},
   },
   // transactions: {
   //   isLoading: false,

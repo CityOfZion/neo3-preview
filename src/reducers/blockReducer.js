@@ -1,31 +1,13 @@
-// export default (state = {}, action) => {
-//   switch (action.type) {
-//     case "SIMPLE_ACTION":
-//       return {
-//         result: action.payload
-//       };
-//     default:
-//       return state;
-//   }
-// };
-
 import { REQUEST_BLOCK, REQUEST_BLOCK_SUCCESS } from '../actions/blockActions'
 
 export default (
   state = {
     isLoading: false,
-    // isStaleData: false,
-    // items: [],
-    // selected: {},
-    // currentPage: 0,
+    cached: {},
   },
   action,
 ) => {
   switch (action.type) {
-    // case INVALIDATE_BLOCKS:
-    //   return Object.assign({}, state, {
-    //     didInvalidate: true,
-    //   })
     case REQUEST_BLOCK:
       return Object.assign({}, state, {
         isLoading: true,
@@ -35,6 +17,9 @@ export default (
         isLoading: false,
         json: action.json,
         lastUpdated: action.receivedAt,
+        cached: {
+          [action.blockHeight]: action.json,
+        },
       })
     default:
       return state

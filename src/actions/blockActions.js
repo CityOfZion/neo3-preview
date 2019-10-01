@@ -29,16 +29,29 @@ export const requestBlockError = (blockHeight, error) => dispatch => {
   })
 }
 
+export function shouldFetchBlock(state, index) {
+  const block = state.blocks.cached[index]
+  if (!block) {
+    return true
+  } else if (state.blocks.isLoading) {
+    return false
+  }
+  return false
+}
+
 export function fetchBlock(index = 1) {
   console.log('fetching block')
-  return async dispatch => {
-    try {
-      dispatch(requestBlock(index))
-      const response = await fetch(generateApiUrl(index))
-      const json = await response.json()
-      dispatch(requestBlockSuccess(index, json))
-    } catch (e) {
-      dispatch(requestBlockError(index, e))
+  return async (dispatch, getState) => {
+    console.log(dispatch, getState)
+    if (shouldFetchBlock(getState(), index)) {
+      try {
+        dispatch(requestBlock(index))
+        const response = await fetch(generateApiUrl(index))
+        const json = await response.json()
+        dispatch(requestBlockSuccess(index, json))
+      } catch (e) {
+        dispatch(requestBlockError(index, e))
+      }
     }
   }
 }
