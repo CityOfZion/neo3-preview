@@ -8,8 +8,8 @@
 
 #desktop_navigation a {
   text-decoration: none;
-  margin: 20px;
-  font-size: 20px;
+  margin: 24px;
+  font-size: 16px;
 }
 
 #desktop_logo {
@@ -17,5 +17,5 @@
 }
 
 #desktop_navigation_options {
-  padding-bottom: 20px;
+  padding-bottom: 24px;
 }

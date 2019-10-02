@@ -23,8 +23,9 @@ function App(props) {
     <Fragment>
       <div className="content">
         <Router>
-          <div>
-            <Navigation />
+          <Navigation />
+
+          <div className="router-content">
             <Switch>
               <Route path="/transactions">
                 <Transactions />
