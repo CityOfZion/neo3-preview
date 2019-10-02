@@ -59,7 +59,7 @@ const LandingPage = ({ fetchBlocks, filteredBlocks }) => {
             aliquip ex ea commodo consequat.
           </p>
           <div id="call-to-action-button-container">
-            <Button>Download NEO CLI</Button>
+            <Button>Download NEO 3.0 CLI</Button>
           </div>
         </div>
       </div>
