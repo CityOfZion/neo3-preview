@@ -2,6 +2,7 @@
   background-color: var(--secondary-blue);
   padding: 24px;
   margin: 24px;
+  margin-bottom: 48px;
 }
 
 #call-to-action-content {
@@ -12,6 +13,7 @@
 #call-to-action-content p {
   display: flex;
   flex: 0.6;
+  margin-left: 24px;
 }
 
 #call-to-action-button-container {

@@ -68,7 +68,6 @@ const LandingPage = ({ fetchBlocks, filteredBlocks }) => {
       <div id="statistics-card-container">
         <Card value="25,036,425" detail="Total Transactions" />
         <Card value="25,036,425" detail="Total Transactions" />
-
         <Card value="25,036,425" detail="Total Transactions" />
         <Card value="25,036,425" detail="Total Transactions" />
       </div>
