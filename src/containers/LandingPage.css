@@ -1,0 +1,49 @@
+#call-to-action {
+  background-color: var(--secondary-blue);
+  padding: 24px;
+  margin: 24px;
+}
+
+#call-to-action-content {
+  display: flex;
+  flex-direction: row;
+}
+
+#call-to-action-content p {
+  display: flex;
+  flex: 0.6;
+}
+
+#call-to-action-button-container {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex: 0.4;
+}
+
+#statistics-card-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-bottom: 24px;
+}
+
+#landing-page h1 {
+  margin-left: 24px;
+}
+
+.statistic {
+  display: flex;
+  /* justify-content: space-between;
+  width: 100%; */
+}
+
+.header-and-link {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.header-and-link a {
+  margin-right: 24px;
+}

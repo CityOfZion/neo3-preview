@@ -1,6 +1,8 @@
 html,
 body {
   height: 100%;
+  background-color: var(--primary-blue);
+  color: white;
 }
 
 body {
@@ -18,4 +20,19 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+:root {
+  --primary-blue: rgb(1, 0, 51);
+  --secondary-blue: #1b1b47;
+  --green: #03e59a;
+  --grey: #bbbdc9;
+}
+
+a {
+  color: var(--second-color);
+}
+
+h1 {
+  margin: 0;
 }

@@ -1,0 +1,21 @@
+.card {
+  background-color: var(--secondary-blue);
+  min-width: 200px;
+  min-height: 100px;
+  margin: 24px;
+  border-bottom: 3px var(--green) solid;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 6px 24px;
+}
+
+.card h2 {
+  margin: 0;
+}
+
+.card p {
+  margin: 0;
+  margin-top: 6px;
+}

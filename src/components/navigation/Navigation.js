@@ -18,15 +18,15 @@ export default () => {
       </div>
       <div id="desktop_navigation_options">
         <NavLink activeStyle={activeStyle} to="/transactions">
-          TRANSACTIONS
+          Transactions
         </NavLink>
 
         <NavLink activeStyle={activeStyle} to="/blocks">
-          BLOCKS
+          Blocks
         </NavLink>
 
         <NavLink activeStyle={activeStyle} to="/contracts">
-          CONTRACTS
+          Contracts
         </NavLink>
       </div>
     </nav>
