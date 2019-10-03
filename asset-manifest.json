@@ -1,16 +1,22 @@
 {
   "files": {
-    "main.css": "/neo-3-preview/static/css/main.2687f4d8.chunk.css",
-    "main.js": "/neo-3-preview/static/js/main.a4b9fa12.chunk.js",
-    "main.js.map": "/neo-3-preview/static/js/main.a4b9fa12.chunk.js.map",
+    "main.css": "/neo-3-preview/static/css/main.8f148f4f.chunk.css",
+    "main.js": "/neo-3-preview/static/js/main.7acee74d.chunk.js",
+    "main.js.map": "/neo-3-preview/static/js/main.7acee74d.chunk.js.map",
     "runtime-main.js": "/neo-3-preview/static/js/runtime-main.a6f35bec.js",
     "runtime-main.js.map": "/neo-3-preview/static/js/runtime-main.a6f35bec.js.map",
-    "static/js/2.88fd0cca.chunk.js": "/neo-3-preview/static/js/2.88fd0cca.chunk.js",
-    "static/js/2.88fd0cca.chunk.js.map": "/neo-3-preview/static/js/2.88fd0cca.chunk.js.map",
+    "static/js/2.2b629923.chunk.js": "/neo-3-preview/static/js/2.2b629923.chunk.js",
+    "static/js/2.2b629923.chunk.js.map": "/neo-3-preview/static/js/2.2b629923.chunk.js.map",
     "index.html": "/neo-3-preview/index.html",
-    "precache-manifest.018a6fb370acefbd03cb0f5065d9938e.js": "/neo-3-preview/precache-manifest.018a6fb370acefbd03cb0f5065d9938e.js",
+    "precache-manifest.39a3dda16783602715064cf6a231bd12.js": "/neo-3-preview/precache-manifest.39a3dda16783602715064cf6a231bd12.js",
     "service-worker.js": "/neo-3-preview/service-worker.js",
-    "static/css/main.2687f4d8.chunk.css.map": "/neo-3-preview/static/css/main.2687f4d8.chunk.css.map",
-    "static/media/logo.svg": "/neo-3-preview/static/media/logo.25bf045c.svg"
+    "static/css/main.8f148f4f.chunk.css.map": "/neo-3-preview/static/css/main.8f148f4f.chunk.css.map",
+    "static/media/coz-logo.svg": "/neo-3-preview/static/media/coz-logo.aa4aec2c.svg",
+    "static/media/fb-social.svg": "/neo-3-preview/static/media/fb-social.e7ff3f8b.svg",
+    "static/media/linkedin-social.svg": "/neo-3-preview/static/media/linkedin-social.19217fb3.svg",
+    "static/media/neo-logo.svg": "/neo-3-preview/static/media/neo-logo.909dbdde.svg",
+    "static/media/signal.svg": "/neo-3-preview/static/media/signal.6c24cbb2.svg",
+    "static/media/telegram-social.svg": "/neo-3-preview/static/media/telegram-social.2a85ba62.svg",
+    "static/media/twitter-social.svg": "/neo-3-preview/static/media/twitter-social.87676691.svg"
   }
 }
