@@ -1,0 +1,32 @@
+.footer {
+  flex-shrink: 0;
+  border-top: thin #f9fafa solid;
+  margin: 0 24px;
+  padding: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.footer-flex-container {
+  flex: 1;
+  display: flex;
+}
+
+.footer span {
+  justify-content: center;
+}
+
+#footer-social-icons {
+  justify-content: flex-end;
+}
+
+#footer-social-icons img {
+  opacity: 0.75;
+  cursor: pointer;
+  margin: 0 8px;
+}
+
+#footer-social-icons img:hover {
+  opacity: 1;
+}

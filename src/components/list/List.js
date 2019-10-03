@@ -16,18 +16,38 @@ export const List = ({ columns, data, handleRowClick }) => {
     gridTemplateColumns: `repeat(${columns.length}, 1fr)`,
   }
 
+  const conditionalBorderRadius = index => {
+    if (!index)
+      return {
+        borderRadius: '3px 0 0 3px',
+      }
+    if (index === columns.length - 1)
+      return {
+        borderRadius: '0 3px 3px 0',
+      }
+    return null
+  }
+
   return (
     <div className="data-list-container">
       <div className="data-list" style={gridstyle}>
-        {columns.map(column => (
-          <div className="data-list-column" key={column.name}>
+        {columns.map((column, i) => (
+          <div
+            style={conditionalBorderRadius(i)}
+            className="data-list-column"
+            key={column.name}
+          >
             {column.name}
           </div>
         ))}
 
         {sortedByAccessor.map(data =>
           Object.values(data).map(detail => (
-            <span onClick={() => handleRowClick(data)} key={uniqueId()}>
+            <span
+              style={conditionalBorderRadius()}
+              onClick={() => handleRowClick(data)}
+              key={uniqueId()}
+            >
               {typeof detail === 'function' ? detail() : detail}
             </span>
           )),

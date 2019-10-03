@@ -2,20 +2,28 @@
   background-color: var(--secondary-blue);
   min-width: 200px;
   min-height: 100px;
-  margin: 24px;
+  margin: 20px;
   border-bottom: 3px var(--green) solid;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  padding: 6px 24px;
+  padding: 6px 48px;
+  border-radius: 3px;
 }
 
 .card h2 {
   margin: 0;
+  font-size: 30px;
+  color: #f9fafa;
+  text-align: center;
 }
 
 .card p {
   margin: 0;
   margin-top: 6px;
+  font-size: 17px;
+  color: #f9fafa;
+  text-align: center;
+  line-height: 24px;
 }

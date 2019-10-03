@@ -1,6 +1,7 @@
 import React from 'react'
 import { NavLink, Link } from 'react-router-dom'
-import logo from '../../logo.svg'
+import neoLogo from '../../images/neo-logo.svg'
+import cozLogo from '../../images/coz-logo.svg'
 
 import './Navigation.css'
 
@@ -8,13 +9,26 @@ const activeStyle = {
   fontWeight: 'bold',
 }
 
-export default () => {
+export const PreviewLogo = () => (
+  <div className="logo-sub-text" to="/">
+    <h3> NEO3 Preview Explorer</h3>
+    <p>
+      Brought to you by: <img src={cozLogo}></img>
+    </p>
+  </div>
+)
+
+export const Navigation = () => {
   return (
     <nav id="desktop_navigation">
       <div id="desktop_logo">
-        <Link to="/">
-          <img src={logo} alt="logo" />
+        {/* <Link to="/"> */}
+        <img src={neoLogo} alt="logo" />
+        <div id="logo-spacer" />
+        <Link className="logo-sub-text" to="/">
+          <PreviewLogo />
         </Link>
+        {/* </Link> */}
       </div>
       <div id="desktop_navigation_options">
         <NavLink activeStyle={activeStyle} to="/transactions">

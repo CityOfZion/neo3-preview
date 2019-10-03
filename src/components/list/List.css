@@ -5,13 +5,11 @@
 }
 
 .data-list > span {
-  padding: 8px 4px;
-  text-align: center;
+  padding: 6px 24px;
   background: var(--secondary-blue);
-  /* box-shadow: 1px 1px 4px 0 rgba(0, 0, 0, 0.18); */
-  font-size: 12px;
+  font-weight: 600;
+  font-size: 14px;
   color: white;
-  text-align: center;
   line-height: 32px;
   cursor: pointer;
   text-overflow: ellipsis;
@@ -20,12 +18,13 @@
 }
 
 .data-list-column {
-  text-align: center;
-  padding: 8px 4px;
+  padding: 12px 24px;
   font-weight: 300;
   background: var(--green);
   color: var(--primary-blue);
-  font-weight: 400;
+  font-weight: 600;
+  font-size: 14px;
+  color: #000033;
 }
 
 .data-list {

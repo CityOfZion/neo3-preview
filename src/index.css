@@ -2,7 +2,7 @@ html,
 body {
   height: 100%;
   background-color: var(--primary-blue);
-  color: white;
+  color: #f9fafa;
 }
 
 body {
@@ -12,7 +12,8 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 16px;
   display: flex;
   flex-direction: column;
 }
@@ -23,9 +24,9 @@ code {
 }
 
 :root {
-  --primary-blue: rgb(1, 0, 51);
-  --secondary-blue: #1b1b47;
-  --green: #03e59a;
+  --primary-blue: #000033;
+  --secondary-blue: rgba(255, 255, 255, 0.1);
+  --green: #02e49b;
   --grey: #bbbdc9;
 }
 
@@ -35,4 +36,6 @@ a {
 
 h1 {
   margin: 0;
+  font-size: 30px;
+  color: #ffffff;
 }

@@ -3,24 +3,34 @@
   padding: 24px;
   margin: 24px;
   margin-bottom: 48px;
+  padding: 24px 12px;
+  border-radius: 3px;
 }
 
 #call-to-action-content {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
 }
 
 #call-to-action-content p {
   display: flex;
   flex: 0.6;
   margin-left: 24px;
+  font-size: 17px;
+  line-height: 24px;
 }
 
 #call-to-action-button-container {
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
   display: flex;
   flex: 0.4;
+  flex-wrap: wrap;
+}
+
+#call-to-action-button-container span {
+  font-weight: 600;
 }
 
 #statistics-card-container {
@@ -46,4 +56,14 @@
 
 .header-and-link a {
   margin-right: 24px;
+}
+
+.list-block-height-container {
+  color: var(--green);
+  display: flex;
+  align-items: center;
+}
+
+.list-block-height-container img {
+  margin-right: 12px;
 }

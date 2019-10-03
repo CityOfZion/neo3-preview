@@ -1,8 +1,29 @@
 .primary-button {
   background: var(--green);
-  padding: 16px;
-  min-width: 200px;
+  padding: 12px;
+  min-width: 150px;
   font-size: 16px;
   border: none;
   cursor: pointer;
+  font-weight: 600;
+  font-size: 16px;
+  color: #000033;
+  text-align: center;
+  border-radius: 3px;
+  font-family: 'Rajdhani', sans-serif;
+}
+
+.secondary-button {
+  background: none;
+  padding: 12px;
+  min-width: 150px;
+  font-size: 16px;
+  border: 1px solid var(--green);
+  color: var(--green);
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 16px;
+  text-align: center;
+  border-radius: 3px;
+  font-family: 'Rajdhani', sans-serif;
 }

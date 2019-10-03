@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 
 import Footer from './components/footer/Footer'
-import Navigation from './components/navigation/Navigation'
+import { Navigation } from './components/navigation/Navigation'
 import { fetchBlock } from './actions/blockActions'
 import LandingPage from './containers/LandingPage'
 import Transactions from './containers/Transactions'
