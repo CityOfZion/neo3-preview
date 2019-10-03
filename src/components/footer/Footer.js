@@ -11,15 +11,15 @@ import './Footer.css'
 export default () => {
   return (
     <footer className="footer">
-      <div class="footer-flex-container">
+      <div className="footer-flex-container">
         <PreviewLogo />
       </div>
-      <span class="footer-flex-container">© 2019 City Of Zion</span>
-      <div id="footer-social-icons" class="footer-flex-container">
-        <img src={facebookIcon} />
-        <img src={twitterIcon} />
-        <img src={linkedinIcon} />
-        <img src={telegramIcon} />
+      <span className="footer-flex-container">© 2019 City Of Zion</span>
+      <div id="footer-social-icons" className="footer-flex-container">
+        <img alt="facebook-icon" src={facebookIcon} />
+        <img alt="twitter-icon" src={twitterIcon} />
+        <img alt="linkedin-icon" src={linkedinIcon} />
+        <img alt="telegram-icon" src={telegramIcon} />
       </div>
     </footer>
   )

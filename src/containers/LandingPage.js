@@ -21,6 +21,7 @@ const massageBlockData = block => {
       </div>
     ),
     size: `${block.size} bytes`,
+    height: block.index,
   }
 }
 
@@ -30,6 +31,7 @@ const mapStateToProps = ({ blocks }) => ({
       blocks.list.length &&
       blocks.list.slice(0, 5).map(massageBlockData)) ||
     [],
+  blocks: blocks.list,
   isLoading: blocks.isLoading,
 })
 
@@ -84,7 +86,14 @@ class LandingPage extends React.Component {
         </div>
 
         <List
-          handleRowClick={row => console.log(row)}
+          handleRowClick={row =>
+            // NOTE: this is beause querying the API by block hash is currently not working
+            this.props.history.push(
+              `/blocks/${
+                this.props.blocks.find(block => block.hash === row.hash).index
+              }`,
+            )
+          }
           columns={columns}
           data={filteredBlocks}
         ></List>

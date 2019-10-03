@@ -1,0 +1,15 @@
+.panel {
+  background-color: var(--secondary-blue);
+  padding: 12px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  /* max-width: 300px; */
+  margin: 6px;
+  font-weight: 500;
+}
+
+.panel span {
+  color: var(--green);
+  margin-right: 48px;
+}

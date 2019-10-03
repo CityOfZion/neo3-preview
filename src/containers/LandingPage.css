@@ -31,6 +31,9 @@
 
 #call-to-action-button-container span {
   font-weight: 600;
+  min-width: 150px;
+  margin: 12px 0;
+  text-align: center;
 }
 
 #statistics-card-container {
@@ -38,6 +41,7 @@
   justify-content: space-between;
   flex-wrap: wrap;
   margin-bottom: 24px;
+  padding: 24px;
 }
 
 #landing-page h1 {
@@ -66,4 +70,16 @@
 
 .list-block-height-container img {
   margin-right: 12px;
+}
+
+@media only screen and (max-width: 1275px) {
+  #call-to-action-button-container {
+    flex-direction: column;
+  }
+}
+
+@media only screen and (max-width: 1360px) {
+  #statistics-card-container {
+    /* justify-content: center; */
+  }
 }

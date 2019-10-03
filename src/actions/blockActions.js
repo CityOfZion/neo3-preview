@@ -1,8 +1,8 @@
 export const REQUEST_BLOCK = 'REQUEST_BLOCK'
-export const requestBlock = blockHeight => dispatch => {
+export const requestBlock = indexOrHash => dispatch => {
   dispatch({
     type: REQUEST_BLOCK,
-    blockHeight,
+    indexOrHash,
   })
 }
 
@@ -64,22 +64,21 @@ export function shouldFetchBlock(state, index) {
   return false
 }
 
-export function fetchBlock(index = 1) {
+export function fetchBlock(indexOrHash = 1) {
   console.log('fetching block')
   return async (dispatch, getState) => {
     console.log(dispatch, getState)
-    if (shouldFetchBlock(getState(), index)) {
+    if (shouldFetchBlock(getState(), indexOrHash)) {
+      dispatch(requestBlock(indexOrHash))
       try {
-        dispatch(requestBlock(index))
-
         const generateApiUrl = index =>
-          `https://ja3l09yg7a.execute-api.us-east-1.amazonaws.com/dev/api/test_net/v1/get_block/${index}`
+          `https://ja3l09yg7a.execute-api.us-east-1.amazonaws.com/dev/api/test_net/v1/get_block/${indexOrHash}`
 
-        const response = await fetch(generateApiUrl(index))
+        const response = await fetch(generateApiUrl(indexOrHash))
         const json = await response.json()
-        dispatch(requestBlockSuccess(index, json))
+        dispatch(requestBlockSuccess(indexOrHash, json))
       } catch (e) {
-        dispatch(requestBlockError(index, e))
+        dispatch(requestBlockError(indexOrHash, e))
       }
     }
   }

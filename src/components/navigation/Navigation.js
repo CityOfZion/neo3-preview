@@ -13,7 +13,7 @@ export const PreviewLogo = () => (
   <div className="logo-sub-text" to="/">
     <h3> NEO3 Preview Explorer</h3>
     <p>
-      Brought to you by: <img src={cozLogo}></img>
+      Brought to you by: <img alt="coz-logo" src={cozLogo}></img>
     </p>
   </div>
 )

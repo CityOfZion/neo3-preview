@@ -17,14 +17,17 @@ export default (
     case REQUEST_BLOCK:
       return Object.assign({}, state, {
         isLoading: true,
+        block: state.cached[action.indexOrHash],
       })
     case REQUEST_BLOCK_SUCCESS:
       return Object.assign({}, state, {
         isLoading: false,
         block: action.json,
         lastUpdated: action.receivedAt,
+        // cache both the index and the hash in memory
         cached: {
           [action.blockHeight]: action.json,
+          [action.json.hash]: action.json,
         },
       })
     case REQUEST_BLOCKS:

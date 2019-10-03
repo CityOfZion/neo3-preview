@@ -2,7 +2,7 @@
   background-color: var(--secondary-blue);
   min-width: 200px;
   min-height: 100px;
-  margin: 20px;
+  margin: 10px;
   border-bottom: 3px var(--green) solid;
   display: flex;
   align-items: center;

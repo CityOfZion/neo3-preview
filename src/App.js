@@ -8,44 +8,34 @@ import { fetchBlock } from './actions/blockActions'
 import LandingPage from './containers/LandingPage'
 import Transactions from './containers/Transactions'
 import Blocks from './containers/Blocks'
+import Block from './containers/Block'
 import './App.css'
 
-const mapStateToProps = state => ({
-  ...state,
-})
+export default () => (
+  <Fragment>
+    <div className="content">
+      <Router>
+        <Navigation />
 
-const mapDispatchToProps = dispatch => ({
-  fetchBlock: index => dispatch(fetchBlock(index)),
-})
+        <div className="router-content">
+          <Switch>
+            <Route path="/transactions">
+              <Transactions />
+            </Route>
+            <Route
+              path="/blocks/:id"
+              component={props => <Block {...props} />}
+            />
 
-function App(props) {
-  return (
-    <Fragment>
-      <div className="content">
-        <Router>
-          <Navigation />
+            <Route path="/blocks">
+              <Blocks />
+            </Route>
 
-          <div className="router-content">
-            <Switch>
-              <Route path="/transactions">
-                <Transactions />
-              </Route>
-              <Route path="/blocks">
-                <Blocks />
-              </Route>
-              <Route path="/">
-                <LandingPage />
-              </Route>
-            </Switch>
-          </div>
-        </Router>
-      </div>
-      <Footer />
-    </Fragment>
-  )
-}
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps,
-)(App)
+            <Route path="/" component={props => <LandingPage {...props} />} />
+          </Switch>
+        </div>
+      </Router>
+    </div>
+    <Footer />
+  </Fragment>
+)

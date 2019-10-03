@@ -34,3 +34,25 @@
 .router-content {
   padding: 24px;
 }
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  padding: 24px;
+}
+
+.panels-container {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+
+.panels-row {
+  display: flex;
+  flex: 1;
+}
+
+.panels-container .panel {
+  display: flex;
+  flex: 0.5;
+}
