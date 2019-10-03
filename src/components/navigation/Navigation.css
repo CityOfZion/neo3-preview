@@ -28,7 +28,6 @@
 .logo-sub-text {
   display: flex;
   flex-direction: column;
-  margin-left: 24px;
 }
 
 .logo-sub-text p {

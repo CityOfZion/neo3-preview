@@ -58,10 +58,9 @@ class LandingPage extends React.Component {
           <h1>NEO3 Download</h1>
           <div id="call-to-action-content">
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat.
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              Vestibulum placerat arcu a felis porta, a fringilla augue blandit.
+              Proin maximus at libero sit amet.
             </p>
             <div id="call-to-action-button-container">
               <Button secondary>Get Started</Button>
