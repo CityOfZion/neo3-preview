@@ -16,10 +16,6 @@ const mapDispatchToProps = dispatch => ({
 })
 
 class Block extends React.Component {
-  // state = {
-  //   id: null,
-  // }
-
   componentDidMount() {
     console.log('mounted')
     const id = this.props.match.params.id

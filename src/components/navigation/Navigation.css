@@ -21,10 +21,6 @@
   align-items: center;
 }
 
-#desktop_navigation_options {
-  /* padding-bottom: 48px; */
-}
-
 .logo-sub-text {
   display: flex;
   flex-direction: column;
@@ -40,7 +36,6 @@
 
 .logo-sub-text h3 {
   margin: 0;
-
   font-size: 24px;
   color: #ffffff;
 }

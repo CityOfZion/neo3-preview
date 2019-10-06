@@ -77,9 +77,3 @@
     flex-direction: column;
   }
 }
-
-@media only screen and (max-width: 1360px) {
-  #statistics-card-container {
-    /* justify-content: center; */
-  }
-}

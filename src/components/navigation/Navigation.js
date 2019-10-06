@@ -22,13 +22,11 @@ export const Navigation = () => {
   return (
     <nav id="desktop_navigation">
       <div id="desktop_logo">
-        {/* <Link to="/"> */}
         <img src={neoLogo} alt="logo" />
         <div id="logo-spacer" />
         <Link className="logo-sub-text" to="/">
           <PreviewLogo />
         </Link>
-        {/* </Link> */}
       </div>
       <div id="desktop_navigation_options">
         <NavLink activeStyle={activeStyle} to="/transactions">
