@@ -50,9 +50,17 @@
 .panels-row {
   display: flex;
   flex: 1;
+  flex-wrap: wrap;
 }
 
 .panels-container .panel {
   display: flex;
+  min-width: 410px;
   flex: 0.5;
+}
+
+@media only screen and (max-width: 1124px) {
+  .panels-container .panel {
+    flex: 1;
+  }
 }

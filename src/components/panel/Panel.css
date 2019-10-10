@@ -1,15 +1,18 @@
 .panel {
   background-color: var(--secondary-blue);
-  padding: 12px;
+  padding: 6px 16px;
   height: 24px;
   display: flex;
   align-items: center;
   /* max-width: 300px; */
   margin: 6px;
-  font-weight: 500;
+  font-weight: 400;
+  font-size: 14px;
+  border-bottom: solid 2px var(--green);
 }
 
 .panel span {
-  color: var(--green);
-  margin-right: 48px;
+  /* color: var(--green); */
+  margin-right: 12px;
+  font-weight: 600;
 }

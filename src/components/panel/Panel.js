@@ -2,11 +2,11 @@ import React from 'react'
 
 import './Panel.css'
 
-export default ({ title, value }) => {
+export default ({ title, value, titleStyle, valueStyle, style }) => {
   return (
-    <div className="panel">
-      <span>{title}</span>
-      <p>{value}</p>
+    <div style={style} className="panel">
+      <span style={titleStyle}>{title}</span>
+      <p style={valueStyle}>{value}</p>
     </div>
   )
 }
