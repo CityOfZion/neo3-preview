@@ -34,7 +34,7 @@ export const Navigation = () => {
           Transactions
         </NavLink>
 
-        <NavLink activeStyle={activeStyle} to="/blocks">
+        <NavLink activeStyle={activeStyle} to="/blocks/1">
           Blocks
         </NavLink>
 

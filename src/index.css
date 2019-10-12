@@ -32,7 +32,15 @@ code {
 }
 
 a {
-  color: var(--second-color);
+  color: var(--green);
+  font-weight: 600;
+  font-size: 17px;
+  line-height: 24px;
+  cursor: pointer;
+}
+
+a:hover {
+  text-decoration: underline;
 }
 
 h1 {

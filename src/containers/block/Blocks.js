@@ -18,6 +18,7 @@ class Blocks extends React.Component {
     ]
 
     const { blocks } = this.props
+    let { page } = this.props.match.params
 
     return (
       <div id="blocks-list">
@@ -28,7 +29,7 @@ class Blocks extends React.Component {
                 console.log(row) ||
                 // NOTE: this is beause querying the API by block hash is currently not working
                 this.props.history.push(
-                  `/blocks/${
+                  `/block/${
                     this.props.blocks.find(block => block.hash === row.hash)
                       .height
                   }`,
@@ -38,11 +39,19 @@ class Blocks extends React.Component {
               data={blocks}
             />
 
-            <Pagination />
+            <Pagination
+              currPage={Number(page)}
+              handleSelectPage={page => this.loadNewBlockPage(page)}
+            />
           </React.Fragment>
         )}
       </div>
     )
+  }
+
+  loadNewBlockPage = page => {
+    this.props.history.push(`/blocks/${page}`)
+    this.props.fetchBlocks(page)
   }
 }
 

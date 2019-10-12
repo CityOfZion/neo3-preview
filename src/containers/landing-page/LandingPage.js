@@ -46,14 +46,14 @@ class LandingPage extends React.Component {
 
         <div className="header-and-link">
           <h1> Last 5 Blocks</h1>
-          <a> View all blocks</a>
+          <a href="/blocks/1"> View all blocks</a>
         </div>
 
         <List
           handleRowClick={row =>
             // NOTE: this is beause querying the API by block hash is currently not working
             this.props.history.push(
-              `/blocks/${
+              `/block/${
                 this.props.blocks.find(block => block.hash === row.hash).height
               }`,
             )

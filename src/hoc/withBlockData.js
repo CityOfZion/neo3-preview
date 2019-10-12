@@ -31,7 +31,7 @@ const mapStateToProps = ({ blocks }) => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-  fetchBlocks: index => dispatch(fetchBlocks()),
+  fetchBlocks: index => dispatch(fetchBlocks(index)),
 })
 
 export default function withBlockData(WrappedComponent) {

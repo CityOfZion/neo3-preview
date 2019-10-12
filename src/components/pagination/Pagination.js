@@ -9,41 +9,46 @@ import './Pagination.css'
 
 const PAGE_RANGE = 5
 
-const generatePageIndex = currPage => {
-  if (currPage <= 5) {
+const generatePageIndex = position => {
+  if (position <= 5) {
     return [1, 2, 3, 4, 5]
   }
-  return [currPage - 2, currPage - 1, currPage, currPage + 1, currPage + 2]
+  return [position - 2, position - 1, position, position + 1, position + 2]
 }
 
 export default class Pagination extends React.Component {
   state = {
     currPage: 1,
+    selectedPage: 1,
     currentIndex: [],
   }
 
   componentDidMount() {
     this.setState({
-      currPage: this.props.currPage || 1,
       currentIndex: generatePageIndex(this.props.currPage || 1),
     })
   }
 
   render() {
-    const { currPage = 1 } = this.props
     const { currentIndex } = this.state
+    const { currPage = 1 } = this.props
     return (
       <div id="pagination-container">
         <Button
           onClick={() => this.handleNextButton(false)}
-          disabled={currPage <= 5}
+          disabled={currentIndex[currentIndex.length - 1] <= PAGE_RANGE}
           secondary
         >
           <ChevronLeft /> Prev
         </Button>
 
         {currentIndex.map(page => (
-          <Button key={page} active={page === currPage} secondary>
+          <Button
+            key={page}
+            active={page === currPage}
+            secondary
+            onClick={() => this.props.handleSelectPage(page)}
+          >
             {page}
           </Button>
         ))}
@@ -56,18 +61,13 @@ export default class Pagination extends React.Component {
   }
 
   handleNextButton = (next = true) => {
-    const { currPage } = this.setState
-    let nextPage = currPage
-    // if (next) {
-    return this.setState({
-      currPage: next ? (nextPage += PAGE_RANGE) : (nextPage -= PAGE_RANGE),
-      currentIndex: generatePageIndex(nextPage).map(number =>
-        next ? number + PAGE_RANGE : number - PAGE_RANGE,
-      ),
+    const { currentIndex } = this.state
+    console.log(currentIndex[0] - 3)
+    const nextIndex = generatePageIndex(
+      next ? currentIndex[currentIndex.length - 1] + 3 : currentIndex[0] - 3,
+    )
+    this.setState({
+      currentIndex: nextIndex,
     })
-    // }
-    // return this.setState({
-    //   currentIndex: generatePageIndex(this.state.currPage - PAGE_RANGE),
-    // })
   }
 }

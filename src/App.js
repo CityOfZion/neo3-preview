@@ -20,10 +20,13 @@ export default () => (
               <Transactions />
             </Route>
             <Route
-              path="/blocks/:id"
+              path="/block/:id"
               component={props => <Block {...props} />}
             />
-            <Route path="/blocks" component={props => <Blocks {...props} />} />
+            <Route
+              path="/blocks/:page"
+              component={props => <Blocks {...props} />}
+            />
             <Route path="/" component={props => <LandingPage {...props} />} />
           </Switch>
         </div>
