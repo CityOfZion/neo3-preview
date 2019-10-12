@@ -1,14 +1,12 @@
 import React, { Fragment } from 'react'
-import { connect } from 'react-redux'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 
 import Footer from './components/footer/Footer'
 import { Navigation } from './components/navigation/Navigation'
-import { fetchBlock } from './actions/blockActions'
-import LandingPage from './containers/LandingPage'
-import Transactions from './containers/Transactions'
-import Blocks from './containers/Blocks'
-import Block from './containers/Block'
+import LandingPage from './containers/landing-page/LandingPage'
+import Transactions from './containers/transaction/Transactions'
+import Blocks from './containers/block/Blocks'
+import Block from './containers/block/Block'
 import './App.css'
 
 export default () => (
@@ -16,7 +14,6 @@ export default () => (
     <div className="content">
       <Router>
         <Navigation />
-
         <div className="router-content">
           <Switch>
             <Route path="/transactions">
@@ -26,11 +23,7 @@ export default () => (
               path="/blocks/:id"
               component={props => <Block {...props} />}
             />
-
-            <Route path="/blocks">
-              <Blocks />
-            </Route>
-
+            <Route path="/blocks" component={props => <Blocks {...props} />} />
             <Route path="/" component={props => <LandingPage {...props} />} />
           </Switch>
         </div>

@@ -1,3 +1,8 @@
+.secondary-button.active-button {
+  background: var(--secondary-green);
+  color: #000033;
+}
+
 .primary-button {
   background: var(--green);
   padding: 12px;
@@ -26,4 +31,18 @@
   text-align: center;
   border-radius: 3px;
   font-family: 'Rajdhani', sans-serif;
+
+  svg {
+    margin: 0 6px;
+  }
+}
+
+.secondary-button:hover,
+.secondary-button svg:hover {
+  background: var(--secondary-green);
+  color: #000033;
+
+  polyline {
+    stroke: #000033;
+  }
 }

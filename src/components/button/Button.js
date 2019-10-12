@@ -1,10 +1,16 @@
 import React from 'react'
+import classNames from 'classnames'
 
-import './Button.css'
+import './Button.scss'
 
-export default ({ children, secondary = false }) => {
+export default ({ children, secondary = false, active = false, ...props }) => {
+  const btnClass = classNames({
+    'primary-button': !secondary,
+    'secondary-button': secondary,
+    'active-button': active,
+  })
   return (
-    <button className={secondary ? 'secondary-button' : 'primary-button'}>
+    <button {...props} className={btnClass}>
       {children}
     </button>
   )

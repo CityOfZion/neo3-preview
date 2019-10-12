@@ -1,0 +1,19 @@
+#pagination-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  font-size: 14px;
+  margin: 24px;
+}
+
+#pagination-container img {
+  margin: 0 6px;
+}
+
+#pagination-container button {
+  min-width: 40px;
+  margin: 0 12px;
+}
+
+.pagination-container {
+}

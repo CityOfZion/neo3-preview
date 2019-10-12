@@ -1,0 +1,14 @@
+#block-transactions-list {
+  margin-top: 48px;
+}
+
+.block-index {
+  margin: 6px 0 0;
+  font-size: 17px;
+  font-weight: bold;
+  color: #ffffff;
+}
+
+.block-time {
+  margin-bottom: 12px;
+}

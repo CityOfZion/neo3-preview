@@ -7,6 +7,7 @@ import './Navigation.css'
 
 const activeStyle = {
   fontWeight: 'bold',
+  color: 'var(--green)',
 }
 
 export const PreviewLogo = () => (
