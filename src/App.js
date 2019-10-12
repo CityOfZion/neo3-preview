@@ -26,6 +26,12 @@ export default () => (
             <Route
               path="/blocks/:page"
               component={props => <Blocks {...props} />}
+              exact
+            />
+            <Route
+              path="/blocks"
+              component={props => <Blocks {...props} />}
+              exact
             />
             <Route path="/" component={props => <LandingPage {...props} />} />
           </Switch>

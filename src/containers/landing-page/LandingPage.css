@@ -68,6 +68,10 @@
   align-items: center;
 }
 
+#lading-page-block-list-container {
+  padding: 12px 24px;
+}
+
 .list-block-height-container img {
   margin-right: 12px;
 }

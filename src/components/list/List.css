@@ -1,6 +1,6 @@
 .data-list-container {
   /* background-color: #f2f2f2; */
-  padding: 24px;
+  padding: 12px 0px;
   /* margin: 24px; */
 }
 
@@ -29,5 +29,5 @@
 
 .data-list {
   display: grid;
-  grid-row-gap: 12px;
+  grid-row-gap: 8px;
 }

@@ -18,7 +18,7 @@ class Blocks extends React.Component {
     ]
 
     const { blocks } = this.props
-    let { page } = this.props.match.params
+    let { page = 1 } = this.props.match.params
 
     return (
       <div id="blocks-list">

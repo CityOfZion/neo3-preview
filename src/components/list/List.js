@@ -2,6 +2,7 @@ import React from 'react'
 import { uniqueId } from 'lodash-es'
 
 import './List.css'
+import { cpus } from 'os'
 
 export const List = ({ columns, data, handleRowClick }) => {
   const sortedByAccessor = data.map(data => {
@@ -33,7 +34,7 @@ export const List = ({ columns, data, handleRowClick }) => {
       <div className="data-list" style={gridstyle}>
         {columns.map((column, i) => (
           <div
-            style={conditionalBorderRadius(i)}
+            style={{ ...conditionalBorderRadius(i), ...(column.style || {}) }}
             className="data-list-column"
             key={column.name}
           >

@@ -1,0 +1,48 @@
+#pagination-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  font-size: 14px;
+  margin: 24px;
+}
+
+#pagination-container img {
+  margin: 0 6px;
+}
+
+#pagination-container button {
+  min-width: 32px;
+  height: 40px;
+  padding: 4px 0;
+  margin: 0 6px;
+  font-size: 14px;
+
+  svg {
+    margin: 0;
+  }
+}
+
+#pagination-container :first-child {
+  padding: 0 12px 0 0;
+  display: flex;
+  align-items: center;
+  width: 62px;
+  svg {
+    padding: 0;
+    margin: 0 0 0 6px;
+  }
+}
+
+#pagination-container :last-child {
+  padding: 0 0 0 12px;
+  display: flex;
+  align-items: center;
+  width: 62px;
+  svg {
+    padding: 0;
+    margin: 0 6px 0 0;
+  }
+}
+
+.pagination-container {
+}

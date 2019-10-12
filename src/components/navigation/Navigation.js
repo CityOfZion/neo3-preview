@@ -34,7 +34,17 @@ export const Navigation = () => {
           Transactions
         </NavLink>
 
-        <NavLink activeStyle={activeStyle} to="/blocks/1">
+        <NavLink
+          activeStyle={activeStyle}
+          to="/blocks"
+          isActive={(match, location) => {
+            console.log(location)
+            if (location.pathname.includes('block' || 'blocks')) {
+              return true
+            }
+            return false
+          }}
+        >
           Blocks
         </NavLink>
 

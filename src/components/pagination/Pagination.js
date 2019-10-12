@@ -5,7 +5,7 @@ import Button from '../button/Button'
 import { ReactComponent as ChevronLeft } from '../../images/chevron-left.svg'
 import { ReactComponent as ChevronRight } from '../../images/chevron-right.svg'
 
-import './Pagination.css'
+import './Pagination.scss'
 
 const PAGE_RANGE = 5
 

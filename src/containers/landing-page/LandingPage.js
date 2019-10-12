@@ -49,19 +49,21 @@ class LandingPage extends React.Component {
           <a href="/blocks/1"> View all blocks</a>
         </div>
 
-        <List
-          handleRowClick={row =>
-            // NOTE: this is beause querying the API by block hash is currently not working
-            this.props.history.push(
-              `/block/${
-                this.props.blocks.find(block => block.hash === row.hash).height
-              }`,
-            )
-          }
-          columns={columns}
-          data={filteredBlocks}
-        ></List>
-
+        <div id="lading-page-block-list-container">
+          <List
+            handleRowClick={row =>
+              // NOTE: this is beause querying the API by block hash is currently not working
+              this.props.history.push(
+                `/block/${
+                  this.props.blocks.find(block => block.hash === row.hash)
+                    .height
+                }`,
+              )
+            }
+            columns={columns}
+            data={filteredBlocks}
+          ></List>
+        </div>
         <h1> NEO3 Features</h1>
 
         <h1> Recent Articles</h1>
