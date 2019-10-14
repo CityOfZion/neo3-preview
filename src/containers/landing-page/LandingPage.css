@@ -55,7 +55,7 @@
 .header-and-link {
   display: flex;
   justify-content: space-between;
-  align-items: flex-end;
+  align-items: center;
 }
 
 .header-and-link a {
@@ -69,7 +69,7 @@
 }
 
 #lading-page-block-list-container {
-  padding: 12px 24px;
+  padding: 24px;
 }
 
 .list-block-height-container img {
@@ -79,5 +79,24 @@
 @media only screen and (max-width: 1275px) {
   #call-to-action-button-container {
     flex-direction: column;
+  }
+}
+
+@media only screen and (max-width: 810px) {
+  #call-to-action {
+    /* background-color: var(--secondary-blue); */
+    padding: 12px;
+    margin: 12px;
+  }
+
+  #call-to-action p {
+    margin-left: 12px;
+  }
+  #lading-page-block-list-container {
+    padding: 12px;
+  }
+
+  .block-icon {
+    display: none;
   }
 }

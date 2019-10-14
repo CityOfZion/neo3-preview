@@ -6,6 +6,7 @@ import neoLogo from '../../images/neo-logo.svg'
 import cozLogo from '../../images/coz-logo.svg'
 import cozLogoMobile from '../../images/coz-logo-mobile.svg'
 import menuIcon from '../../images/menu.svg'
+import Search from '../search/Search'
 
 import './Navigation.scss'
 
@@ -83,6 +84,7 @@ export const Navigation = ({ mobileMenuIsOpen, openMenu, closeMenu }) => {
         </div>
         <div className="mobile-navigation-links-container">
           <NavigationLinks closeMenu={closeMenu} isMobile />
+          <Search />
         </div>
       </Menu>
       <nav id="navigation">
@@ -93,8 +95,11 @@ export const Navigation = ({ mobileMenuIsOpen, openMenu, closeMenu }) => {
             <PreviewLogo />
           </Link>
         </div>
-        <div id="desktop_navigation_options">
-          <NavigationLinks />
+        <div id="desktop-links-and-search-container">
+          <Search />
+          <div id="desktop_navigation_options">
+            <NavigationLinks />
+          </div>
         </div>
       </nav>
       <div id="nav-bottom-border" />

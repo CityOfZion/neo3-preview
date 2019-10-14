@@ -36,6 +36,7 @@
   margin: 0;
   font-size: 14px;
   color: #ffffff;
+  justify-content: center;
 }
 
 .logo-sub-text h3 {
@@ -67,8 +68,8 @@
   position: absolute;
   width: 36px;
   height: 30px;
-  right: 36px;
-  top: 36px;
+  right: 25px;
+  top: 24px;
 }
 
 /* Color/shape of burger icon bars */
@@ -117,9 +118,9 @@ Note: Beware of modifying this element as it can break the animations - you shou
   font-size: 18px;
   color: #ffffff;
   text-align: right;
-  margin-top: -22px;
+  margin-top: -34px;
   position: absolute;
-  right: 10px;
+  right: 24px;
   cursor: pointer;
 }
 
@@ -138,7 +139,7 @@ Note: Beware of modifying this element as it can break the animations - you shou
 .bm-item {
   display: inline-block;
   // font-family: Rajdhani-Regular;
-  margin: 24px;
+  margin: 24px 0;
   font-size: 30px;
   color: #ffffff;
   text-align: center;
@@ -158,12 +159,37 @@ Note: Beware of modifying this element as it can break the animations - you shou
   }
 }
 
+#desktop-links-and-search-container {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  margin: 12px 24px 12px 12px;
+
+  img {
+    margin-left: -32px;
+    margin-right: 12px;
+  }
+  input {
+    margin-bottom: 12px;
+  }
+}
+
+@media only screen and (max-width: 1130px) {
+  #navigation {
+    height: 112px;
+  }
+  #desktop-links-and-search-container {
+    flex-direction: column;
+    margin: 12px 24px 12px 12px;
+  }
+}
+
 @media only screen and (max-width: 810px) {
   .bm-burger-button {
     display: block;
   }
 
-  #desktop_navigation_options {
+  #desktop-links-and-search-container {
     display: none;
   }
 
@@ -172,6 +198,14 @@ Note: Beware of modifying this element as it can break the animations - you shou
       width: 75px;
     }
   }
+
+  #navigation {
+    height: 75px;
+  }
+
+  // #logo {
+  //   margin: 0 12px;
+  // }
 
   #mobile-coz-logo {
     display: flex;
@@ -191,4 +225,43 @@ Note: Beware of modifying this element as it can break the animations - you shou
   .logo-sub-text img {
     margin-left: -6px;
   }
+
+  .mobile-navigation-links-container input {
+    margin-top: 24px;
+
+    width: 100%;
+  }
+
+  .mobile-navigation-links-container img {
+    margin-left: -30px;
+    margin-top: 34px;
+  }
 }
+
+// @media only screen and (max-width: 350px) {
+//   #logo {
+//     margin: 0 12px 0 24px;
+//     padding: 24px 0;
+//     flex-direction: column;
+//   }
+
+//   #desktop-coz-logo {
+//     display: none;
+//   }
+
+//   #logo-spacer {
+//     display: none;
+//   }
+
+//   #neo-3-logo {
+//     //margin-bottom: -12px;
+//   }
+
+//   #navigation a {
+//     margin: 6px;
+//   }
+
+//   .logo-sub-text img {
+//     margin-left: -6px;
+//   }
+// }

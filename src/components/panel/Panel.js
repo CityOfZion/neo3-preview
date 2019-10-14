@@ -1,6 +1,6 @@
 import React from 'react'
 
-import './Panel.css'
+import './Panel.scss'
 
 export default ({ title, value, titleStyle, valueStyle, style }) => {
   return (

@@ -64,23 +64,25 @@ class Block extends React.Component {
             </div>
             <div id="block-transactions-list">
               <h1> Transactions({block.tx.length})</h1>
-              <List
-                handleRowClick={
-                  row => console.log(row)
-                  // NOTE: this is beause querying the API by block hash is currently not working
-                  // this.props.history.push(
-                  //   `/block/${
-                  //     this.props.blocks.find(block => block.hash === row.hash)
-                  //       .height
-                  //   }`,
-                  // )
-                }
-                columns={columns}
-                data={block.tx.map(tx => ({
-                  time: formattedTime(block.time),
-                  ...tx,
-                }))}
-              />
+              {!!block.tx.length && (
+                <List
+                  handleRowClick={
+                    row => console.log(row)
+                    // NOTE: this is beause querying the API by block hash is currently not working
+                    // this.props.history.push(
+                    //   `/block/${
+                    //     this.props.blocks.find(block => block.hash === row.hash)
+                    //       .height
+                    //   }`,
+                    // )
+                  }
+                  columns={columns}
+                  data={block.tx.map(tx => ({
+                    time: formattedTime(block.time),
+                    ...tx,
+                  }))}
+                />
+              )}
             </div>
           </React.Fragment>
         )}

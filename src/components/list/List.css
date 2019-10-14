@@ -1,7 +1,4 @@
 .data-list-container {
-  /* background-color: #f2f2f2; */
-  padding: 12px 0px;
-  /* margin: 24px; */
 }
 
 .data-list > span {
@@ -30,4 +27,23 @@
 .data-list {
   display: grid;
   grid-row-gap: 8px;
+}
+
+@media only screen and (max-width: 810px) {
+  .data-list > span {
+    padding: 3px 6px;
+    background: var(--secondary-blue);
+    font-weight: 600;
+    font-size: 14px;
+    color: white;
+    line-height: 32px;
+    cursor: pointer;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+
+  .data-list-column {
+    padding: 6px 8px;
+  }
 }

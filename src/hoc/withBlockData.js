@@ -11,7 +11,7 @@ export const massageBlockData = block => {
     time: moment(block.time).format('MM-DD-YYYY | MM:HH:SS'),
     index: () => (
       <div className="list-block-height-container">
-        <img src={signal} alt="block-icon" />
+        <img src={signal} alt="block-icon" class="block-icon" />
         {block.index.toLocaleString()}
       </div>
     ),

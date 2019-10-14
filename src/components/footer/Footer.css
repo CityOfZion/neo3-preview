@@ -30,3 +30,19 @@
 #footer-social-icons img:hover {
   opacity: 1;
 }
+
+@media only screen and (max-width: 810px) {
+  .footer {
+    flex-direction: column;
+    padding: 12px;
+  }
+
+  #footer-social-icons img {
+    margin-top: 6px;
+    max-width: 25px;
+  }
+
+  .footer-flex-container {
+    margin: 6px;
+  }
+}
