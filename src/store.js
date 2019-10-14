@@ -4,11 +4,14 @@ import thunk from 'redux-thunk'
 
 import rootReducer from './reducers/rootReducer'
 
-const INITIAL_STATE = {
+export const INITIAL_STATE = {
   blocks: {
     isLoading: false,
     items: [],
     cached: {},
+  },
+  menu: {
+    open: false,
   },
   // transactions: {
   //   isLoading: false,

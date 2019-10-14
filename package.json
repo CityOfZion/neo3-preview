@@ -9,6 +9,7 @@
     "moment": "^2.24.0",
     "node-sass": "^4.12.0",
     "react": "^16.10.1",
+    "react-burger-menu": "^2.6.11",
     "react-dom": "^16.10.1",
     "react-redux": "^7.1.1",
     "react-router-dom": "^5.1.2",

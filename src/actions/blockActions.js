@@ -65,9 +65,7 @@ export function shouldFetchBlock(state, index) {
 }
 
 export function fetchBlock(indexOrHash = 1) {
-  console.log('fetching block')
   return async (dispatch, getState) => {
-    console.log(dispatch, getState)
     if (shouldFetchBlock(getState(), indexOrHash)) {
       dispatch(requestBlock(indexOrHash))
       try {
@@ -85,7 +83,6 @@ export function fetchBlock(indexOrHash = 1) {
 }
 
 export function fetchBlocks(page = 1) {
-  console.log('fetching blocks')
   return async (dispatch, getState) => {
     try {
       dispatch(requestBlocks(page))

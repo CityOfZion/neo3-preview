@@ -41,7 +41,6 @@ export default function withBlockData(WrappedComponent) {
   )(
     class extends React.Component {
       componentDidMount() {
-        console.log('mounted')
         this.props.fetchBlocks()
       }
 

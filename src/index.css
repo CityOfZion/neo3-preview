@@ -49,3 +49,10 @@ h1 {
   font-size: 30px;
   color: #ffffff;
 }
+
+a:focus,
+button:focus,
+nav:focus,
+div:focus {
+  outline: 0;
+}

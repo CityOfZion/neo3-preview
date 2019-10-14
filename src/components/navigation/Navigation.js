@@ -1,9 +1,13 @@
 import React from 'react'
 import { NavLink, Link } from 'react-router-dom'
+import { slide as Menu } from 'react-burger-menu'
+
 import neoLogo from '../../images/neo-logo.svg'
 import cozLogo from '../../images/coz-logo.svg'
+import cozLogoMobile from '../../images/coz-logo-mobile.svg'
+import menuIcon from '../../images/menu.svg'
 
-import './Navigation.css'
+import './Navigation.scss'
 
 const activeStyle = {
   fontWeight: 'bold',
@@ -11,47 +15,89 @@ const activeStyle = {
 }
 
 export const PreviewLogo = () => (
-  <div className="logo-sub-text" to="/">
-    <h3> NEO3 Preview Explorer</h3>
-    <p>
-      Brought to you by: <img alt="coz-logo" src={cozLogo}></img>
-    </p>
-  </div>
+  <React.Fragment>
+    <div id="desktop-coz-logo" className="logo-sub-text" to="/">
+      <h3> NEO3 Preview Explorer</h3>
+      <p>
+        Brought to you by: <img alt="coz-logo" src={cozLogo}></img>
+      </p>
+    </div>
+    <div id="mobile-coz-logo" className="logo-sub-text" to="/">
+      <img alt="coz-logo" src={cozLogoMobile}></img>
+    </div>
+  </React.Fragment>
 )
 
-export const Navigation = () => {
+export const NavigationLinks = ({ isMobile = false, closeMenu }) => (
+  <React.Fragment>
+    <NavLink
+      className={isMobile ? 'bm-item' : ''}
+      activeStyle={activeStyle}
+      to="/transactions"
+      onClick={closeMenu}
+    >
+      Transactions
+    </NavLink>
+
+    <NavLink
+      className={isMobile ? 'bm-item' : ''}
+      activeStyle={activeStyle}
+      to="/blocks"
+      isActive={(match, location) => {
+        if (location.pathname.includes('block' || 'blocks')) {
+          return true
+        }
+        return false
+      }}
+      onClick={closeMenu}
+    >
+      Blocks
+    </NavLink>
+
+    <NavLink
+      className={isMobile ? 'bm-item' : ''}
+      activeStyle={activeStyle}
+      to="/contracts"
+      onClick={closeMenu}
+    >
+      Contracts
+    </NavLink>
+  </React.Fragment>
+)
+
+export const Navigation = ({ mobileMenuIsOpen, openMenu, closeMenu }) => {
   return (
-    <nav id="desktop_navigation">
-      <div id="desktop_logo">
-        <img src={neoLogo} alt="logo" />
-        <div id="logo-spacer" />
-        <Link className="logo-sub-text" to="/">
-          <PreviewLogo />
-        </Link>
-      </div>
-      <div id="desktop_navigation_options">
-        <NavLink activeStyle={activeStyle} to="/transactions">
-          Transactions
-        </NavLink>
-
-        <NavLink
-          activeStyle={activeStyle}
-          to="/blocks"
-          isActive={(match, location) => {
-            console.log(location)
-            if (location.pathname.includes('block' || 'blocks')) {
-              return true
-            }
-            return false
-          }}
-        >
-          Blocks
-        </NavLink>
-
-        <NavLink activeStyle={activeStyle} to="/contracts">
-          Contracts
-        </NavLink>
-      </div>
-    </nav>
+    <React.Fragment>
+      <Menu
+        customBurgerIcon={<img src={menuIcon} alt="burger-menu" />}
+        width={'100%'}
+        id="mobile-navigation"
+        isOpen={mobileMenuIsOpen}
+        onStateChange={state => {
+          if (state.isOpen) return openMenu()
+          return closeMenu()
+        }}
+      >
+        <div id="close-mobile-menu-button" onClick={closeMenu}>
+          Close
+        </div>
+        <div className="mobile-navigation-links-container">
+          <NavigationLinks closeMenu={closeMenu} isMobile />
+        </div>
+      </Menu>
+      <nav id="navigation">
+        <div id="logo">
+          <img id="neo-3-logo" src={neoLogo} alt="logo" />
+          <div id="logo-spacer" />
+          <Link className="logo-sub-text" to="/">
+            <PreviewLogo />
+          </Link>
+        </div>
+        <div id="desktop_navigation_options">
+          <NavigationLinks />
+        </div>
+      </nav>
+      <div id="nav-bottom-border" />
+    </React.Fragment>
   )
 }

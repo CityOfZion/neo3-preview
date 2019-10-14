@@ -1,0 +1,194 @@
+#navigation {
+  display: flex;
+  height: 100px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#nav-bottom-border {
+  border-bottom: thin #f9fafa solid;
+  margin: 0 24px;
+}
+
+#navigation a {
+  text-decoration: none;
+  margin: 24px;
+  font-weight: 300;
+  font-size: 17px;
+  color: #ffffff;
+  text-align: center;
+}
+
+#logo {
+  display: flex;
+  align-items: center;
+  margin: 0 24px;
+}
+
+.logo-sub-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.logo-sub-text p {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  font-size: 14px;
+  color: #ffffff;
+}
+
+.logo-sub-text h3 {
+  margin: 0;
+  font-size: 24px;
+  color: #ffffff;
+}
+
+.logo-sub-text img {
+  margin-left: 6px;
+}
+
+#logo-spacer {
+  border: 1px solid #f9fafa;
+  height: 55px;
+  margin-left: 24px;
+}
+
+#mobile-coz-logo {
+  display: none;
+}
+/* #mobile-navigation {
+
+} */
+
+/* Position and sizing of burger button */
+.bm-burger-button {
+  display: none;
+  position: absolute;
+  width: 36px;
+  height: 30px;
+  right: 36px;
+  top: 36px;
+}
+
+/* Color/shape of burger icon bars */
+.bm-burger-bars {
+  background: #373a47;
+}
+
+/* Color/shape of burger icon bars on hover*/
+.bm-burger-bars-hover {
+  background: #a90000;
+}
+
+/* Position and sizing of clickable cross button */
+.bm-cross-button {
+  // height: 24px;
+  // width: 24px;
+  display: none;
+}
+
+// /* Color/shape of close button cross */
+// .bm-cross {
+//   background: #bdc3c7;
+//   content: 'close';
+// }
+
+/*
+Sidebar wrapper styles
+Note: Beware of modifying this element as it can break the animations - you should not need to touch it in most cases
+*/
+.bm-menu-wrap {
+  position: fixed;
+  height: 100%;
+}
+
+/* General sidebar styles */
+.bm-menu {
+  background: #000033;
+  opacity: 0.93;
+  padding: 2.5em 1.5em 0;
+  font-size: 1.15em;
+  overflow: hidden !important;
+}
+
+#close-mobile-menu-button {
+  font-family: Rajdhani-Semibold;
+  font-size: 18px;
+  color: #ffffff;
+  text-align: right;
+  margin-top: -22px;
+  position: absolute;
+  right: 10px;
+  cursor: pointer;
+}
+
+/* Morph shape necessary with bubble or elastic */
+.bm-morph-shape {
+  fill: #373a47;
+}
+
+/* Wrapper for item list */
+.bm-item-list {
+  color: #b8b7ad;
+  padding: 0.8em;
+}
+
+/* Individual item */
+.bm-item {
+  display: inline-block;
+  // font-family: Rajdhani-Regular;
+  margin: 24px;
+  font-size: 30px;
+  color: #ffffff;
+  text-align: center;
+}
+
+/* Styling of overlay */
+.bm-overlay {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.mobile-navigation-links-container {
+  display: flex !important;
+  flex-direction: column;
+
+  a {
+    text-decoration: none;
+  }
+}
+
+@media only screen and (max-width: 810px) {
+  .bm-burger-button {
+    display: block;
+  }
+
+  #desktop_navigation_options {
+    display: none;
+  }
+
+  #logo {
+    #neo-3-logo {
+      width: 75px;
+    }
+  }
+
+  #mobile-coz-logo {
+    display: flex;
+    align-items: center;
+  }
+
+  #desktop-coz-logo {
+    display: none;
+  }
+
+  #logo-spacer {
+    border: 1px solid #f9fafa;
+    height: 40px;
+    margin-left: 12px;
+  }
+
+  .logo-sub-text img {
+    margin-left: -6px;
+  }
+}
