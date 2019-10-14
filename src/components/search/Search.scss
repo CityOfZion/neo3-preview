@@ -10,9 +10,6 @@
   text-align: left;
   padding: 6px 12px;
   padding-right: 40px;
-  // background: url('../../images/search-icon.svg') no-repeat scroll 0px 7px 8px
-  //   8px;
-  // margin-right: 24px;
 }
 
 #search-input::placeholder {
@@ -22,18 +19,11 @@
   text-align: left;
 }
 
-// #search-input-icon {
-//   position: absolute;
-// }
-
 #search-input-container {
   display: flex;
   align-items: center;
 
   #search-input-icon {
-    // margin-left: -30px;
-    // margin-right: 12px;
-    margin-bottom: 12px;
     cursor: pointer;
   }
 }

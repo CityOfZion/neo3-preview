@@ -107,7 +107,7 @@ Note: Beware of modifying this element as it can break the animations - you shou
 /* General sidebar styles */
 .bm-menu {
   background: #000033;
-  opacity: 0.93;
+  opacity: 0.95;
   padding: 2.5em 1.5em 0;
   font-size: 1.15em;
   overflow: hidden !important;
@@ -169,9 +169,9 @@ Note: Beware of modifying this element as it can break the animations - you shou
     margin-left: -32px;
     margin-right: 12px;
   }
-  input {
-    margin-bottom: 12px;
-  }
+  // input {
+  //   margin-bottom: 12px;
+  // }
 }
 
 @media only screen and (max-width: 1130px) {
@@ -181,6 +181,16 @@ Note: Beware of modifying this element as it can break the animations - you shou
   #desktop-links-and-search-container {
     flex-direction: column;
     margin: 12px 24px 12px 12px;
+  }
+
+  #desktop-links-and-search-container {
+    input {
+      margin-bottom: 12px;
+    }
+
+    img {
+      margin-bottom: 12px;
+    }
   }
 }
 
@@ -234,7 +244,11 @@ Note: Beware of modifying this element as it can break the animations - you shou
 
   .mobile-navigation-links-container img {
     margin-left: -30px;
-    margin-top: 34px;
+    margin-top: 24px;
+  }
+
+  #search-input {
+    width: 100%;
   }
 }
 
