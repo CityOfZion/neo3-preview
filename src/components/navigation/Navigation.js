@@ -35,6 +35,12 @@ export const NavigationLinks = ({ isMobile = false, closeMenu }) => (
       className={isMobile ? 'bm-item' : ''}
       activeStyle={activeStyle}
       to="/transactions"
+      isActive={(match, location) => {
+        if (location.pathname.includes('transaction')) {
+          return true
+        }
+        return false
+      }}
       onClick={closeMenu}
     >
       Transactions

@@ -70,11 +70,23 @@ export function fetchTransaction(indexOrHash = 1) {
       dispatch(requestTransaction(indexOrHash))
       try {
         const generateApiUrl = index =>
-          `https://ja3l09yg7a.execute-api.us-east-1.amazonaws.com/dev/api/test_net/v1/get_contract/${indexOrHash}`
+          `https://ja3l09yg7a.execute-api.us-east-1.amazonaws.com/dev/api/test_net/v1/get_transaction/${indexOrHash}`
 
-        const response = await fetch(generateApiUrl(indexOrHash))
-        const json = await response.json()
-        dispatch(requestTransactionSuccess(indexOrHash, json))
+        const generateApiUrlForLog = index =>
+          `https://ja3l09yg7a.execute-api.us-east-1.amazonaws.com/dev/api/test_net/v1/get_log/${indexOrHash}`
+
+        const responses = await Promise.all([
+          fetch(generateApiUrl(indexOrHash)),
+          fetch(generateApiUrlForLog(indexOrHash)),
+        ])
+        const mergedResponse = {}
+        for (const response of responses) {
+          console.log({ response, responses })
+          const json = await response.json()
+          Object.assign(mergedResponse, json)
+        }
+
+        dispatch(requestTransactionSuccess(indexOrHash, mergedResponse))
       } catch (e) {
         dispatch(requestTransactionError(indexOrHash, e))
       }

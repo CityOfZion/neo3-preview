@@ -2,11 +2,13 @@
   margin-top: 48px;
 }
 
-.block-index {
+.bold-subtitle {
   margin: 6px 0 0;
   font-size: 17px;
   font-weight: bold;
   color: #ffffff;
+  display: inline-block;
+  word-break: break-word;
 }
 
 .block-time {

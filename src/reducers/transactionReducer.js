@@ -18,12 +18,12 @@ export default (
     case REQUEST_TRANSACTION:
       return Object.assign({}, state, {
         isLoading: true,
-        contract: state.cached[action.indexOrHash],
+        transaction: state.cached[action.indexOrHash],
       })
     case REQUEST_TRANSACTION_SUCCESS:
       return Object.assign({}, state, {
         isLoading: false,
-        contract: action.json,
+        transaction: action.json,
         lastUpdated: action.receivedAt,
         // cache both the index and the hash in memory
         cached: {

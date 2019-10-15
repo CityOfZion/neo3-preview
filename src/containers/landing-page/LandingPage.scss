@@ -78,19 +78,26 @@
 }
 
 @media only screen and (max-width: 1284px) {
+  #call-to-action-content p {
+    flex: 1;
+  }
+  #call-to-action-button-container {
+    flex: 0.5;
+  }
   #call-to-action-button-container {
     flex-direction: column;
     margin-top: -24px;
-    height: 150px;
   }
 }
 
 @media only screen and (max-width: 900px) {
   #call-to-action {
     margin-bottom: 24px;
+    max-height: 250px;
   }
   #call-to-action-content {
     flex-direction: column;
+    // max-height: 190px;
 
     // p {
     //   margin-right: 0;
@@ -101,6 +108,7 @@
     margin-top: 0px;
     padding-bottom: 12px;
     flex-direction: row;
+    flex: 1;
 
     span {
       display: none;
@@ -125,6 +133,7 @@
 
     h1 {
       margin-top: 12px;
+      margin-right: 12px;
       text-align: center;
     }
   }
@@ -155,5 +164,15 @@
     #card {
       width: 180px;
     }
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  #landing-page h1 {
+    margin-left: 12px;
+  }
+
+  .header-and-link a {
+    margin-right: 12px;
   }
 }

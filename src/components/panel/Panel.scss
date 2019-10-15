@@ -16,20 +16,13 @@
 
 .panels-container {
   display: flex;
-  // flex-wrap: wrap;
   flex-direction: column;
 }
 
 .panels-row {
   display: flex;
   flex: 1;
-  // flex-wrap: wrap;
   max-width: 100%;
-
-  // overflow: hidden;
-  // white-space: nowrap;
-  // overflow: hidden;
-  // text-overflow: ellipsis;
   p {
     white-space: nowrap;
     overflow: hidden;
@@ -45,12 +38,54 @@
   margin: 6px 0px 6px 8px;
 }
 
+.secondary-panels-column:nth-child(1) {
+  margin: 6px 8px 6px 0;
+}
+
+.secondary-panels-column:nth-child(2) {
+  margin: 6px 0px 6px 8px;
+}
+
 .panels-container .panel {
   display: flex;
-  // max-width: 100%;
   min-width: 40%;
   flex: 0.5;
-  // margin: 6px;
+}
+
+.panel-header {
+  margin: 24px 0 12px 0;
+  padding-bottom: 12px;
+  border-bottom: solid 2px #f9fafa;
+}
+
+.secondary-panel {
+  min-width: 40% !important;
+  flex: 1;
+  margin: 12px 0 !important;
+  padding: 12px;
+  height: auto !important;
+  p {
+    display: inline-block;
+    word-break: break-word;
+  }
+}
+
+.secondary-panels-row {
+  display: flex;
+  flex: 1;
+  max-width: 100%;
+}
+
+.secondary-panels-column {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  max-width: 50%;
+}
+
+.hidden-panel {
+  background: transparent;
+  border-bottom: none;
 }
 
 @media only screen and (max-width: 810px) {
@@ -62,6 +97,16 @@
     margin: 0;
   }
 
+  .secondary-panels-row {
+    flex-direction: column;
+    width: 100%;
+
+    .secondary-panels-column {
+      margin: 6px 0;
+      max-width: 100% !important;
+    }
+  }
+
   .panels-row {
     flex-direction: column;
     .panel {
@@ -69,30 +114,4 @@
       max-height: 25px;
     }
   }
-
-  // .panels-container .panel {
-  //   flex: 1;
-  // }
-
-  // .panel:nth-child(1) {
-  //   margin: 3px;
-  // }
-
-  // .panel:nth-child(2) {
-  //   margin: 3px;
-  // }
 }
-
-// @media only screen and (max-width: 980px) {
-//   // .panels-container .panel {
-//   //   flex: 1;
-//   // }
-
-//   // .panel:nth-child(1) {
-//   //   margin: 6px 0;
-//   // }
-
-//   // .panel:nth-child(2) {
-//   //   margin: 0;
-//   // }
-// }

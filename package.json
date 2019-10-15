@@ -7,6 +7,7 @@
     "classnames": "^2.2.6",
     "lodash-es": "^4.17.15",
     "moment": "^2.24.0",
+    "neo-convertor": "0.0.2",
     "node-sass": "^4.12.0",
     "react": "^16.10.1",
     "react-burger-menu": "^2.6.11",

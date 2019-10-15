@@ -42,7 +42,10 @@ class Block extends React.Component {
         {block && (
           <React.Fragment>
             <h1> Block </h1>
-            <div className="block-index"> #{block.index.toLocaleString()}</div>
+            <div className="bold-subtitle">
+              {' '}
+              #{block.index.toLocaleString()}
+            </div>
             <div className="block-time">{formattedTime(block.time)}</div>
             <div className="panels-container">
               <div className="panels-row">

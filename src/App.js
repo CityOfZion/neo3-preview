@@ -9,6 +9,7 @@ import Blocks from './containers/block/Blocks'
 import Block from './containers/block/Block'
 import Contracts from './containers/contract/Contracts'
 import Contract from './containers/contract/Contract'
+import Transaction from './containers/transaction/Transaction'
 import './App.css'
 
 export default () => (
@@ -21,6 +22,10 @@ export default () => (
             <Route
               path="/transactions"
               component={props => <Transactions {...props} />}
+            />
+            <Route
+              path="/transaction/:id"
+              component={props => <Transaction {...props} />}
             />
             <Route
               path="/block/:id"
