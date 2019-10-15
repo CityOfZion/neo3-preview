@@ -17,11 +17,6 @@ const mapDispatchToProps = dispatch => ({
   fetchBlock: id => dispatch(fetchBlock(id)),
 })
 
-const mapTransactionData = (tx, time) => ({
-  time: formattedTime(time),
-  ...tx,
-})
-
 const formattedTime = time => moment(time).format('MM-DD-YYYY | MM:HH:SS')
 
 class Block extends React.Component {

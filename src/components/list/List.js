@@ -5,17 +5,20 @@ import classNames from 'classnames'
 import './List.css'
 import Spinner from '../spinner/Spinner'
 
-export const List = ({ columns, data, handleRowClick, isLoading }) => {
+export const List = ({ columns, data, handleRowClick, isLoading, rowId }) => {
   const sortedByAccessor = data.map(data => {
     const sorted = {}
     columns.forEach(column => {
       sorted[column.accessor] = data[column.accessor]
+      sorted.id = data[rowId]
     })
     return sorted
   })
 
+  console.log(sortedByAccessor)
+
   const gridstyle = {
-    gridTemplateColumns: `repeat(${columns.length}, 1fr)`,
+    gridTemplateColumns: `repeat(${columns.length}, auto)`,
   }
 
   const conditionalBorderRadius = index => {
@@ -56,20 +59,23 @@ export const List = ({ columns, data, handleRowClick, isLoading }) => {
         ))}
 
         {sortedByAccessor.map(data =>
-          Object.values(data).map(detail => (
-            <span
-              style={conditionalBorderRadius()}
-              onClick={() => handleRowClick(data)}
-              key={uniqueId()}
-              className={rowClass}
-            >
-              {isLoading
-                ? ''
-                : typeof detail === 'function'
-                ? detail()
-                : detail}
-            </span>
-          )),
+          Object.keys(data).map(
+            key =>
+              key !== 'id' && (
+                <span
+                  style={conditionalBorderRadius()}
+                  onClick={() => handleRowClick(data)}
+                  key={uniqueId()}
+                  className={rowClass}
+                >
+                  {isLoading
+                    ? ''
+                    : typeof data[key] === 'function'
+                    ? data[key]()
+                    : data[key]}
+                </span>
+              ),
+          ),
         )}
       </div>
       {/* )} */}

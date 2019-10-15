@@ -20,6 +20,14 @@ export const INITIAL_STATE = {
     list: [],
     cached: {},
   },
+  address: {
+    isLoading: false,
+    requestedAddress: null,
+    balance: [],
+    list: [],
+    transferHistory: [],
+    transferHistoryPage: 1,
+  },
   menu: {
     open: false,
   },

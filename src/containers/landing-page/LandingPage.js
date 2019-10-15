@@ -46,7 +46,9 @@ class LandingPage extends React.Component {
 
         <div className="header-and-link">
           <h1> Last 5 Blocks</h1>
-          <a href="/blocks/1"> View all blocks</a>
+          <a onClick={() => this.props.history.push('/blocks')}>
+            View all blocks
+          </a>
         </div>
 
         <div id="lading-page-block-list-container">

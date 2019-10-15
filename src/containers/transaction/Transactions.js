@@ -4,20 +4,36 @@ import List from '../../components/list/List'
 import Pagination from '../../components/pagination/Pagination'
 import Spinner from '../../components/spinner/Spinner'
 import withTransactionData from '../../hoc/withTransactionData'
+import transferIcon from '../../images/transfer-icon.svg'
+
+export const mapTxData = data => {
+  return {
+    ...data,
+    displayTransactionId: () => (
+      <div className="list-block-height-container">
+        <img src={transferIcon} alt="block-icon" className="block-icon" />
+        <span class="transaction-id-row">{data.hash} </span>
+      </div>
+    ),
+  }
+}
 
 class Transactions extends React.Component {
+  state = {
+    page: 1,
+  }
+
   static defaultProps = {
-    contracts: [],
+    transactions: [],
   }
 
   render() {
     const columns = [
+      { name: 'Transaction ID', accessor: 'displayTransactionId' },
       { name: 'Size', accessor: 'size' },
-      { name: 'Hash', accessor: 'hash' },
       { name: 'Created On', accessor: 'time' },
     ]
     const { transactions, isLoading } = this.props
-    let { page = 1 } = this.props.match.params
 
     return (
       <div id="transactions-list">
@@ -29,17 +45,27 @@ class Transactions extends React.Component {
               handleRowClick={row =>
                 console.log(row) ||
                 // NOTE: this is beause querying the API by block hash is currently not working
-                this.props.history.push(`/transaction/${row.hash}`)
+                this.props.history.push(`/transaction/${row.id}`)
               }
+              rowId="hash"
               columns={columns}
-              data={transactions}
+              data={transactions.map(mapTxData)}
               isLoading={isLoading}
             />
 
             <Pagination
               paginated={false}
-              currPage={Number(page)}
-              handleSelectPage={page => this.loadNewTransactionPage(page)}
+              currPage={this.state.page}
+              handleSelectPage={page => {
+                if (!page) {
+                  this.setState(state => ({
+                    page: state.page + 1,
+                  }))
+                } else {
+                  this.setState({ page: 1 })
+                }
+                this.loadNewTransactionPage(page)
+              }}
             />
           </React.Fragment>
         )}

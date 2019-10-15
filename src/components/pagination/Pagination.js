@@ -18,7 +18,6 @@ const generatePageIndex = position => {
 
 export default class Pagination extends React.Component {
   state = {
-    currPage: 1,
     selectedPage: 1,
     currentIndex: [],
     previousButtonDisabled: true,
@@ -80,19 +79,24 @@ export default class Pagination extends React.Component {
 
   handleDisabledLogicOnPrevButton = () => {
     const { currentIndex, previousButtonDisabled } = this.state
+    const { paginated, currPage } = this.props
+
+    if (currPage === 1) return true
     if (previousButtonDisabled && !this.props.paginated) return true
     if (!previousButtonDisabled && !this.props.paginated) return false
     return currentIndex[currentIndex.length - 1] <= PAGE_RANGE
   }
 
   handleNextButton = (next = true) => {
-    const { paginated } = this.props
+    const { paginated, currPage } = this.props
     const { currentIndex } = this.state
 
+    console.log({ currPage })
     if (!paginated) {
-      this.setState({
-        previousButtonDisabled: !next,
-      })
+      currPage === 1 &&
+        this.setState({
+          previousButtonDisabled: !next,
+        })
       return next
         ? this.props.handleSelectPage()
         : this.props.handleSelectPage(1)

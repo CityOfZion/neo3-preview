@@ -68,10 +68,14 @@ class Block extends React.Component {
   async componentDidMount() {
     const id = this.props.match.params.id
     this.props.fetchTransaction(id)
+
+    if (!isEmpty(this.props.transaction)) {
+      const transfers = await generateTransfersArr(this.props.transaction)
+      this.setState({ transfers, hasParsedTransfers: true })
+    }
   }
 
   async componentDidUpdate() {
-    // Typical usage (don't forget to compare props):
     if (!isEmpty(this.props.transaction) && !this.state.hasParsedTransfers) {
       const transfers = await generateTransfersArr(this.props.transaction)
       this.setState({ transfers, hasParsedTransfers: true })
@@ -90,7 +94,12 @@ class Block extends React.Component {
             <div className="bold-subtitle"> {transaction.hash}</div>
             <div className="block-time">{formattedTime(transaction.time)}</div>
 
-            <Transfer transfers={transfers} />
+            <Transfer
+              transfers={transfers}
+              handleAddressClick={address =>
+                this.props.history.push(`/address/${address}`)
+              }
+            />
             <div className="panels-container">
               <div className="panels-row">
                 <Panel title="Index" value={''} />

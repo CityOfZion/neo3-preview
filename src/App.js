@@ -10,6 +10,8 @@ import Block from './containers/block/Block'
 import Contracts from './containers/contract/Contracts'
 import Contract from './containers/contract/Contract'
 import Transaction from './containers/transaction/Transaction'
+import Address from './containers/address/Address'
+
 import './App.css'
 
 export default () => (
@@ -54,6 +56,10 @@ export default () => (
               path="/contracts"
               component={props => <Contracts {...props} />}
               exact
+            />
+            <Route
+              path="/address/:id"
+              component={props => <Address {...props} />}
             />
             <Route path="/" component={props => <LandingPage {...props} />} />
           </Switch>
