@@ -22,12 +22,13 @@
 #logo {
   display: flex;
   align-items: center;
-  margin: 0 24px;
+  margin: 0 0 0 24px;
 }
 
 .logo-sub-text {
   display: flex;
   flex-direction: column;
+  margin: 0 0 0 12px !important;
 }
 
 .logo-sub-text p {
@@ -114,7 +115,6 @@ Note: Beware of modifying this element as it can break the animations - you shou
 }
 
 #close-mobile-menu-button {
-  font-family: Rajdhani;
   font-size: 18px;
   color: #ffffff;
   text-align: right;
@@ -138,7 +138,6 @@ Note: Beware of modifying this element as it can break the animations - you shou
 /* Individual item */
 .bm-item {
   display: inline-block;
-  // font-family: Rajdhani-Regular;
   margin: 24px 0;
   font-size: 30px;
   color: #ffffff;
