@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/neo-3-preview/static/css/main.61984204.chunk.css",
+    "main.css": "/neo-3-preview/static/css/main.671bbc5d.chunk.css",
     "main.js": "/neo-3-preview/static/js/main.1c11cd9a.chunk.js",
     "main.js.map": "/neo-3-preview/static/js/main.1c11cd9a.chunk.js.map",
     "runtime-main.js": "/neo-3-preview/static/js/runtime-main.a6f35bec.js",
@@ -8,9 +8,9 @@
     "static/js/2.aeaa8d0b.chunk.js": "/neo-3-preview/static/js/2.aeaa8d0b.chunk.js",
     "static/js/2.aeaa8d0b.chunk.js.map": "/neo-3-preview/static/js/2.aeaa8d0b.chunk.js.map",
     "index.html": "/neo-3-preview/index.html",
-    "precache-manifest.31090337d38971d085910dabc02b696a.js": "/neo-3-preview/precache-manifest.31090337d38971d085910dabc02b696a.js",
+    "precache-manifest.1824a72f037ff04f6c965213d9c78877.js": "/neo-3-preview/precache-manifest.1824a72f037ff04f6c965213d9c78877.js",
     "service-worker.js": "/neo-3-preview/service-worker.js",
-    "static/css/main.61984204.chunk.css.map": "/neo-3-preview/static/css/main.61984204.chunk.css.map",
+    "static/css/main.671bbc5d.chunk.css.map": "/neo-3-preview/static/css/main.671bbc5d.chunk.css.map",
     "static/media/chevron-left.dcebd79e.svg": "/neo-3-preview/static/media/chevron-left.dcebd79e.svg",
     "static/media/chevron-right.def8d953.svg": "/neo-3-preview/static/media/chevron-right.def8d953.svg",
     "static/media/coz-logo.svg": "/neo-3-preview/static/media/coz-logo.aa4aec2c.svg",
