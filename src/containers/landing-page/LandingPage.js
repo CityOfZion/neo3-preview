@@ -5,7 +5,7 @@ import Button from '../../components/button/Button'
 import Card from '../../components/card/Card'
 import withBlockData from '../../hoc/withBlockData'
 
-import './LandingPage.css'
+import './LandingPage.scss'
 
 class LandingPage extends React.Component {
   render() {

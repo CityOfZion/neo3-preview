@@ -7,19 +7,22 @@ import rootReducer from './reducers/rootReducer'
 export const INITIAL_STATE = {
   blocks: {
     isLoading: false,
-    items: [],
+    list: [],
+    cached: {},
+  },
+  contracts: {
+    isLoading: false,
+    list: [],
+    cached: {},
+  },
+  transactions: {
+    isLoading: false,
+    list: [],
     cached: {},
   },
   menu: {
     open: false,
   },
-  // transactions: {
-  //   isLoading: false,
-  //   isStaleData: false,
-  //   items: [],
-  //   selected: {},
-  //   currentPage: 0,
-  // },
 }
 
 const loggerMiddleware = createLogger()

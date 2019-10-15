@@ -21,6 +21,11 @@ export default class Pagination extends React.Component {
     currPage: 1,
     selectedPage: 1,
     currentIndex: [],
+    previousButtonDisabled: true,
+  }
+
+  static defaultProps = {
+    paginated: true,
   }
 
   componentDidMount() {
@@ -30,39 +35,69 @@ export default class Pagination extends React.Component {
   }
 
   render() {
+    const { currPage = 1, paginated } = this.props
     const { currentIndex } = this.state
-    const { currPage = 1 } = this.props
+
     return (
       <div id="pagination-container">
         <Button
           onClick={() => this.handleNextButton(false)}
-          disabled={currentIndex[currentIndex.length - 1] <= PAGE_RANGE}
+          disabled={this.handleDisabledLogicOnPrevButton()}
           secondary
         >
           <ChevronLeft /> Prev
         </Button>
 
-        {currentIndex.map(page => (
-          <Button
-            key={page}
-            active={page === currPage}
-            secondary
-            onClick={() => this.props.handleSelectPage(page)}
-          >
-            {page}
-          </Button>
-        ))}
+        {paginated &&
+          currentIndex.map(page => (
+            <Button
+              key={page}
+              active={page === currPage}
+              secondary
+              onClick={() => this.props.handleSelectPage(page)}
+              disabled={
+                this.props.numberOfPages && this.props.numberOfPages < page
+              }
+            >
+              {page}
+            </Button>
+          ))}
 
-        <Button onClick={this.handleNextButton} secondary>
+        <Button
+          onClick={this.handleNextButton}
+          disabled={
+            this.props.numberOfPages &&
+            this.props.numberOfPages <
+              this.state.currentIndex[this.state.currentIndex.length - 1]
+          }
+          secondary
+        >
           Next <ChevronRight />
         </Button>
       </div>
     )
   }
 
+  handleDisabledLogicOnPrevButton = () => {
+    const { currentIndex, previousButtonDisabled } = this.state
+    if (previousButtonDisabled && !this.props.paginated) return true
+    if (!previousButtonDisabled && !this.props.paginated) return false
+    return currentIndex[currentIndex.length - 1] <= PAGE_RANGE
+  }
+
   handleNextButton = (next = true) => {
+    const { paginated } = this.props
     const { currentIndex } = this.state
-    console.log(currentIndex[0] - 3)
+
+    if (!paginated) {
+      this.setState({
+        previousButtonDisabled: !next,
+      })
+      return next
+        ? this.props.handleSelectPage()
+        : this.props.handleSelectPage(1)
+    }
+
     const nextIndex = generatePageIndex(
       next ? currentIndex[currentIndex.length - 1] + 3 : currentIndex[0] - 3,
     )

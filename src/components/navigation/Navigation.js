@@ -45,7 +45,7 @@ export const NavigationLinks = ({ isMobile = false, closeMenu }) => (
       activeStyle={activeStyle}
       to="/blocks"
       isActive={(match, location) => {
-        if (location.pathname.includes('block' || 'blocks')) {
+        if (location.pathname.includes('block')) {
           return true
         }
         return false
@@ -58,6 +58,12 @@ export const NavigationLinks = ({ isMobile = false, closeMenu }) => (
     <NavLink
       className={isMobile ? 'bm-item' : ''}
       activeStyle={activeStyle}
+      isActive={(match, location) => {
+        if (location.pathname.includes('contract')) {
+          return true
+        }
+        return false
+      }}
       to="/contracts"
       onClick={closeMenu}
     >

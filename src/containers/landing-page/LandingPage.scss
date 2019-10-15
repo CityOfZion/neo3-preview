@@ -76,17 +76,52 @@
   margin-right: 12px;
 }
 
-@media only screen and (max-width: 1275px) {
+@media only screen and (max-width: 1284px) {
   #call-to-action-button-container {
     flex-direction: column;
+    margin-top: -24px;
+    height: 150px;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  #call-to-action {
+    margin-bottom: 24px;
+  }
+  #call-to-action-content {
+    flex-direction: column;
+  }
+  #call-to-action-button-container {
+    margin-top: 0px;
+    padding-bottom: 12px;
+    flex-direction: row;
+
+    span {
+      display: none;
+    }
   }
 }
 
 @media only screen and (max-width: 810px) {
+  #landing-page h1 {
+    font-family: Rajdhani-Bold;
+    font-size: 24px;
+    color: #ffffff;
+  }
+
+  #landing-page a {
+    font-size: 15px;
+  }
+
   #call-to-action {
     /* background-color: var(--secondary-blue); */
     padding: 12px;
-    margin: 12px;
+    margin: 12px 6px 24px 6px;
+
+    h1 {
+      margin-top: 12px;
+      text-align: center;
+    }
   }
 
   #call-to-action p {
@@ -96,7 +131,23 @@
     padding: 12px;
   }
 
+  #statistics-card-container {
+    padding: 0px;
+  }
+
   .block-icon {
     display: none;
+  }
+}
+
+@media only screen and (max-width: 720px) {
+  #statistics-card-container {
+    max-width: 450px;
+    margin: auto;
+    margin-bottom: 24px;
+
+    #card {
+      width: 180px;
+    }
   }
 }

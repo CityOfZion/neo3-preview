@@ -7,6 +7,8 @@ import LandingPage from './containers/landing-page/LandingPage'
 import Transactions from './containers/transaction/Transactions'
 import Blocks from './containers/block/Blocks'
 import Block from './containers/block/Block'
+import Contracts from './containers/contract/Contracts'
+import Contract from './containers/contract/Contract'
 import './App.css'
 
 export default () => (
@@ -16,9 +18,10 @@ export default () => (
         <Navigation />
         <div className="router-content">
           <Switch>
-            <Route path="/transactions">
-              <Transactions />
-            </Route>
+            <Route
+              path="/transactions"
+              component={props => <Transactions {...props} />}
+            />
             <Route
               path="/block/:id"
               component={props => <Block {...props} />}
@@ -31,6 +34,20 @@ export default () => (
             <Route
               path="/blocks"
               component={props => <Blocks {...props} />}
+              exact
+            />
+            <Route
+              path="/contract/:id"
+              component={props => <Contract {...props} />}
+            />
+            <Route
+              path="/contracts/:page"
+              component={props => <Contracts {...props} />}
+              exact
+            />
+            <Route
+              path="/contracts"
+              component={props => <Contracts {...props} />}
               exact
             />
             <Route path="/" component={props => <LandingPage {...props} />} />
