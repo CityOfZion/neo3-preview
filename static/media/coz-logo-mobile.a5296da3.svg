@@ -12,11 +12,11 @@
                         <polygon id="Path" points="12 6.02698814 10.1615409 4.05366518 12 2.08065332 10 0.107641454 8 2.08065332 6.10904007 0 4 2.08065332 10 8"></polygon>
                         <polygon id="Path" points="2 5 8 11.0000622 4 15 0 15 4 11.0000622 0 7.00012444"></polygon>
                     </g>
-                    <text id="Brought-to-you-by:" font-family="Rajdhani" font-size="12" font-weight="400">
+                    <text id="Brought-to-you-by:" font-size="12" font-weight="400">
                         <tspan x="0.452" y="11">Brought to you by:</tspan>
                     </text>
                 </g>
-                <text id="NEO3-Preview-Explore" font-family="Rajdhani" font-size="16" font-weight="bold">
+                <text id="NEO3-Preview-Explore" font-size="16" font-weight="bold">
                     <tspan x="0.436" y="15">NEO3 Preview Explorer</tspan>
                 </text>
             </g>
