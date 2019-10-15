@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/neo-3-preview/static/css/main.5c134eee.chunk.css",
-    "main.js": "/neo-3-preview/static/js/main.af388251.chunk.js",
-    "main.js.map": "/neo-3-preview/static/js/main.af388251.chunk.js.map",
+    "main.css": "/neo-3-preview/static/css/main.d2553843.chunk.css",
+    "main.js": "/neo-3-preview/static/js/main.e3540fec.chunk.js",
+    "main.js.map": "/neo-3-preview/static/js/main.e3540fec.chunk.js.map",
     "runtime-main.js": "/neo-3-preview/static/js/runtime-main.a6f35bec.js",
     "runtime-main.js.map": "/neo-3-preview/static/js/runtime-main.a6f35bec.js.map",
-    "static/js/2.d342f8bc.chunk.js": "/neo-3-preview/static/js/2.d342f8bc.chunk.js",
-    "static/js/2.d342f8bc.chunk.js.map": "/neo-3-preview/static/js/2.d342f8bc.chunk.js.map",
+    "static/js/2.8df46348.chunk.js": "/neo-3-preview/static/js/2.8df46348.chunk.js",
+    "static/js/2.8df46348.chunk.js.map": "/neo-3-preview/static/js/2.8df46348.chunk.js.map",
     "index.html": "/neo-3-preview/index.html",
-    "precache-manifest.5f0348296950aa0ec8f7ce17698d15fe.js": "/neo-3-preview/precache-manifest.5f0348296950aa0ec8f7ce17698d15fe.js",
+    "precache-manifest.6d61d6e516c24ce2bfdb706a219d4b75.js": "/neo-3-preview/precache-manifest.6d61d6e516c24ce2bfdb706a219d4b75.js",
     "service-worker.js": "/neo-3-preview/service-worker.js",
-    "static/css/main.5c134eee.chunk.css.map": "/neo-3-preview/static/css/main.5c134eee.chunk.css.map",
+    "static/css/main.d2553843.chunk.css.map": "/neo-3-preview/static/css/main.d2553843.chunk.css.map",
     "static/media/GAS.svg": "/neo-3-preview/static/media/GAS.d3e396cd.svg",
     "static/media/NEO.svg": "/neo-3-preview/static/media/NEO.d140bd06.svg",
     "static/media/chevron-left.dcebd79e.svg": "/neo-3-preview/static/media/chevron-left.dcebd79e.svg",
@@ -24,6 +24,7 @@
     "static/media/search-icon.svg": "/neo-3-preview/static/media/search-icon.1bfeb42e.svg",
     "static/media/signal.svg": "/neo-3-preview/static/media/signal.e9614480.svg",
     "static/media/telegram-social.svg": "/neo-3-preview/static/media/telegram-social.2a85ba62.svg",
+    "static/media/transfer-icon.svg": "/neo-3-preview/static/media/transfer-icon.0c62a7a8.svg",
     "static/media/twitter-social.svg": "/neo-3-preview/static/media/twitter-social.87676691.svg"
   }
 }
