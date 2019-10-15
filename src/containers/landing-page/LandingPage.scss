@@ -17,6 +17,7 @@
   display: flex;
   flex: 0.6;
   margin-left: 24px;
+  margin-right: 24px;
   font-size: 17px;
   line-height: 24px;
 }
@@ -90,7 +91,12 @@
   }
   #call-to-action-content {
     flex-direction: column;
+
+    // p {
+    //   margin-right: 0;
+    // }
   }
+
   #call-to-action-button-container {
     margin-top: 0px;
     padding-bottom: 12px;
@@ -125,6 +131,7 @@
 
   #call-to-action p {
     margin-left: 12px;
+    margin-right: 12px;
   }
   #lading-page-block-list-container {
     padding: 12px;
