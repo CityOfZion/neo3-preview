@@ -219,6 +219,10 @@ Note: Beware of modifying this element as it can break the animations - you shou
   #mobile-coz-logo {
     display: flex;
     align-items: center;
+    img {
+      max-width: 149px;
+      max-height: 36px;
+    }
   }
 
   #desktop-coz-logo {

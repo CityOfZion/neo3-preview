@@ -4,7 +4,7 @@ import { slide as Menu } from 'react-burger-menu'
 
 import neoLogo from '../../images/neo-logo.svg'
 import cozLogo from '../../images/coz-logo.svg'
-import cozLogoMobile from '../../images/coz-logo-mobile.svg'
+import cozLogoMobile from '../../images/coz-logo-mobile.png'
 import menuIcon from '../../images/menu.svg'
 import Search from '../search/Search'
 
