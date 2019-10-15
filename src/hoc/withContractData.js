@@ -30,6 +30,7 @@ const mapStateToProps = ({ contracts }) => ({
   // blocks: blocks.list && blocks.list.map(massageBlockData),
   // isLoading: blocks.isLoading,
   contracts: contracts.list,
+  isLoading: contracts.isLoading,
 })
 
 const mapDispatchToProps = dispatch => ({

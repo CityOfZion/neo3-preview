@@ -23,6 +23,7 @@ const mapStateToProps = ({ transactions }) => ({
   // isLoading: blocks.isLoading,
   cursor: transactions.cursor,
   transactions: transactions.list.map(mapTransactionData),
+  isLoading: transactions.isLoading,
 })
 
 const mapDispatchToProps = dispatch => ({

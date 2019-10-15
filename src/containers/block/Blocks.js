@@ -3,6 +3,7 @@ import React from 'react'
 import List from '../../components/list/List'
 import Pagination from '../../components/pagination/Pagination'
 import withBlockData from '../../hoc/withBlockData'
+import Spinner from '../../components/spinner/Spinner'
 
 class Blocks extends React.Component {
   static defaultProps = {
@@ -17,14 +18,17 @@ class Blocks extends React.Component {
       { name: 'Created On', accessor: 'time' },
     ]
 
-    const { blocks } = this.props
+    const { blocks, isLoading } = this.props
     let { page = 1 } = this.props.match.params
 
     return (
       <div id="blocks-list">
-        {!!blocks.length && (
+        {isLoading && !blocks.length ? (
+          <Spinner />
+        ) : (
           <React.Fragment>
             <List
+              isLoading={isLoading}
               handleRowClick={row =>
                 console.log(row) ||
                 // NOTE: this is beause querying the API by block hash is currently not working
@@ -38,7 +42,6 @@ class Blocks extends React.Component {
               columns={columns}
               data={blocks}
             />
-
             <Pagination
               currPage={Number(page)}
               handleSelectPage={page => this.loadNewBlockPage(page)}

@@ -12,6 +12,7 @@
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
+  min-height: 35px;
 }
 
 .data-list-column {
@@ -22,11 +23,16 @@
   font-weight: 600;
   font-size: 14px;
   color: #000033;
+  min-height: 20px;
 }
 
 .data-list {
   display: grid;
   grid-row-gap: 8px;
+}
+
+.loading-table-row {
+  opacity: 0.75;
 }
 
 @media only screen and (max-width: 810px) {

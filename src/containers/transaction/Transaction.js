@@ -8,6 +8,7 @@ import { fetchTransaction } from '../../actions/transactionActions'
 import Panel from '../../components/panel/Panel'
 import { CONVERT_TO_DECIMAL, TRANSFER, ASSETS } from '../../constants'
 import Transfer from '../../components/transfer/Transfer'
+import Spinner from '../../components/spinner/Spinner'
 
 // import './Block.css'
 
@@ -78,12 +79,12 @@ class Block extends React.Component {
   }
 
   render() {
-    const { transaction } = this.props
+    const { transaction, isLoading } = this.props
     const { transfers } = this.state
     console.log(this.state.transfers)
     return (
       <div className="wrapper">
-        {transaction && (
+        {transaction && !isLoading ? (
           <React.Fragment>
             <h1> Transaction Information </h1>
             <div className="bold-subtitle"> {transaction.hash}</div>
@@ -151,6 +152,8 @@ class Block extends React.Component {
               </div>
             </div>
           </React.Fragment>
+        ) : (
+          <Spinner />
         )}
       </div>
     )

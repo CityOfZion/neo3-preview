@@ -1,10 +1,11 @@
 import React from 'react'
 import { uniqueId } from 'lodash-es'
+import classNames from 'classnames'
 
 import './List.css'
-import { cpus } from 'os'
+import Spinner from '../spinner/Spinner'
 
-export const List = ({ columns, data, handleRowClick }) => {
+export const List = ({ columns, data, handleRowClick, isLoading }) => {
   const sortedByAccessor = data.map(data => {
     const sorted = {}
     columns.forEach(column => {
@@ -29,16 +30,28 @@ export const List = ({ columns, data, handleRowClick }) => {
     return null
   }
 
+  const rowClass = classNames({
+    'loading-table-row': isLoading,
+  })
+
+  const headerRowClass = classNames({
+    'loading-table-row': isLoading,
+    'data-list-column': true,
+  })
+
   return (
     <div className="data-list-container">
+      {/* {isLoading ? (
+        <Spinner />
+      ) : ( */}
       <div className="data-list" style={gridstyle}>
         {columns.map((column, i) => (
           <div
             style={{ ...conditionalBorderRadius(i), ...(column.style || {}) }}
-            className="data-list-column"
+            className={headerRowClass}
             key={column.name}
           >
-            {column.name}
+            {isLoading ? '' : column.name}
           </div>
         ))}
 
@@ -48,12 +61,18 @@ export const List = ({ columns, data, handleRowClick }) => {
               style={conditionalBorderRadius()}
               onClick={() => handleRowClick(data)}
               key={uniqueId()}
+              className={rowClass}
             >
-              {typeof detail === 'function' ? detail() : detail}
+              {isLoading
+                ? ''
+                : typeof detail === 'function'
+                ? detail()
+                : detail}
             </span>
           )),
         )}
       </div>
+      {/* )} */}
     </div>
   )
 }

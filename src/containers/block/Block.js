@@ -7,6 +7,7 @@ import { fetchBlock } from '../../actions/blockActions'
 import Panel from '../../components/panel/Panel'
 
 import './Block.css'
+import Spinner from '../../components/spinner/Spinner'
 
 const mapStateToProps = state => ({
   ...state.blocks,
@@ -30,7 +31,7 @@ class Block extends React.Component {
   }
 
   render() {
-    const { block } = this.props
+    const { block, isLoading } = this.props
 
     const columns = [
       { name: 'Transaction ID', accessor: 'hash' },
@@ -39,7 +40,7 @@ class Block extends React.Component {
 
     return (
       <div className="wrapper">
-        {block && (
+        {block && !isLoading ? (
           <React.Fragment>
             <h1> Block </h1>
             <div className="bold-subtitle">
@@ -88,6 +89,8 @@ class Block extends React.Component {
               )}
             </div>
           </React.Fragment>
+        ) : (
+          <Spinner />
         )}
       </div>
     )

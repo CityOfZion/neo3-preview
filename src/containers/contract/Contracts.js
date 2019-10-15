@@ -2,6 +2,7 @@ import React from 'react'
 
 import List from '../../components/list/List'
 import Pagination from '../../components/pagination/Pagination'
+import Spinner from '../../components/spinner/Spinner'
 import withContractData from '../../hoc/withContractData'
 
 class Blocks extends React.Component {
@@ -15,12 +16,14 @@ class Blocks extends React.Component {
       { name: 'Hash', accessor: 'hash' },
     ]
 
-    const { contracts } = this.props
+    const { contracts, isLoading } = this.props
     let { page = 1 } = this.props.match.params
 
     return (
       <div id="contracts-list">
-        {!!contracts.length && (
+        {isLoading && !contracts.length ? (
+          <Spinner />
+        ) : (
           <React.Fragment>
             <List
               handleRowClick={row =>
@@ -30,6 +33,7 @@ class Blocks extends React.Component {
               }
               columns={columns}
               data={contracts}
+              isLoading={isLoading}
             />
 
             <Pagination

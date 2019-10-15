@@ -2,7 +2,7 @@ import React from 'react'
 
 import List from '../../components/list/List'
 import Pagination from '../../components/pagination/Pagination'
-import withContractData from '../../hoc/withContractData'
+import Spinner from '../../components/spinner/Spinner'
 import withTransactionData from '../../hoc/withTransactionData'
 
 class Transactions extends React.Component {
@@ -16,12 +16,14 @@ class Transactions extends React.Component {
       { name: 'Hash', accessor: 'hash' },
       { name: 'Created On', accessor: 'time' },
     ]
-    const { transactions } = this.props
+    const { transactions, isLoading } = this.props
     let { page = 1 } = this.props.match.params
 
     return (
       <div id="transactions-list">
-        {!!transactions.length && (
+        {isLoading && !transactions.length ? (
+          <Spinner />
+        ) : (
           <React.Fragment>
             <List
               handleRowClick={row =>
@@ -31,6 +33,7 @@ class Transactions extends React.Component {
               }
               columns={columns}
               data={transactions}
+              isLoading={isLoading}
             />
 
             <Pagination
