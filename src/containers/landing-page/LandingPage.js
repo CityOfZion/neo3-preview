@@ -6,6 +6,7 @@ import Card from '../../components/card/Card'
 import withBlockData from '../../hoc/withBlockData'
 
 import './LandingPage.scss'
+import FeatureCards from '../../components/feature-cards/FeatureCards'
 
 class LandingPage extends React.Component {
   render() {
@@ -67,6 +68,8 @@ class LandingPage extends React.Component {
           ></List>
         </div>
         <h1> NEO3 Features</h1>
+
+        <FeatureCards />
 
         <h1> Recent Articles</h1>
       </div>
