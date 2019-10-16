@@ -1,3 +1,48 @@
+.ReactModal__Html--open,
+.ReactModal__Body--open {
+  overflow: hidden; /* prevents background page from scrolling when the modal is open */
+}
+
+.feature-detailed-description-container {
+  max-height: 75vh;
+  display: flex;
+
+  flex-direction: column;
+}
+
+// .ReactModal__Overlay {
+//   position: fixed;
+//   z-index: 999999;
+//   top: 0;
+//   left: 0;
+//   width: 100vw;
+//   height: 100vh;
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+//   background-color: rgba(0, 0, 51, 0.8);
+// }
+
+// .ReactModal__Content {
+//   overflow-y: auto;
+//   position: relative;
+//   top: 50%;
+//   left: 50%;
+//   right: auto;
+//   bottom: auto;
+//   margin-right: -50%;
+//   transform: translate(-50%, -50%);
+//   opacity: 1;
+//   border: none;
+//   background: #1f1f4b;
+//   width: 50vw;
+//   min-width: 275px;
+//   display: flex;
+//   flex-direction: column;
+//   align-items: center;
+//   justify-content: center;
+// }
+
 .feature-card {
   display: flex;
   flex-direction: column;
@@ -29,6 +74,25 @@
     margin-left: auto;
     margin-right: auto;
   }
+
+  img {
+    max-width: 75px;
+    margin: auto;
+  }
+}
+
+.feature-links-container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  // margin: 0 0 48px 0;
+  align-items: center;
+  width: 90%;
+  padding: 0 24px;
+
+  a {
+    padding: 12px;
+  }
 }
 
 .feature-modal-container {
@@ -44,6 +108,11 @@
     color: #f9fafa;
     text-align: center;
     line-height: 24px;
+  }
+
+  .feature-modal-icon {
+    max-width: 75px;
+    margin: auto;
   }
 
   #close-modal-button {
