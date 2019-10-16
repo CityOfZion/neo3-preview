@@ -1,19 +1,19 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "a67200335e9eb89472f2c8aef544bacc",
+    "revision": "05ff33b8ada60fbcfef7bc17c64bc2f6",
     "url": "/neo-3-preview/index.html"
   },
   {
-    "revision": "3a65b001b1041a068f9d",
-    "url": "/neo-3-preview/static/css/main.b2c74d1a.chunk.css"
+    "revision": "fffd51df34fff00d6660",
+    "url": "/neo-3-preview/static/css/main.68cdb689.chunk.css"
   },
   {
-    "revision": "d52e72312740d5572663",
-    "url": "/neo-3-preview/static/js/2.d0294b6c.chunk.js"
+    "revision": "c8c895610bbc0922ddeb",
+    "url": "/neo-3-preview/static/js/2.224f77b6.chunk.js"
   },
   {
-    "revision": "3a65b001b1041a068f9d",
-    "url": "/neo-3-preview/static/js/main.b9589f3c.chunk.js"
+    "revision": "fffd51df34fff00d6660",
+    "url": "/neo-3-preview/static/js/main.c02d4527.chunk.js"
   },
   {
     "revision": "3d90e4a45ec0a4eb7e2b",
@@ -52,8 +52,16 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/neo-3-preview/static/media/dbft2.8b5dee87.svg"
   },
   {
+    "revision": "3d55b6e77ba16b4ad3f2ab18db730c6c",
+    "url": "/neo-3-preview/static/media/dual-token.3d55b6e7.svg"
+  },
+  {
     "revision": "e7ff3f8b2a965311d8b2c70558baba77",
     "url": "/neo-3-preview/static/media/fb-social.e7ff3f8b.svg"
+  },
+  {
+    "revision": "5e4cf737326917a5b603d8081e80a681",
+    "url": "/neo-3-preview/static/media/fs.5e4cf737.svg"
   },
   {
     "revision": "475b127e6032894e697dabc03ab1aa5c",
@@ -76,8 +84,36 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/neo-3-preview/static/media/neo-logo.909dbdde.svg"
   },
   {
+    "revision": "fa6226a4c533fafcb4a039daf28b7581",
+    "url": "/neo-3-preview/static/media/neo3-preview1.fa6226a4.png"
+  },
+  {
+    "revision": "f0b4cb0dc149ced549f71f28b6073014",
+    "url": "/neo-3-preview/static/media/neofs-local.f0b4cb0d.png"
+  },
+  {
+    "revision": "07f19bee8572156b0676b5b7004dcf44",
+    "url": "/neo-3-preview/static/media/neovm-decoupling.07f19bee.png"
+  },
+  {
+    "revision": "7f4dc49285471d6f521a99a01301e1e1",
+    "url": "/neo-3-preview/static/media/oracle.7f4dc492.svg"
+  },
+  {
+    "revision": "61253a838a67e2df566f31dd44f6d344",
+    "url": "/neo-3-preview/static/media/oracles-dbft.61253a83.png"
+  },
+  {
+    "revision": "5ac69c73c6d7a3d9ea714a30bd539378",
+    "url": "/neo-3-preview/static/media/scoped-witnesses.5ac69c73.png"
+  },
+  {
     "revision": "1bfeb42e2661a77b275ae878beb18c89",
     "url": "/neo-3-preview/static/media/search-icon.1bfeb42e.svg"
+  },
+  {
+    "revision": "08abfd0d00466dd44e740b69813dd12c",
+    "url": "/neo-3-preview/static/media/send-neofs.08abfd0d.png"
   },
   {
     "revision": "e96144808f958cba0126c7157f13a4b7",
@@ -102,5 +138,9 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "50743b7daf6c07f9bfc125f34cccdd43",
     "url": "/neo-3-preview/static/media/vm.50743b7d.svg"
+  },
+  {
+    "revision": "94a4e3eb24acc761221396b2af2df3b6",
+    "url": "/neo-3-preview/static/media/voting.94a4e3eb.svg"
   }
 ]);
