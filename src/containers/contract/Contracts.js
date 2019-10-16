@@ -35,20 +35,12 @@ class Contracts extends React.Component {
           <React.Fragment>
             <List
               handleRowClick={row =>
-                console.log(row) ||
-                // NOTE: this is beause querying the API by block hash is currently not working
-                this.props.history.push(`/contract/${row.hash}`)
+                row.block && this.props.history.push(`/contract/${row.hash}`)
               }
               columns={columns}
               data={contracts.map(mapContractData)}
               isLoading={isLoading}
             />
-
-            {/* <Pagination
-              numberOfPages={4}
-              currPage={Number(page)}
-              handleSelectPage={page => this.loadNewContractPage(page)}
-            /> */}
           </React.Fragment>
         )}
       </div>

@@ -77,7 +77,6 @@ export function fetchTransaction(indexOrHash = 1) {
         ])
         const mergedResponse = {}
         for (const response of responses) {
-          console.log({ response, responses })
           const json = await response.json()
           Object.assign(mergedResponse, json)
         }
