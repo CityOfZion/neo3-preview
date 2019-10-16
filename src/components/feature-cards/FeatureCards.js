@@ -485,7 +485,7 @@ export default class FeatureCards extends React.Component {
             </div>
           </Modal>
         )}
-        <div id="feature-card-container">
+        <div className="feature-card-container">
           {features.map(feature => (
             <div key={feature.title} className="feature-card">
               <div className="feature-card-title-container">

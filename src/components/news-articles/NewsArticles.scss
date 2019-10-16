@@ -1,0 +1,47 @@
+.news-article-container {
+  padding: 24px;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  .news-article {
+    padding: 0px;
+    min-width: 276px;
+    border-bottom: solid 3px transparent;
+
+    &:hover {
+      border-bottom: solid 3px #02e49b;
+    }
+
+    .feature-card-title-container {
+      text-align: left;
+
+      span {
+        padding: 17px 17px 0 17px;
+        font-weight: 400;
+        font-size: 14px;
+        color: #ffffff;
+        line-height: 16px;
+      }
+
+      img {
+        width: 100%;
+        max-width: 100%;
+        margin: 0;
+      }
+
+      h1 {
+        padding: 17px 17px 24px 17px;
+        font-size: 17px;
+        color: #ffffff;
+
+        font-weight: 600;
+      }
+    }
+  }
+}
