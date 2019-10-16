@@ -82,8 +82,8 @@ export default class Pagination extends React.Component {
     const { paginated, currPage } = this.props
 
     if (currPage === 1) return true
-    if (previousButtonDisabled && !this.props.paginated) return true
-    if (!previousButtonDisabled && !this.props.paginated) return false
+    if (previousButtonDisabled && !paginated) return true
+    if (!previousButtonDisabled && !paginated) return false
     return currentIndex[currentIndex.length - 1] <= PAGE_RANGE
   }
 

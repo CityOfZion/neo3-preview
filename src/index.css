@@ -32,7 +32,9 @@ code {
   --grey: #bbbdc9;
 }
 
-a {
+a,
+.link,
+.panel-link {
   color: var(--green);
   font-weight: 600;
   font-size: 17px;
@@ -41,7 +43,9 @@ a {
   text-decoration: none;
 }
 
-a:hover {
+a:hover,
+.link:hover,
+.panel-link:hover {
   text-decoration: underline;
 }
 

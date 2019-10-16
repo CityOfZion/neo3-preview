@@ -1,7 +1,6 @@
 import React from 'react'
 
 import List from '../../components/list/List'
-import Pagination from '../../components/pagination/Pagination'
 import Spinner from '../../components/spinner/Spinner'
 import withContractData from '../../hoc/withContractData'
 import moment from 'moment'
@@ -25,7 +24,6 @@ class Contracts extends React.Component {
     ]
 
     const { contracts, isLoading } = this.props
-    let { page = 1 } = this.props.match.params
 
     return (
       <div id="contracts-list">

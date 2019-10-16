@@ -12,7 +12,7 @@ export default ({ handleSearch, shouldClearSearch }) => {
   }
 
   const listenForEnterKey = event => {
-    if (event.which == 13 || event.keyCode == 13) {
+    if (event.which === 13 || event.keyCode === 13) {
       return handleSearch(inputValue)
     }
   }

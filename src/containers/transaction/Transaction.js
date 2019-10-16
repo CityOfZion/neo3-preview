@@ -104,13 +104,14 @@ class Block extends React.Component {
                 <Panel
                   title="Block"
                   value={
-                    <a
+                    <div
+                      className="panel-link"
                       onClick={() =>
                         this.props.history.push(`/block/${transaction.block}`)
                       }
                     >
                       {transaction.block.toLocaleString()}
-                    </a>
+                    </div>
                   }
                 />
                 <Panel title="Size" value={`${transaction.size} bytes`} />

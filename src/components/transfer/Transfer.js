@@ -12,9 +12,12 @@ export default ({ transfers = [], handleAddressClick }) =>
         <div className="bold-subtitle">Sent From</div>
         {transfers.map(transfer => (
           <div key={uniqueId()} className="asset-transfer-detail-container">
-            <a onClick={() => handleAddressClick(transfer.from)}>
+            <div
+              className="link"
+              onClick={() => handleAddressClick(transfer.from)}
+            >
               {transfer.from}
-            </a>
+            </div>
             <div className="transfer-amount-container">
               <img src={tokens[transfer.name]} alt="token-logo" />{' '}
               {transfer.amount} {transfer.name}
@@ -27,7 +30,12 @@ export default ({ transfers = [], handleAddressClick }) =>
         <div className="bold-subtitle">Sent To</div>
         {transfers.map(transfer => (
           <div key={uniqueId()} className="asset-transfer-detail-container">
-            <a onClick={() => handleAddressClick(transfer.to)}>{transfer.to}</a>
+            <div
+              className="link"
+              onClick={() => handleAddressClick(transfer.to)}
+            >
+              {transfer.to}
+            </div>
             <div className="transfer-amount-container">
               <img src={tokens[transfer.name]} alt="token-logo" />{' '}
               {transfer.amount} {transfer.name}

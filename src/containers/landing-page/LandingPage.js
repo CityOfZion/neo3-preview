@@ -17,7 +17,7 @@ class LandingPage extends React.Component {
       { name: 'Created On', accessor: 'time' },
     ]
 
-    const { filteredBlocks, isLoading } = this.props
+    const { filteredBlocks } = this.props
 
     return (
       <div id="landing-page">
@@ -47,9 +47,12 @@ class LandingPage extends React.Component {
 
         <div className="header-and-link">
           <h1> Last 5 Blocks</h1>
-          <a onClick={() => this.props.history.push('/blocks')}>
+          <div
+            className="link"
+            onClick={() => this.props.history.push('/blocks')}
+          >
             View all blocks
-          </a>
+          </div>
         </div>
 
         <div id="lading-page-block-list-container">

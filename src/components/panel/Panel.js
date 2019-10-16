@@ -18,7 +18,7 @@ export default ({
   return (
     <div style={style} className={panelClass}>
       {title && <span style={titleStyle}>{title}</span>}
-      <p style={valueStyle}>{value}</p>
+      <div style={valueStyle}>{value}</div>
     </div>
   )
 }

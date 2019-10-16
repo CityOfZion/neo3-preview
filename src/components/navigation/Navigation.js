@@ -9,7 +9,6 @@ import menuIcon from '../../images/menu.svg'
 import Search from '../search/Search'
 
 import './Navigation.scss'
-import { SEARCH_TYPES } from '../../constants'
 
 const activeStyle = {
   fontWeight: 'bold',

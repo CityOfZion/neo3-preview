@@ -3,7 +3,6 @@ import { uniqueId } from 'lodash-es'
 import classNames from 'classnames'
 
 import './List.css'
-import Spinner from '../spinner/Spinner'
 
 export const List = ({ columns, data, handleRowClick, isLoading, rowId }) => {
   const sortedByAccessor = data.map(data => {
@@ -44,9 +43,6 @@ export const List = ({ columns, data, handleRowClick, isLoading, rowId }) => {
 
   return (
     <div className="data-list-container">
-      {/* {isLoading ? (
-        <Spinner />
-      ) : ( */}
       <div className="data-list" style={gridstyle}>
         {columns.map((column, i) => (
           <div
@@ -78,7 +74,6 @@ export const List = ({ columns, data, handleRowClick, isLoading, rowId }) => {
           ),
         )}
       </div>
-      {/* )} */}
     </div>
   )
 }

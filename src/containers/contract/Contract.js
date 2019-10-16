@@ -1,15 +1,7 @@
 import React from 'react'
 import moment from 'moment'
 
-import tokens from '../../images/tokens'
 import Spinner from '../../components/spinner/Spinner'
-import withAddressData from '../../hoc/withAddressData'
-import { ASSETS, CONVERT_TO_DECIMAL } from '../../constants'
-import List from '../../components/list/List'
-import transferIcon from '../../images/transfer-icon.svg'
-
-// import './Address.scss'
-import Pagination from '../../components/pagination/Pagination'
 import withContractData from '../../hoc/withContractData'
 import Panel from '../../components/panel/Panel'
 
@@ -36,13 +28,14 @@ class Contract extends React.Component {
                 valueStyle={{ fontSize: '12px' }}
                 title="Block"
                 value={
-                  <a
+                  <div
+                    className="link"
                     onClick={() =>
                       this.props.history.push(`/block/${contract.block}`)
                     }
                   >
                     {contract.block.toLocaleString()}
-                  </a>
+                  </div>
                 }
               />
               <Panel title="Hash" value={contract.hash} />
