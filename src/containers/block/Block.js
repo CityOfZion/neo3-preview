@@ -5,7 +5,7 @@ import moment from 'moment'
 import List from '../../components/list/List'
 import { fetchBlock } from '../../actions/blockActions'
 import Panel from '../../components/panel/Panel'
-
+import transferIcon from '../../images/transfer-icon.svg'
 import './Block.css'
 import Spinner from '../../components/spinner/Spinner'
 
@@ -19,6 +19,19 @@ const mapDispatchToProps = dispatch => ({
 
 const formattedTime = time => moment(time).format('MM-DD-YYYY | MM:HH:SS')
 
+export const mapTxData = data => {
+  return {
+    ...data,
+    time: formattedTime(data.time),
+    displayTransactionId: () => (
+      <div className="list-block-height-container">
+        <img src={transferIcon} alt="block-icon" className="block-icon" />
+        <span className="transaction-id-row">{data.hash} </span>
+      </div>
+    ),
+  }
+}
+
 class Block extends React.Component {
   componentDidMount() {
     const id = this.props.match.params.id
@@ -29,7 +42,7 @@ class Block extends React.Component {
     const { block, isLoading } = this.props
 
     const columns = [
-      { name: 'Transaction ID', accessor: 'hash' },
+      { name: 'Transaction ID', accessor: 'displayTransactionId' },
       { name: 'Completed On', accessor: 'time' },
     ]
 
@@ -65,21 +78,12 @@ class Block extends React.Component {
               <h1> Transactions({block.tx.length})</h1>
               {!!block.tx.length && (
                 <List
-                  handleRowClick={
-                    row => console.log(row)
-                    // NOTE: this is beause querying the API by block hash is currently not working
-                    // this.props.history.push(
-                    //   `/block/${
-                    //     this.props.blocks.find(block => block.hash === row.hash)
-                    //       .height
-                    //   }`,
-                    // )
+                  rowId={'hash'}
+                  handleRowClick={({ id }) =>
+                    this.props.history.push(`/transaction/${id}`)
                   }
                   columns={columns}
-                  data={block.tx.map(tx => ({
-                    time: formattedTime(block.time),
-                    ...tx,
-                  }))}
+                  data={block.tx.map(mapTxData)}
                 />
               )}
             </div>

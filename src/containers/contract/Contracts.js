@@ -4,16 +4,24 @@ import List from '../../components/list/List'
 import Pagination from '../../components/pagination/Pagination'
 import Spinner from '../../components/spinner/Spinner'
 import withContractData from '../../hoc/withContractData'
+import moment from 'moment'
 
-class Blocks extends React.Component {
+const mapContractData = data => ({
+  ...data,
+  time: moment(data.time).format('MM-DD-YYYY | MM:HH:SS'),
+  block: data.block,
+})
+
+class Contracts extends React.Component {
   static defaultProps = {
     contracts: [],
   }
 
   render() {
     const columns = [
-      { name: 'Idx', accessor: 'idx' },
       { name: 'Hash', accessor: 'hash' },
+      { name: 'Block', accessor: 'block' },
+      { name: 'Created On', accessor: 'time' },
     ]
 
     const { contracts, isLoading } = this.props
@@ -32,15 +40,15 @@ class Blocks extends React.Component {
                 this.props.history.push(`/contract/${row.hash}`)
               }
               columns={columns}
-              data={contracts}
+              data={contracts.map(mapContractData)}
               isLoading={isLoading}
             />
 
-            <Pagination
+            {/* <Pagination
               numberOfPages={4}
               currPage={Number(page)}
               handleSelectPage={page => this.loadNewContractPage(page)}
-            />
+            /> */}
           </React.Fragment>
         )}
       </div>
@@ -53,6 +61,6 @@ class Blocks extends React.Component {
   }
 }
 
-const WithBlockData = withContractData(Blocks)
+const WithContractData = withContractData(Contracts)
 
-export default WithBlockData
+export default WithContractData

@@ -1,3 +1,5 @@
+import { GENERATE_BASE_URL } from '../constants'
+
 export const REQUEST_BLOCK = 'REQUEST_BLOCK'
 export const requestBlock = indexOrHash => dispatch => {
   dispatch({
@@ -69,10 +71,9 @@ export function fetchBlock(indexOrHash = 1) {
     if (shouldFetchBlock(getState(), indexOrHash)) {
       dispatch(requestBlock(indexOrHash))
       try {
-        const generateApiUrl = index =>
-          `https://ja3l09yg7a.execute-api.us-east-1.amazonaws.com/dev/api/test_net/v1/get_block/${indexOrHash}`
-
-        const response = await fetch(generateApiUrl(indexOrHash))
+        const response = await fetch(
+          `${GENERATE_BASE_URL()}/get_block/${indexOrHash}`,
+        )
         const json = await response.json()
         dispatch(requestBlockSuccess(indexOrHash, json))
       } catch (e) {
@@ -86,11 +87,7 @@ export function fetchBlocks(page = 1) {
   return async (dispatch, getState) => {
     try {
       dispatch(requestBlocks(page))
-
-      const generateApiUrl = page =>
-        `https://ja3l09yg7a.execute-api.us-east-1.amazonaws.com/dev/api/test_net/v1/get_blocks/${page}`
-
-      const response = await fetch(generateApiUrl(page))
+      const response = await fetch(`${GENERATE_BASE_URL()}/get_blocks/${page}`)
       const json = await response.json()
       console.log({ json })
       dispatch(requestBlocksSuccess(page, json))

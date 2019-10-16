@@ -102,7 +102,18 @@ class Block extends React.Component {
             />
             <div className="panels-container">
               <div className="panels-row">
-                <Panel title="Index" value={''} />
+                <Panel
+                  title="Block"
+                  value={
+                    <a
+                      onClick={() =>
+                        this.props.history.push(`/block/${transaction.block}`)
+                      }
+                    >
+                      {transaction.block}{' '}
+                    </a>
+                  }
+                />
                 <Panel title="Size" value={`${transaction.size} bytes`} />
               </div>
               <div className="panels-row">

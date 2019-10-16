@@ -1,3 +1,5 @@
+import { GENERATE_BASE_URL } from '../constants'
+
 export const REQUEST_ADDRESS = 'REQUEST_ADDRESS'
 export const requestAddress = requestedAddress => dispatch => {
   dispatch({
@@ -75,10 +77,9 @@ export function fetchAddress(address) {
   return async (dispatch, getState) => {
     dispatch(requestAddress(address))
     try {
-      const generateApiUrl = index =>
-        `https://ja3l09yg7a.execute-api.us-east-1.amazonaws.com/dev/api/test_net/v1/get_balance/${address}`
-
-      const response = await fetch(generateApiUrl(address))
+      const response = await fetch(
+        `${GENERATE_BASE_URL()}/get_balance/${address}`,
+      )
       const json = await response.json()
       dispatch(requestAddressSuccess(address, json))
     } catch (e) {
@@ -91,10 +92,9 @@ export function fetchAddressTransferHistory(address, page = 1) {
   return async (dispatch, getState) => {
     dispatch(requestAddressTransferHistory(address, page))
     try {
-      const generateApiUrl = index =>
-        `https://ja3l09yg7a.execute-api.us-east-1.amazonaws.com/dev/api/test_net/v1/get_transfer_history/${address}/${page}`
-
-      const response = await fetch(generateApiUrl(address))
+      const response = await fetch(
+        `${GENERATE_BASE_URL()}/get_transfer_history/${address}/${page}`,
+      )
       const json = await response.json()
       dispatch(requestAddressTransferHistorySuccess(address, page, json))
     } catch (e) {

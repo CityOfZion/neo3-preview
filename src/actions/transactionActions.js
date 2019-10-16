@@ -1,3 +1,5 @@
+import { GENERATE_BASE_URL } from '../constants'
+
 export const REQUEST_TRANSACTION = 'REQUEST_TRANSACTION'
 export const requestTransaction = indexOrHash => dispatch => {
   dispatch({
@@ -69,15 +71,9 @@ export function fetchTransaction(indexOrHash = 1) {
     if (shouldFetchTransaction(getState(), indexOrHash)) {
       dispatch(requestTransaction(indexOrHash))
       try {
-        const generateApiUrl = index =>
-          `https://ja3l09yg7a.execute-api.us-east-1.amazonaws.com/dev/api/test_net/v1/get_transaction/${indexOrHash}`
-
-        const generateApiUrlForLog = index =>
-          `https://ja3l09yg7a.execute-api.us-east-1.amazonaws.com/dev/api/test_net/v1/get_log/${indexOrHash}`
-
         const responses = await Promise.all([
-          fetch(generateApiUrl(indexOrHash)),
-          fetch(generateApiUrlForLog(indexOrHash)),
+          fetch(`${GENERATE_BASE_URL()}/get_transaction/${indexOrHash}`),
+          fetch(`${GENERATE_BASE_URL()}/get_log/${indexOrHash}`),
         ])
         const mergedResponse = {}
         for (const response of responses) {
@@ -103,10 +99,9 @@ export function fetchTransactions(page) {
     try {
       dispatch(requestTransactions(nextPage))
 
-      const generateApiUrl = page =>
-        `https://ja3l09yg7a.execute-api.us-east-1.amazonaws.com/dev/api/test_net/v1/get_transactions/${nextPage}`
-
-      const response = await fetch(generateApiUrl(nextPage))
+      const response = await fetch(
+        `${GENERATE_BASE_URL()}/get_transactions/${nextPage}`,
+      )
       const json = await response.json()
       console.log({ json })
       dispatch(requestTransactionsSuccess(nextPage, json))

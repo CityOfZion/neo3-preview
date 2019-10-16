@@ -1,3 +1,5 @@
+import { GENERATE_BASE_URL } from '../constants'
+
 export const REQUEST_CONTRACT = 'REQUEST_CONTRACT'
 export const requestContract = indexOrHash => dispatch => {
   dispatch({
@@ -64,19 +66,18 @@ export function shouldFetchContract(state, index) {
   return false
 }
 
-export function fetchContract(indexOrHash = 1) {
+export function fetchContract(hash) {
   return async (dispatch, getState) => {
-    if (shouldFetchContract(getState(), indexOrHash)) {
-      dispatch(requestContract(indexOrHash))
+    if (shouldFetchContract(getState(), hash)) {
+      dispatch(requestContract(hash))
       try {
-        const generateApiUrl = index =>
-          `https://ja3l09yg7a.execute-api.us-east-1.amazonaws.com/dev/api/test_net/v1/get_contract/${indexOrHash}`
-
-        const response = await fetch(generateApiUrl(indexOrHash))
+        const response = await fetch(
+          `${GENERATE_BASE_URL()}/get_contract/${hash}`,
+        )
         const json = await response.json()
-        dispatch(requestContractSuccess(indexOrHash, json))
+        dispatch(requestContractSuccess(hash, json))
       } catch (e) {
-        dispatch(requestContractError(indexOrHash, e))
+        dispatch(requestContractError(hash, e))
       }
     }
   }
@@ -86,11 +87,9 @@ export function fetchContracts(page = 1) {
   return async (dispatch, getState) => {
     try {
       dispatch(requestContracts(page))
-
-      const generateApiUrl = page =>
-        `https://ja3l09yg7a.execute-api.us-east-1.amazonaws.com/dev/api/test_net/v1/get_contracts/${page}`
-
-      const response = await fetch(generateApiUrl(page))
+      const response = await fetch(
+        `${GENERATE_BASE_URL()}/get_contracts/${page}`,
+      )
       const json = await response.json()
       console.log({ json })
       dispatch(requestContractsSuccess(page, json))
