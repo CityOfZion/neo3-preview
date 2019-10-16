@@ -26,7 +26,7 @@ class Contract extends React.Component {
 
     return contract && !isLoading ? (
       <React.Fragment>
-        <div class="wrapper">
+        <div className="wrapper">
           <h1> Contract </h1>
           <div className="bold-subtitle">{contract.hash}</div>
           <div className="block-time">{formattedTime(contract.time)}</div>
@@ -49,7 +49,7 @@ class Contract extends React.Component {
             </div>
             <div className="panels-row">
               <Panel title="Idx" value={contract.idx} />
-              <div class="panel hidden-panel" />
+              <div className="panel hidden-panel" />
             </div>
           </div>
           <h1 className="panel-header">Script</h1>

@@ -38,7 +38,7 @@ export default () => {
   return (
     <div id="feature-card-container">
       {features.map(feature => (
-        <div class="feature-card">
+        <div className="feature-card">
           <div className="feature-card-title-container">
             <img src={feature.image} alt="" />
             <h1> {feature.title}</h1>

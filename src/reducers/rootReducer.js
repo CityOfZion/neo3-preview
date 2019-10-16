@@ -4,6 +4,7 @@ import mobileMenuReducer from './mobileMenuReducer'
 import contractReducer from './contractReducer'
 import transactionReducer from './transactionReducer'
 import addressReducer from './addressReducer'
+import searchReducer from './searchReducer'
 
 export default combineReducers({
   blocks: blockReducer,
@@ -11,4 +12,5 @@ export default combineReducers({
   transactions: transactionReducer,
   menu: mobileMenuReducer,
   address: addressReducer,
+  search: searchReducer,
 })

@@ -31,6 +31,10 @@ export const INITIAL_STATE = {
   menu: {
     open: false,
   },
+  search: {
+    isSearching: false,
+    searchType: null,
+  },
 }
 
 const loggerMiddleware = createLogger()

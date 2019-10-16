@@ -89,7 +89,7 @@ class Address extends React.Component {
 
     return balance && !isLoading ? (
       <React.Fragment>
-        <div class="wrapper">
+        <div className="wrapper">
           <h1> Address </h1>
           <div className="bold-subtitle">{requestedAddress}</div>
           <div id="address-transactions-list">

@@ -9,6 +9,7 @@ import menuIcon from '../../images/menu.svg'
 import Search from '../search/Search'
 
 import './Navigation.scss'
+import { SEARCH_TYPES } from '../../constants'
 
 const activeStyle = {
   fontWeight: 'bold',
@@ -78,7 +79,17 @@ export const NavigationLinks = ({ isMobile = false, closeMenu }) => (
   </React.Fragment>
 )
 
-export const Navigation = ({ mobileMenuIsOpen, openMenu, closeMenu }) => {
+export const Navigation = props => {
+  console.log({ props })
+  const {
+    mobileMenuIsOpen,
+    openMenu,
+    closeMenu,
+    handleSearchInput,
+
+    shouldClearSearch,
+  } = props
+
   return (
     <React.Fragment>
       <Menu
@@ -96,7 +107,10 @@ export const Navigation = ({ mobileMenuIsOpen, openMenu, closeMenu }) => {
         </div>
         <div className="mobile-navigation-links-container">
           <NavigationLinks closeMenu={closeMenu} isMobile />
-          <Search />
+          <Search
+            handleSearch={search => handleSearchInput(search)}
+            shouldClearSearch={shouldClearSearch}
+          />
         </div>
       </Menu>
       <nav id="navigation">
@@ -108,7 +122,10 @@ export const Navigation = ({ mobileMenuIsOpen, openMenu, closeMenu }) => {
           </Link>
         </div>
         <div id="desktop-links-and-search-container">
-          <Search />
+          <Search
+            handleSearch={search => handleSearchInput(search)}
+            shouldClearSearch={shouldClearSearch}
+          />
           <div id="desktop_navigation_options">
             <NavigationLinks />
           </div>

@@ -12,7 +12,7 @@ export const mapTxData = data => {
     displayTransactionId: () => (
       <div className="list-block-height-container">
         <img src={transferIcon} alt="block-icon" className="block-icon" />
-        <span class="transaction-id-row">{data.hash} </span>
+        <span className="transaction-id-row">{data.hash} </span>
       </div>
     ),
   }
