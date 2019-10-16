@@ -1,10 +1,10 @@
 import React from 'react'
 
 import { PreviewLogo } from '../navigation/Navigation'
-import facebookIcon from '../../images/fb-social.svg'
-import twitterIcon from '../../images/twitter-social.svg'
-import linkedinIcon from '../../images/linkedin-social.svg'
-import telegramIcon from '../../images/telegram-social.svg'
+import facebookIcon from '../../images/social-icons/fb-social.svg'
+import twitterIcon from '../../images/social-icons/twitter-social.svg'
+import linkedinIcon from '../../images/social-icons/linkedin-social.svg'
+import telegramIcon from '../../images/social-icons/telegram-social.svg'
 
 import './Footer.css'
 

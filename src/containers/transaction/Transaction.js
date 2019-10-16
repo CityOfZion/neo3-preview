@@ -85,7 +85,6 @@ class Block extends React.Component {
   render() {
     const { transaction, isLoading } = this.props
     const { transfers } = this.state
-    console.log(this.state.transfers)
     return (
       <div className="wrapper">
         {transaction && !isLoading ? (
@@ -110,7 +109,7 @@ class Block extends React.Component {
                         this.props.history.push(`/block/${transaction.block}`)
                       }
                     >
-                      {transaction.block}{' '}
+                      {transaction.block.toLocaleString()}
                     </a>
                   }
                 />
@@ -163,7 +162,7 @@ class Block extends React.Component {
 
             <div className="secondary-panels-row">
               <div className="secondary-panels-column">
-                <div className="bold-subtitle">Bytecode invocation script</div>
+                <div className="bold-subtitle">Script</div>
                 <Panel secondary value={transaction.script} />
               </div>
               <div className="secondary-panels-column">

@@ -11,12 +11,20 @@
 }
 
 #navigation a {
-  text-decoration: none;
   margin: 24px;
   font-weight: 300;
   font-size: 17px;
   color: #ffffff;
   text-align: center;
+  text-decoration: none;
+}
+
+#desktop_navigation_options a {
+  &:hover {
+    font-weight: bold;
+    color: var(--green);
+    text-decoration: underline;
+  }
 }
 
 #logo {

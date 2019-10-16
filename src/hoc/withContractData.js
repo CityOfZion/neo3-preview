@@ -1,15 +1,16 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
-import { fetchContracts } from '../actions/contractActions'
+import { fetchContracts, fetchContract } from '../actions/contractActions'
 
 const mapStateToProps = ({ contracts }) => ({
+  ...contracts,
   contracts: contracts.list,
-  isLoading: contracts.isLoading,
 })
 
 const mapDispatchToProps = dispatch => ({
   fetchContracts: () => dispatch(fetchContracts()),
+  fetchContract: hash => dispatch(fetchContract(hash)),
 })
 
 export default function withContractData(WrappedComponent) {
