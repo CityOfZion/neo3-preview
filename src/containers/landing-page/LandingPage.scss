@@ -1,9 +1,9 @@
 #call-to-action {
   background-color: var(--secondary-blue);
   padding: 24px;
-  margin: 24px;
-  margin-bottom: 48px;
-  padding: 24px 12px;
+  margin: 12px 24px 24px 12px;
+  // margin-bottom: 48px;
+  // padding: 24px 12px;
   border-radius: 3px;
 }
 
@@ -41,8 +41,8 @@
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
-  margin-bottom: 24px;
-  padding: 24px;
+  padding: 12px 0;
+  margin-bottom: 12px;
 }
 
 #landing-page h1 {
@@ -78,8 +78,8 @@
 }
 
 #lading-page-block-list-container {
-  padding: 24px;
-  margin-bottom: 24px;
+  padding: 12px 24px;
+  margin-bottom: 12px;
 }
 
 .list-block-height-container img {

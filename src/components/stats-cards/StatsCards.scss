@@ -1,0 +1,19 @@
+.stats-as-columns {
+  flex-direction: row;
+  display: none !important;
+
+  .column {
+    flex-direction: column;
+    display: flex;
+  }
+}
+
+@media only screen and (max-width: 1375px) {
+  .stats-as-columns {
+    display: flex !important;
+  }
+
+  .stats-as-row {
+    display: none !important;
+  }
+}
