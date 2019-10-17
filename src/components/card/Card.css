@@ -56,14 +56,10 @@
   }
 }
 
-@media only screen and (max-width: 400px) {
+@media only screen and (max-width: 450px) {
   .card {
-    max-width: 167px;
-    max-height: 92px;
-    min-width: 100px;
-    min-height: 50px;
-    padding: 12px 22px;
-
+    padding: 12px 15px;
+    width: 110px;
     /* margin: 10px; */
   }
 }
