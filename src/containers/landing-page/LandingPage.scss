@@ -67,6 +67,14 @@
   color: var(--green);
   display: flex;
   align-items: center;
+
+  span {
+    text-overflow: ellipsis;
+
+    white-space: nowrap;
+
+    overflow: hidden;
+  }
 }
 
 #lading-page-block-list-container {
@@ -118,6 +126,9 @@
 }
 
 @media only screen and (max-width: 810px) {
+  .list-block-height-container {
+    font-size: 12px;
+  }
   #landing-page h1 {
     font-size: 24px;
     color: #ffffff;

@@ -12,7 +12,7 @@ export const mapBlockData = block => {
     index: () => (
       <div className="list-block-height-container">
         <img src={signal} alt="block-icon" className="block-icon" />
-        {block.index.toLocaleString()}
+        <span>{block.index.toLocaleString()}</span>
       </div>
     ),
     size: `${block.size} bytes`,

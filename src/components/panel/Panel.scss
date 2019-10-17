@@ -8,6 +8,12 @@
   font-size: 14px;
   border-bottom: solid 2px var(--green);
 
+  div {
+    display: block;
+    word-wrap: anywhere;
+    word-break: break-word;
+  }
+
   .panel-link,
   a {
     font-size: 14px;

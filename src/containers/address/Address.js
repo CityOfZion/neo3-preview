@@ -44,7 +44,7 @@ export const mapTransferData = data => {
     displayTransactionId: () => (
       <div className="list-block-height-container">
         <img src={transferIcon} alt="block-icon" className="block-icon" />
-        {data.txid}
+        <span className="transaction-id-row">{data.txid}</span>
       </div>
     ),
   }
