@@ -5,6 +5,7 @@
   "private": true,
   "dependencies": {
     "classnames": "^2.2.6",
+    "crypto-js": "^3.1.9-1",
     "lodash-es": "^4.17.15",
     "moment": "^2.24.0",
     "neo-convertor": "0.0.2",

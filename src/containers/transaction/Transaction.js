@@ -5,6 +5,7 @@ import NeoConvertor from 'neo-convertor'
 import { isEmpty } from 'lodash-es'
 
 import { fetchTransaction } from '../../actions/transactionActions'
+import { disassemble } from '../../actions/disassembleActions'
 import Panel from '../../components/panel/Panel'
 import { CONVERT_TO_DECIMAL, TRANSFER, ASSETS } from '../../constants'
 import Transfer from '../../components/transfer/Transfer'
@@ -85,6 +86,7 @@ class Block extends React.Component {
   render() {
     const { transaction, isLoading } = this.props
     const { transfers } = this.state
+    const pre = { whiteSpace: 'pre-wrap' }
     return (
       <div className="wrapper">
         {transaction && !isLoading ? (
@@ -165,6 +167,35 @@ class Block extends React.Component {
               <div className="secondary-panels-column">
                 <div className="bold-subtitle">Script</div>
                 <Panel secondary value={transaction.script} />
+              </div>
+              <div className="secondary-panels-column">
+                <div className="bold-subtitle"></div>
+                <div className="secondary-panel hidden-panel" />
+              </div>
+            </div>
+
+            <h1 className="panel-header">Disassembled Script</h1>
+            <div className="secondary-panels-row">
+              <div className="secondary-panels-column">
+                <div className="bold-subtitle"> Opcode invocation script</div>
+                <Panel style={pre} secondary value={disassemble(transaction.witnesses[0].invocation)} />
+              </div>
+              <div className="secondary-panels-column">
+                <div className="bold-subtitle">
+                  {' '}
+                  Opcode verification script
+                </div>
+                <Panel style={pre}
+                  secondary
+                  value={disassemble(transaction.witnesses[0].verification)}
+                />
+              </div>
+            </div>
+
+            <div className="secondary-panels-row">
+              <div className="secondary-panels-column">
+                <div className="bold-subtitle">Script</div>
+                <Panel style={pre} secondary value={disassemble(transaction.script)} />
               </div>
               <div className="secondary-panels-column">
                 <div className="bold-subtitle"></div>
