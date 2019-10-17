@@ -39,12 +39,24 @@ const StatsCards = ({ stats }) => {
     )
   }
   return (
-    <div id="statistics-card-container">
-      <Card value="" detail="" />
-      <Card value="" detail="" />
-      <Card value="" detail="" />
-      <Card value="" detail="" />
-    </div>
+    <React.Fragment>
+      <div id="statistics-card-container" className="stats-as-row">
+        <Card value="" detail="" />
+        <Card value="" detail="" />
+        <Card value="" detail="" />
+        <Card value="" detail="" />
+      </div>
+      <div id="statistics-card-container" className="stats-as-columns">
+        <div class="column">
+          <Card value="" detail="" />
+          <Card value="" detail="" />
+        </div>{' '}
+        <div class="column">
+          <Card value="" detail="" />
+          <Card value="" detail="" />
+        </div>
+      </div>
+    </React.Fragment>
   )
 }
 

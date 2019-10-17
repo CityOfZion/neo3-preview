@@ -30,13 +30,14 @@
   line-height: 24px;
 }
 
-@media only screen and (max-width: 810px) {
+@media only screen and (max-width: 700px) {
   .card {
     max-width: 167px;
     max-height: 92px;
     min-width: 100px;
     min-height: 50px;
     padding: 12px 22px;
+    width: 100%;
 
     /* margin: 10px; */
   }
@@ -52,5 +53,17 @@
     color: #f9fafa;
     text-align: center;
     line-height: 24px;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .card {
+    max-width: 167px;
+    max-height: 92px;
+    min-width: 100px;
+    min-height: 50px;
+    padding: 12px 22px;
+
+    /* margin: 10px; */
   }
 }
