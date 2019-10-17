@@ -1,6 +1,7 @@
-.news-article-container {
+.carousel-news-article-container {
   padding: 24px;
-
+  min-height: 350px;
+  display: block;
   &:hover {
     cursor: pointer;
   }
@@ -43,6 +44,29 @@
 
         font-weight: 600;
       }
+    }
+  }
+}
+
+.carousel-item-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.carousel-button-container {
+  display: flex;
+  justify-content: flex-end;
+  margin: -48px 0 12px 0;
+
+  img:first-child {
+    margin-right: 24px;
+  }
+}
+
+@media only screen and (max-width: 810px) {
+  .carousel-button-container {
+    img {
+      max-width: 12px;
     }
   }
 }

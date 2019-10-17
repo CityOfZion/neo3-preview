@@ -1,67 +1,44 @@
-import React from 'react'
+import React, { useState } from 'react'
+import ItemsCarousel from 'react-items-carousel'
 
-import preview from '../../images/temp-news-articles/neo3-preview1.png'
-import neofsLocal from '../../images/temp-news-articles/neofs-local.png'
-import neovm from '../../images/temp-news-articles/neovm-decoupling.png'
-import oracles from '../../images/temp-news-articles/oracles-dbft.png'
-import scopedWitnesses from '../../images/temp-news-articles/scoped-witnesses.png'
-import neofs from '../../images/temp-news-articles/send-neofs.png'
+import chevronRight from '../../images/carousel/chevron-right.svg'
+import chevronLeft from '../../images/carousel/chevron-left.svg'
+import { articles } from './articles'
+import useWindowWidth from '../../hooks/useWindowWith'
 
 import './NewsArticles.scss'
 
-const articles = [
-  {
-    title: 'NGD releases NEO3 Preview1 build, launches first NEO3 TestNet',
-    link:
-      'https://neonewstoday.com/development/ngd-releases-neo3-preview1-build-launches-first-neo3-testnet/',
-    image: preview,
-    date: 'September 16th 20019',
-  },
+const classes = {
+  itemWrapper: 'carousel-item-wrapper',
+}
 
-  {
-    title: 'Scoped Witnesses: How to Securely Transfer Assets on NEO3',
-    link:
-      'https://medium.com/neo-smart-economy/scoped-witnesses-how-to-securely-transfer-assets-on-neo-3-6ac012221188',
-    image: scopedWitnesses,
-    date: 'September 16th 20019',
-  },
-  {
-    title: 'On the importance of Oracles: NEO3 and dBFT',
-    link:
-      'https://medium.com/neo-smart-economy/on-the-importance-of-oracles-neo-3-0-and-dbft-17c37ee35f32',
-    image: oracles,
-    date: 'September 19th 20019',
-  },
-  {
-    title: 'Behind PR 149: a bright future for NeoVM and NEO3 ',
-    link:
-      'https://medium.com/neo-smart-economy/behind-pr-149-a-bright-future-for-neovm-and-neo-3-3b779e8749c4',
-    image: neovm,
-    date: 'September 20th 20019',
-  },
-  {
-    title:
-      'NEO SPCC releases locally deployable NeoFS and SDK, plans October TestNet launch',
-    link:
-      'https://neonewstoday.com/development/neo-spcc-releases-locally-deployable-neofs-and-sdk-plans-october-testnet-launch/',
-    image: neofsLocal,
-    date: 'October 2nd 20019',
-  },
-  {
-    title:
-      'Send.NeoFS web service launched, allowing users to easily upload files to the NeoFS TestNet',
-    link:
-      'https://neonewstoday.com/development/send-neofs-web-service-launched-allowing-users-to-easily-upload-files-to-the-neofs-testnet/',
-    image: neofs,
-    date: 'October 13th 20019',
-  },
-]
+export const NewsArticles = React.memo(({ numberOfCards }) => {
+  const [activeItemIndex, setActiveItemIndex] = useState(0)
 
-export default class FeatureCards extends React.Component {
-  render() {
-    return (
-      <React.Fragment>
-        <div className="feature-card-container news-article-container">
+  return (
+    <React.Fragment>
+      <div className="feature-card-container carousel-news-article-container">
+        <div className="carousel-button-container">
+          <img
+            src={chevronLeft}
+            alt="chevron-left"
+            onClick={() => setActiveItemIndex(activeItemIndex - 1)}
+          />
+          <img
+            src={chevronRight}
+            alt="chevron-right"
+            onClick={() => setActiveItemIndex(activeItemIndex + 1)}
+          />
+        </div>
+        <ItemsCarousel
+          requestToChangeActive={index => console.log({ index })}
+          activeItemIndex={activeItemIndex}
+          numberOfCards={numberOfCards}
+          gutter={20}
+          infiniteLoop
+          classes={classes}
+          chevronWidth={40}
+        >
           {articles.map(article => (
             <a
               key={article.title}
@@ -77,8 +54,15 @@ export default class FeatureCards extends React.Component {
               </div>
             </a>
           ))}
-        </div>
-      </React.Fragment>
-    )
-  }
+        </ItemsCarousel>
+      </div>
+    </React.Fragment>
+  )
+})
+
+export default () => {
+  const width = useWindowWidth()
+  const CARD_WIDTH = 310
+  const numberOfCards = Math.floor(width / CARD_WIDTH)
+  return <NewsArticles numberOfCards={numberOfCards} />
 }

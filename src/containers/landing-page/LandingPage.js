@@ -2,7 +2,6 @@ import React from 'react'
 
 import List from '../../components/list/List'
 import Button from '../../components/button/Button'
-import Card from '../../components/card/Card'
 import withBlockData from '../../hoc/withBlockData'
 
 import './LandingPage.scss'
@@ -40,12 +39,6 @@ class LandingPage extends React.Component {
         </div>
 
         <h1> Statistics</h1>
-        {/* <div id="statistics-card-container">
-          <Card value="25,036,425" detail="Total Transactions" />
-          <Card value="25,036,425" detail="Total Transactions" />
-          <Card value="25,036,425" detail="Total Transactions" />
-          <Card value="25,036,425" detail="Total Transactions" />
-        </div> */}
         <StatsCards />
         <div className="header-and-link">
           <h1> Last 5 Blocks</h1>
