@@ -38,8 +38,6 @@
     min-height: 50px;
     padding: 12px 22px;
     width: 100%;
-
-    /* margin: 10px; */
   }
 
   .card h2 {
@@ -56,10 +54,9 @@
   }
 }
 
-@media only screen and (max-width: 450px) {
+@media only screen and (max-width: 475px) {
   .card {
     padding: 12px 15px;
     width: 110px;
-    /* margin: 10px; */
   }
 }
