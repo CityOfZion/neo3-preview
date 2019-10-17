@@ -2,7 +2,7 @@
   background-color: var(--secondary-blue);
   max-width: 276px;
   max-height: 103px;
-  min-width: 200px;
+  min-width: 150px;
   min-height: 100px;
   margin: 10px;
   border-bottom: 3px var(--green) solid;
