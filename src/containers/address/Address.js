@@ -82,11 +82,6 @@ class Address extends React.Component {
       },
     ]
 
-    // const columns = [
-    //   { name: 'Transaction ID', accessor: 'hash' },
-    //   { name: 'Completed On', accessor: 'time' },
-    // ]
-
     return balance && !isLoading ? (
       <React.Fragment>
         <div className="wrapper">
@@ -95,18 +90,9 @@ class Address extends React.Component {
           <div id="address-transactions-list">
             {!!balance.length && (
               <List
-                handleRowClick={
-                  row => console.log(row)
-                  // NOTE: this is beause querying the API by block hash is currently not working
-                  // this.props.history.push(
-                  //   `/block/${
-                  //     this.props.blocks.find(block => block.hash === row.hash)
-                  //       .height
-                  //   }`,
-                  // )
-                }
                 columns={balanceColumns}
                 data={mappedBalanceData}
+                withoutPointer
               />
             )}
           </div>

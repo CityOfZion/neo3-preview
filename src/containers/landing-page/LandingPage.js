@@ -8,6 +8,7 @@ import withBlockData from '../../hoc/withBlockData'
 import './LandingPage.scss'
 import FeatureCards from '../../components/feature-cards/FeatureCards'
 import NewsArticles from '../../components/news-articles/NewsArticles'
+import StatsCards from '../../components/stats-cards/StatsCards'
 
 class LandingPage extends React.Component {
   render() {
@@ -39,13 +40,13 @@ class LandingPage extends React.Component {
         </div>
 
         <h1> Statistics</h1>
-        <div id="statistics-card-container">
+        {/* <div id="statistics-card-container">
           <Card value="25,036,425" detail="Total Transactions" />
           <Card value="25,036,425" detail="Total Transactions" />
           <Card value="25,036,425" detail="Total Transactions" />
           <Card value="25,036,425" detail="Total Transactions" />
-        </div>
-
+        </div> */}
+        <StatsCards />
         <div className="header-and-link">
           <h1> Last 5 Blocks</h1>
           <div

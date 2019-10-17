@@ -454,7 +454,6 @@ export default class FeatureCards extends React.Component {
     const selectedFeature = features.find(
       feature => feature.title === selectedFeatureTitle,
     )
-    console.log({ selectedFeature })
     return (
       <React.Fragment>
         {selectedFeature && (

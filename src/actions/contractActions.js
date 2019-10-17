@@ -91,7 +91,6 @@ export function fetchContracts(page = 1) {
         `${GENERATE_BASE_URL()}/get_contracts/${page}`,
       )
       const json = await response.json()
-      console.log({ json })
       dispatch(requestContractsSuccess(page, json))
     } catch (e) {
       dispatch(requestContractError(page, e))

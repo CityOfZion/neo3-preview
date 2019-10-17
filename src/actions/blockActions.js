@@ -89,7 +89,6 @@ export function fetchBlocks(page = 1) {
       dispatch(requestBlocks(page))
       const response = await fetch(`${GENERATE_BASE_URL()}/get_blocks/${page}`)
       const json = await response.json()
-      console.log({ json })
       dispatch(requestBlocksSuccess(page, json))
     } catch (e) {
       dispatch(requestBlockError(page, e))

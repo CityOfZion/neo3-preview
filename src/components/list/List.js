@@ -4,7 +4,14 @@ import classNames from 'classnames'
 
 import './List.css'
 
-export const List = ({ columns, data, handleRowClick, isLoading, rowId }) => {
+export const List = ({
+  columns,
+  data,
+  handleRowClick,
+  isLoading,
+  rowId,
+  withoutPointer = false,
+}) => {
   const sortedByAccessor = data.map(data => {
     const sorted = {}
     columns.forEach(column => {
@@ -13,8 +20,6 @@ export const List = ({ columns, data, handleRowClick, isLoading, rowId }) => {
     })
     return sorted
   })
-
-  console.log(sortedByAccessor)
 
   const gridstyle = {
     gridTemplateColumns: `repeat(${columns.length}, auto)`,
@@ -34,6 +39,7 @@ export const List = ({ columns, data, handleRowClick, isLoading, rowId }) => {
 
   const rowClass = classNames({
     'loading-table-row': isLoading,
+    'without-pointer-cursor': withoutPointer,
   })
 
   const headerRowClass = classNames({
@@ -60,7 +66,7 @@ export const List = ({ columns, data, handleRowClick, isLoading, rowId }) => {
               key !== 'id' && (
                 <span
                   style={conditionalBorderRadius()}
-                  onClick={() => handleRowClick(data)}
+                  onClick={() => handleRowClick && handleRowClick(data)}
                   key={uniqueId()}
                   className={rowClass}
                 >

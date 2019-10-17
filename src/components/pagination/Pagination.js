@@ -91,7 +91,6 @@ export default class Pagination extends React.Component {
     const { paginated, currPage } = this.props
     const { currentIndex } = this.state
 
-    console.log({ currPage })
     if (!paginated) {
       currPage === 1 &&
         this.setState({

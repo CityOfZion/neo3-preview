@@ -79,7 +79,6 @@ export const NavigationLinks = ({ isMobile = false, closeMenu }) => (
 )
 
 export const Navigation = props => {
-  console.log({ props })
   const {
     mobileMenuIsOpen,
     openMenu,

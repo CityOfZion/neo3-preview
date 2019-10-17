@@ -102,7 +102,7 @@ export function fetchTransactions(page) {
         `${GENERATE_BASE_URL()}/get_transactions/${nextPage}`,
       )
       const json = await response.json()
-      console.log({ json })
+
       dispatch(requestTransactionsSuccess(nextPage, json))
     } catch (e) {
       dispatch(requestTransactionError(nextPage, e))

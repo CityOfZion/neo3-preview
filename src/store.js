@@ -35,6 +35,14 @@ export const INITIAL_STATE = {
     isSearching: false,
     searchType: null,
   },
+  stats: {
+    // height: 138317,
+    // transactions: 197,
+    // addresses: 38,
+    // assets: 3,
+    // contracts: 19,
+    // transfers: 168,
+  },
 }
 
 const loggerMiddleware = createLogger()
