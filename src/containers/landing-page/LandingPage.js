@@ -10,6 +10,40 @@ import NewsArticles from '../../components/news-articles/NewsArticles'
 import StatsCards from '../../components/stats-cards/StatsCards'
 
 class LandingPage extends React.Component {
+  state = {
+    downloadLink: 'https://github.com/neo-project/neo-cli',
+  }
+
+  async componentDidMount() {
+    const response = await fetch(
+      'https://api.github.com/repos/neo-project/neo-cli/releases/latest',
+    )
+
+    const json = await response.json()
+
+    if (json) {
+      let fileExtension
+
+      const LINUX_EXTENSION = 'neo-cli-linux-x64.zip'
+      const MAC_EXTENSION = 'neo-cli-osx-x64.zip'
+      const WINDOWS_EXTENSION = 'neo-cli-win-x64.zip'
+
+      if (window.navigator.userAgent.includes('Windows'))
+        fileExtension = WINDOWS_EXTENSION
+      if (window.navigator.userAgent.includes('Mac'))
+        fileExtension = MAC_EXTENSION
+      if (window.navigator.userAgent.includes('Linux'))
+        fileExtension = LINUX_EXTENSION
+      const asset = json.assets.find(asset =>
+        asset.browser_download_url.includes(fileExtension),
+      )
+
+      this.setState({
+        downloadLink: asset.browser_download_url,
+      })
+    }
+  }
+
   render() {
     const columns = [
       { name: 'Height', accessor: 'index' },
@@ -19,21 +53,31 @@ class LandingPage extends React.Component {
     ]
 
     const { filteredBlocks } = this.props
+    const { downloadLink } = this.state
 
     return (
       <div id="landing-page">
         <div id="call-to-action">
-          <h1>NEO3 Download</h1>
+          <h1>Start building on Neo3</h1>
           <div id="call-to-action-content">
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              Vestibulum placerat arcu a felis porta, a fringilla augue blandit.
-              Proin maximus at libero sit amet.
+              Be amongst the first to start developing on Neo3 and explore its
+              new features and optimizations. Preview releases are available
+              now.
             </p>
             <div id="call-to-action-button-container">
-              <Button secondary>Get Started</Button>
+              <a
+                href="https://github.com/hal0x2328/neo3-privatenet-tutorial"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Button secondary>Get Started</Button>
+              </a>
               <span> or skip the tutorial</span>
-              <Button>Download Now</Button>
+
+              <a href={downloadLink}>
+                <Button>Download Now</Button>
+              </a>
             </div>
           </div>
         </div>
@@ -53,7 +97,6 @@ class LandingPage extends React.Component {
         <div id="lading-page-block-list-container">
           <List
             handleRowClick={row =>
-              // NOTE: this is beause querying the API by block hash is currently not working
               this.props.history.push(
                 `/block/${
                   this.props.blocks.find(block => block.hash === row.hash)
