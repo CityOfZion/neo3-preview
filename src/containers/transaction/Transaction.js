@@ -5,13 +5,11 @@ import NeoConvertor from 'neo-convertor'
 import { isEmpty } from 'lodash-es'
 
 import { fetchTransaction } from '../../actions/transactionActions'
-import { disassemble } from '../../actions/disassembleActions'
+import { disassemble } from '../../utils/disassemble'
 import Panel from '../../components/panel/Panel'
 import { CONVERT_TO_DECIMAL, TRANSFER, ASSETS } from '../../constants'
 import Transfer from '../../components/transfer/Transfer'
 import Spinner from '../../components/spinner/Spinner'
-
-// import './Block.css'
 
 const generateTransfersArr = async transaction => {
   const transfers = []
@@ -178,14 +176,16 @@ class Block extends React.Component {
             <div className="secondary-panels-row">
               <div className="secondary-panels-column">
                 <div className="bold-subtitle"> Opcode invocation script</div>
-                <Panel style={pre} secondary value={disassemble(transaction.witnesses[0].invocation)} />
+                <Panel
+                  style={pre}
+                  secondary
+                  value={disassemble(transaction.witnesses[0].invocation)}
+                />
               </div>
               <div className="secondary-panels-column">
-                <div className="bold-subtitle">
-                  {' '}
-                  Opcode verification script
-                </div>
-                <Panel style={pre}
+                <div className="bold-subtitle"> Opcode verification script</div>
+                <Panel
+                  style={pre}
                   secondary
                   value={disassemble(transaction.witnesses[0].verification)}
                 />
@@ -195,7 +195,11 @@ class Block extends React.Component {
             <div className="secondary-panels-row">
               <div className="secondary-panels-column">
                 <div className="bold-subtitle">Script</div>
-                <Panel style={pre} secondary value={disassemble(transaction.script)} />
+                <Panel
+                  style={pre}
+                  secondary
+                  value={disassemble(transaction.script)}
+                />
               </div>
               <div className="secondary-panels-column">
                 <div className="bold-subtitle"></div>
