@@ -231,6 +231,8 @@ const opcodetable = {
 
 export function disassemble(script) {
   let out = ''
+  if (script === undefined) return out
+
   // resolve all interop method names to 32-bit hash
   let interopmethod = {}
   for (let i = 0; i < methodnames.length; i++) {
@@ -242,11 +244,11 @@ export function disassemble(script) {
 
   // disassemble
   for (let i = 0; i < script.length; i += 2) {
+    let inst
     let opcode = script.slice(i, i + 2)
-    let opcodedata = opcodetable[opcode]
-
-    if (opcodedata) {
-      let inst = opcodedata.name
+    if (opcodetable.hasOwnProperty(opcode)) {
+      const opcodedata = opcodetable[opcode]
+      inst = opcodedata.name
 
       if (opcodedata.name === 'SYSCALL') {
         const hash = script.slice(i + 2, i + 10)
@@ -262,20 +264,23 @@ export function disassemble(script) {
           inst += ' ' + fulldata
         }
       } else if (opcodedata.type === 'read') {
-        let datalen = parseInt(
+        const datalen = parseInt(
           script.slice(i + 2, i + 2 + opcodedata.size * 2),
-          16,
+          16
         )
-        let start = i + 2 + opcodedata.size * 2
-        let fulldata = script.slice(start, start + datalen)
+        const start = i + 2 + opcodedata.size * 2
+        const fulldata = script.slice(start, start + datalen)
         if (fulldata.length > maxarglen) {
           inst += ' ' + fulldata.slice(0, maxarglen) + '...'
         } else {
           inst += ' ' + fulldata
         }
+        i += parseInt(opcodedata.size) * 2
+      }
+      else {
+        inst = 'INVALID_OPCODE'
       }
       out += inst + '\n'
-      i += parseInt(opcodedata.size) * 2
     }
   }
   return out
