@@ -1,10 +1,13 @@
 #call-to-action {
   background-color: var(--secondary-blue);
-  padding: 24px;
+  padding: 12px;
   margin: 12px 24px 24px 12px;
-  // margin-bottom: 48px;
-  // padding: 24px 12px;
   border-radius: 3px;
+
+  h1 {
+    margin-left: 24px !important;
+    margin-top: 12px;
+  }
 }
 
 #call-to-action-content {
@@ -39,14 +42,14 @@
 
 #statistics-card-container {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   flex-wrap: wrap;
-  padding: 12px 0;
-  margin-bottom: 12px;
+  padding: 0;
+  margin-bottom: 24px;
 }
 
 #landing-page h1 {
-  margin-left: 24px;
+  margin-left: 12px;
 }
 
 .statistic {
@@ -77,9 +80,13 @@
   }
 }
 
+.last-5-blocks-header {
+  margin-top: 12px;
+}
+
 #lading-page-block-list-container {
-  padding: 12px 24px;
-  margin-bottom: 12px;
+  padding: 12px;
+  margin-bottom: 24px;
 }
 
 .list-block-height-container img {
@@ -106,11 +113,6 @@
   }
   #call-to-action-content {
     flex-direction: column;
-    // max-height: 190px;
-
-    // p {
-    //   margin-right: 0;
-    // }
   }
 
   #call-to-action-button-container {
@@ -139,7 +141,6 @@
   }
 
   #call-to-action {
-    /* background-color: var(--secondary-blue); */
     padding: 12px;
     margin: 12px 6px 24px 6px;
 

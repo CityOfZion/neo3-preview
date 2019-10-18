@@ -67,9 +67,10 @@
 #mobile-coz-logo {
   display: none;
 }
-/* #mobile-navigation {
 
-} */
+#mobile-navigation {
+  display: none;
+}
 
 /* Position and sizing of burger button */
 .bm-burger-button {
@@ -202,6 +203,9 @@ Note: Beware of modifying this element as it can break the animations - you shou
 }
 
 @media only screen and (max-width: 810px) {
+  #mobile-navigation {
+    display: block;
+  }
   .bm-burger-button {
     display: block;
   }

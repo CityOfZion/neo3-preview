@@ -18,6 +18,17 @@
   padding: 24px;
 }
 
+@media only screen and (min-width: 1441px) {
+  .content {
+    margin: auto;
+    max-width: 1440px;
+  }
+
+  #root {
+    overflow-x: hidden;
+  }
+}
+
 @media only screen and (max-width: 1000px) {
   .wrapper {
     padding: 12px;

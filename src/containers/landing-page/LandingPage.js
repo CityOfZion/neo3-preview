@@ -84,7 +84,7 @@ class LandingPage extends React.Component {
 
         <h1> Statistics</h1>
         <StatsCards />
-        <div className="header-and-link">
+        <div className="header-and-link last-5-blocks-header">
           <h1> Last 5 Blocks</h1>
           <div
             className="link"

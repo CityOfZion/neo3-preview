@@ -1,8 +1,3 @@
-// .ReactModal__Html--open,
-// .ReactModal__Body--open {
-//   overflow: hidden; /* prevents background page from scrolling when the modal is open */
-// }
-
 .feature-detailed-description-container {
   max-height: 75vh;
   display: flex;
@@ -14,12 +9,9 @@
   display: flex;
   flex-direction: column;
   background-color: var(--secondary-blue);
-  // max-width: 250px;
-  // min-width: 200px;
   margin: 10px;
   padding: 24px;
   border-radius: 3px;
-  // flex: 0.25;
   width: 100%;
   text-align: center;
 
@@ -89,7 +81,6 @@
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
-  margin-bottom: 24px;
   padding: 24px;
 }
 
