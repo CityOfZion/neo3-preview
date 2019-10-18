@@ -12,7 +12,7 @@ export const articles = [
     link:
       'https://neonewstoday.com/development/send-neofs-web-service-launched-allowing-users-to-easily-upload-files-to-the-neofs-testnet/',
     image: neofs,
-    date: 'October 13th 20019',
+    date: 'October 13th 2019',
   },
   {
     title:
@@ -20,14 +20,14 @@ export const articles = [
     link:
       'https://neonewstoday.com/development/neo-spcc-releases-locally-deployable-neofs-and-sdk-plans-october-testnet-launch/',
     image: neofsLocal,
-    date: 'October 2nd 20019',
+    date: 'October 2nd 2019',
   },
   {
     title: 'Behind PR 149: a bright future for NeoVM and NEO3 ',
     link:
       'https://medium.com/neo-smart-economy/behind-pr-149-a-bright-future-for-neovm-and-neo-3-3b779e8749c4',
     image: neovm,
-    date: 'September 20th 20019',
+    date: 'September 20th 2019',
   },
 
   {
@@ -35,14 +35,14 @@ export const articles = [
     link:
       'https://medium.com/neo-smart-economy/on-the-importance-of-oracles-neo-3-0-and-dbft-17c37ee35f32',
     image: oracles,
-    date: 'September 19th 20019',
+    date: 'September 19th 2019',
   },
   {
     title: 'Scoped Witnesses: How to Securely Transfer Assets on NEO3',
     link:
       'https://medium.com/neo-smart-economy/scoped-witnesses-how-to-securely-transfer-assets-on-neo-3-6ac012221188',
     image: scopedWitnesses,
-    date: 'September 16th 20019',
+    date: 'September 16th 2019',
   },
 
   {
@@ -50,6 +50,6 @@ export const articles = [
     link:
       'https://neonewstoday.com/development/ngd-releases-neo3-preview1-build-launches-first-neo3-testnet/',
     image: preview,
-    date: 'September 16th 20019',
+    date: 'September 16th 2019',
   },
 ]
