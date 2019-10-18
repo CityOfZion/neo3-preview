@@ -8,6 +8,7 @@ import './LandingPage.scss'
 import FeatureCards from '../../components/feature-cards/FeatureCards'
 import NewsArticles from '../../components/news-articles/NewsArticles'
 import StatsCards from '../../components/stats-cards/StatsCards'
+import { blockListStub } from '../../utils/blockListStub'
 
 class LandingPage extends React.Component {
   state = {
@@ -52,8 +53,10 @@ class LandingPage extends React.Component {
       { name: 'Created On', accessor: 'time' },
     ]
 
-    const { filteredBlocks } = this.props
+    const { filteredBlocks, isLoading } = this.props
     const { downloadLink } = this.state
+
+    console.log(JSON.stringify(filteredBlocks))
 
     return (
       <div id="landing-page">
@@ -105,7 +108,8 @@ class LandingPage extends React.Component {
               )
             }
             columns={columns}
-            data={filteredBlocks}
+            data={isLoading ? blockListStub : filteredBlocks}
+            isLoading={isLoading}
           ></List>
         </div>
         <h1> NEO3 Features</h1>

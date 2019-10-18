@@ -38,6 +38,7 @@ export const NewsArticles = React.memo(({ numberOfCards }) => {
           infiniteLoop
           classes={classes}
           chevronWidth={40}
+          disableSwipe
         >
           {articles.map(article => (
             <a

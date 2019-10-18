@@ -244,36 +244,39 @@ export function disassemble(script) {
   for (let i = 0; i < script.length; i += 2) {
     let opcode = script.slice(i, i + 2)
     let opcodedata = opcodetable[opcode]
-    let inst = opcodedata.name
 
-    if (opcodedata.name === 'SYSCALL') {
-      const hash = script.slice(i + 2, i + 10)
-      inst += ' ' + interopmethod[hash]
-    } else if (opcodedata.type === 'int') {
-      inst +=
-        ' ' + parseInt(script.slice(i + 2, i + 2 + opcodedata.size * 2), 16)
-    } else if (opcodedata.type === 'bytes') {
-      let fulldata = script.slice(i + 2, i + 2 + opcodedata.size * 2)
-      if (fulldata.length > maxarglen) {
-        inst += ' ' + fulldata.slice(0, maxarglen) + '...'
-      } else {
-        inst += ' ' + fulldata
+    if (opcodedata) {
+      let inst = opcodedata.name
+
+      if (opcodedata.name === 'SYSCALL') {
+        const hash = script.slice(i + 2, i + 10)
+        inst += ' ' + interopmethod[hash]
+      } else if (opcodedata.type === 'int') {
+        inst +=
+          ' ' + parseInt(script.slice(i + 2, i + 2 + opcodedata.size * 2), 16)
+      } else if (opcodedata.type === 'bytes') {
+        let fulldata = script.slice(i + 2, i + 2 + opcodedata.size * 2)
+        if (fulldata.length > maxarglen) {
+          inst += ' ' + fulldata.slice(0, maxarglen) + '...'
+        } else {
+          inst += ' ' + fulldata
+        }
+      } else if (opcodedata.type === 'read') {
+        let datalen = parseInt(
+          script.slice(i + 2, i + 2 + opcodedata.size * 2),
+          16,
+        )
+        let start = i + 2 + opcodedata.size * 2
+        let fulldata = script.slice(start, start + datalen)
+        if (fulldata.length > maxarglen) {
+          inst += ' ' + fulldata.slice(0, maxarglen) + '...'
+        } else {
+          inst += ' ' + fulldata
+        }
       }
-    } else if (opcodedata.type === 'read') {
-      let datalen = parseInt(
-        script.slice(i + 2, i + 2 + opcodedata.size * 2),
-        16,
-      )
-      let start = i + 2 + opcodedata.size * 2
-      let fulldata = script.slice(start, start + datalen)
-      if (fulldata.length > maxarglen) {
-        inst += ' ' + fulldata.slice(0, maxarglen) + '...'
-      } else {
-        inst += ' ' + fulldata
-      }
+      out += inst + '\n'
+      i += parseInt(opcodedata.size) * 2
     }
-    out += inst + '\n'
-    i += parseInt(opcodedata.size) * 2
   }
   return out
 }

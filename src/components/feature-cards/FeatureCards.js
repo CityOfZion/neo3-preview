@@ -98,6 +98,7 @@ export const FeatureCards = ({ numberOfCards }) => {
           infiniteLoop
           classes={classes}
           chevronWidth={40}
+          disableSwipe
         >
           {features.map(feature => (
             <div key={feature.title} className="feature-card">
