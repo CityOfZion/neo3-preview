@@ -13,6 +13,7 @@
   .news-article {
     padding: 0px;
     border-bottom: solid 3px transparent;
+    min-width: 276px;
 
     &:hover {
       border-bottom: solid 3px #02e49b;
