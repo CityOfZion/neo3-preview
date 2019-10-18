@@ -23,11 +23,11 @@ const StatsCards = ({ stats }) => {
         </div>
 
         <div id="statistics-card-container" className="stats-as-columns">
-          <div class="column">
+          <div className="column">
             <Card value={formatNumber(addresses)} detail="Total Addresses" />
             <Card value={formatNumber(height)} detail="Blocks Produced" />
           </div>
-          <div class="column">
+          <div className="column">
             <Card
               value={formatNumber(transactions)}
               detail="Total Transactions"
@@ -47,11 +47,11 @@ const StatsCards = ({ stats }) => {
         <Card value="" detail="" />
       </div>
       <div id="statistics-card-container" className="stats-as-columns">
-        <div class="column">
+        <div className="column">
           <Card value="" detail="" />
           <Card value="" detail="" />
         </div>{' '}
-        <div class="column">
+        <div className="column">
           <Card value="" detail="" />
           <Card value="" detail="" />
         </div>

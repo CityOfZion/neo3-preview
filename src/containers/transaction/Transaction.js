@@ -74,7 +74,11 @@ class Block extends React.Component {
     }
   }
 
-  async componentDidUpdate() {
+  async componentDidUpdate(prevProps) {
+    const id = this.props.match.params.id
+    if (prevProps.match.params.id !== id) {
+      this.props.fetchBlock(id)
+    }
     if (!isEmpty(this.props.transaction) && !this.state.hasParsedTransfers) {
       const transfers = await generateTransfersArr(this.props.transaction)
       this.setState({ transfers, hasParsedTransfers: true })

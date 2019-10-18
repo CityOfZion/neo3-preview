@@ -38,6 +38,13 @@ class Block extends React.Component {
     this.props.fetchBlock(id)
   }
 
+  componentDidUpdate(prevProps) {
+    const id = this.props.match.params.id
+    if (prevProps.match.params.id !== id) {
+      this.props.fetchBlock(id)
+    }
+  }
+
   render() {
     const { block, isLoading } = this.props
 

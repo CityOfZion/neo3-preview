@@ -57,6 +57,13 @@ class Address extends React.Component {
     this.props.fetchAddressTransferHistory(id)
   }
 
+  componentDidUpdate(prevProps) {
+    const id = this.props.match.params.id
+    if (prevProps.match.params.id !== id) {
+      this.props.fetchBlock(id)
+    }
+  }
+
   render() {
     const {
       requestedAddress,
