@@ -56,8 +56,6 @@ class LandingPage extends React.Component {
     const { filteredBlocks, isLoading } = this.props
     const { downloadLink } = this.state
 
-    console.log(JSON.stringify(filteredBlocks))
-
     return (
       <div id="landing-page">
         <div id="call-to-action">
