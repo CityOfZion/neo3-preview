@@ -59,7 +59,6 @@ export const features = [
         <br />
         <br />
         <div className="feature-links-container">
-          {/* <span>Links:</span> */}
           <a
             href="https://docs.neo.org/developerguide/en/articles/consensus/consensus_algorithm.html"
             target="_blank"
@@ -122,7 +121,6 @@ export const features = [
         <br />
         <br />
         <div className="feature-links-container">
-          {/* <span>Links:</span> */}
           <a
             href="https://github.com/neo-ngd/NEO3-Development-Guide/tree/master/en/NeoVM#neo-virtual-machine"
             target="_blank"

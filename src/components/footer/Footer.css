@@ -6,7 +6,6 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  /* max-width: 1440px; */
 }
 
 .footer-flex-container {
@@ -45,12 +44,5 @@
 
   .footer-flex-container {
     margin: 6px;
-  }
-}
-
-@media only screen and (min-width: 1440px) {
-  .footer {
-    /* width: 100%; */
-    /* margin: auto; */
   }
 }
