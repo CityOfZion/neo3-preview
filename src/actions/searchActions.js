@@ -37,16 +37,25 @@ export const clearSearchInputState = () => dispatch => {
   })
 }
 
+export const CLEAR_SEARCH_INPUT_ENTERED_ERROR =
+  'CLEAR_SEARCH_INPUT_ENTERED_ERROR'
+export const clearSearchInputError = () => dispatch => {
+  dispatch({
+    type: CLEAR_SEARCH_INPUT_ENTERED_ERROR,
+  })
+}
+
 export function handleSearchInput(rawSearch) {
   const search = rawSearch.replace(',', '')
   return async (dispatch, getState) => {
     dispatch(searchInputEntered(search))
-    dispatch(closeMenu())
+
     try {
       const searchType = await determineSearchType(search)
       // TODO: returning the json here would prevent duplicate requests
       // but will introduce added complexity
       if (searchType) {
+        dispatch(closeMenu())
         dispatch(searchInputEnteredSuccess(search, searchType))
         return dispatch(clearSearchInputState())
       }

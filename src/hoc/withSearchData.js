@@ -2,7 +2,10 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
 
-import { handleSearchInput } from '../actions/searchActions'
+import {
+  handleSearchInput,
+  clearSearchInputError,
+} from '../actions/searchActions'
 import { SEARCH_TYPES } from '../constants'
 
 const mapStateToProps = ({ search }) => ({
@@ -11,6 +14,7 @@ const mapStateToProps = ({ search }) => ({
 
 const mapDispatchToProps = dispatch => ({
   handleSearchInput: search => dispatch(handleSearchInput(search)),
+  clearSearchInputError: () => dispatch(clearSearchInputError()),
 })
 
 function withSearchData(WrappedComponent) {

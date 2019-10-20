@@ -84,8 +84,9 @@ export const Navigation = props => {
     openMenu,
     closeMenu,
     handleSearchInput,
-
     shouldClearSearch,
+    error,
+    clearSearchInputError,
   } = props
 
   return (
@@ -113,7 +114,9 @@ export const Navigation = props => {
         <div className="mobile-navigation-links-container">
           <NavigationLinks closeMenu={closeMenu} isMobile />
           <Search
+            error={error}
             handleSearch={search => handleSearchInput(search)}
+            clearSearchInputError={clearSearchInputError}
             shouldClearSearch={shouldClearSearch}
           />
         </div>
@@ -128,6 +131,8 @@ export const Navigation = props => {
         </div>
         <div id="desktop-links-and-search-container">
           <Search
+            error={error}
+            clearSearchInputError={clearSearchInputError}
             handleSearch={search => handleSearchInput(search)}
             shouldClearSearch={shouldClearSearch}
           />

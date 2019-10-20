@@ -30,6 +30,10 @@
   }
 }
 
+.search-error {
+  outline: red auto 5px;
+}
+
 @media screen and (-webkit-min-device-pixel-ratio: 0) {
   #search-input {
     input {

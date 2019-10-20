@@ -3,6 +3,7 @@ import {
   SEARCH_INPUT_ENTERED_SUCCESS,
   SEARCH_INPUT_ENTERED_ERROR,
   CLEAR_SEARCH_INPUT_STATE,
+  CLEAR_SEARCH_INPUT_ENTERED_ERROR,
 } from '../actions/searchActions'
 
 export default (
@@ -11,6 +12,7 @@ export default (
     searchType: null,
     searchValue: null,
     shouldClearSearch: false,
+    error: false,
   },
   action,
 ) => {
@@ -30,6 +32,12 @@ export default (
     case SEARCH_INPUT_ENTERED_ERROR:
       return Object.assign({}, state, {
         isSearching: false,
+        error: true,
+      })
+    case CLEAR_SEARCH_INPUT_ENTERED_ERROR:
+      return Object.assign({}, state, {
+        isSearching: false,
+        error: false,
       })
     case CLEAR_SEARCH_INPUT_STATE:
       return Object.assign({}, state, {
@@ -37,6 +45,7 @@ export default (
         searchType: null,
         searchValue: null,
         shouldClearSearch: false,
+        error: false,
       })
     default:
       return state
