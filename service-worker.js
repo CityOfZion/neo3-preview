@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/neo-3-preview/precache-manifest.e3a9043b14a2f5c2cafda77ca86bdeeb.js"
+  "/neo-3-preview/precache-manifest.63725672923c5dbae461b6e73804e09e.js"
 );
 
 self.addEventListener('message', (event) => {
