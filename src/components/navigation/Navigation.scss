@@ -40,6 +40,12 @@
   flex-direction: column;
 }
 
+#coz-logo-home-link {
+  &:hover {
+    text-decoration: none !important;
+  }
+}
+
 .logo-sub-text p {
   display: flex;
   align-items: center;
