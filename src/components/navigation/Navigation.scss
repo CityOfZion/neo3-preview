@@ -10,6 +10,10 @@
   margin: 0 24px;
 }
 
+#burger-menu-icon {
+  cursor: pointer;
+}
+
 #navigation a {
   margin: 24px;
   font-size: 17px;
@@ -73,11 +77,16 @@
 /* Position and sizing of burger button */
 .bm-burger-button {
   display: none;
-  position: fixed;
+  position: static;
   width: 36px;
   height: 30px;
-  right: 40px;
-  top: 22px;
+  right: 0;
+  top: 0;
+  margin: 24px 24px -52px auto;
+
+  button {
+    display: none;
+  }
 }
 
 /* Position and sizing of clickable cross button */
@@ -107,7 +116,7 @@ Note: Beware of modifying this element as it can break the animations - you shou
   font-size: 18px;
   color: #ffffff;
   text-align: right;
-  margin-top: -34px;
+  margin-top: -56px;
   position: absolute;
   right: 24px;
   cursor: pointer;

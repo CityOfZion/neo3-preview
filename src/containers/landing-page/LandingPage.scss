@@ -185,4 +185,13 @@
   .header-and-link a {
     margin-right: 12px;
   }
+
+  #call-to-action-button-container {
+    padding: 0;
+    justify-content: space-around;
+  }
+
+  #call-to-action {
+    max-height: 350px;
+  }
 }

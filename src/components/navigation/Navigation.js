@@ -91,7 +91,14 @@ export const Navigation = props => {
   return (
     <React.Fragment>
       <Menu
-        customBurgerIcon={<img src={menuIcon} alt="burger-menu" />}
+        customBurgerIcon={
+          <img
+            onClick={openMenu}
+            id="burger-menu-icon"
+            src={menuIcon}
+            alt="burger-menu"
+          />
+        }
         width={'100%'}
         id="mobile-navigation"
         isOpen={mobileMenuIsOpen}

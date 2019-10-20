@@ -58,6 +58,11 @@
   justify-content: flex-end;
   margin: -55px 0 12px 0;
 
+  img {
+    padding: 0 6px;
+    cursor: pointer;
+  }
+
   img:first-child {
     margin-right: 24px;
   }
@@ -66,7 +71,7 @@
 @media only screen and (max-width: 810px) {
   .carousel-button-container {
     img {
-      max-width: 12px;
+      max-width: 24px;
     }
   }
 }

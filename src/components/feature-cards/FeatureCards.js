@@ -13,24 +13,24 @@ import { features } from './features'
 
 const customStyles = {
   content: {
-    top: '50%',
-    left: '50%',
-    right: 'auto',
-    bottom: 'auto',
-    marginRight: '-50%',
-    transform: 'translate(-50%, -50%)',
+    position: 'block',
+    margin: 'auto',
     opacity: 1,
     border: 'none',
     background: '#1F1F4B',
     width: '50vw',
-    minWidth: '350px',
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
     justifyContent: 'center',
-    maxHeight: '100vh',
+
+    inset: 0,
   },
-  overlay: { backgroundColor: 'rgba(0, 0, 51, .80)' },
+  overlay: {
+    backgroundColor: 'rgba(0, 0, 51, .80)',
+    display: 'flex',
+    overflow: 'auto',
+  },
 }
 
 const classes = {
@@ -72,8 +72,8 @@ export const FeatureCards = ({ numberOfCards }) => {
                 alt=""
               />
               <h1> {selectedFeature.title}</h1>
-              {selectedFeature.renderDetailedDescription()}
             </div>
+            {selectedFeature.renderDetailedDescription()}
           </div>
         </Modal>
       )}
