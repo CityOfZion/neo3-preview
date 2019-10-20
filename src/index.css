@@ -2,12 +2,15 @@
   font-family: 'Rajdhani', sans-serif;
 }
 
+html {
+  overflow: auto;
+}
+
 html,
 body {
   height: 100%;
   background-color: var(--primary-blue);
   color: #f9fafa;
-  overflow: auto;
 }
 
 body {

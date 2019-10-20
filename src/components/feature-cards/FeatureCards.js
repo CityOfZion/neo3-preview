@@ -18,12 +18,12 @@ const customStyles = {
     opacity: 1,
     border: 'none',
     background: '#1F1F4B',
-    width: '50vw',
+    width: '60vw',
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
     justifyContent: 'center',
-
+    maxWidth: '780px',
     inset: 0,
   },
   overlay: {

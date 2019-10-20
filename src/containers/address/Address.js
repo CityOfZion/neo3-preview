@@ -137,8 +137,3 @@ class Address extends React.Component {
 const AddressWithAddressData = withAddressData(Address)
 
 export default AddressWithAddressData
-
-// export default connect(
-//   mapStateToProps,
-//   mapDispatchToProps,
-// )(Block)

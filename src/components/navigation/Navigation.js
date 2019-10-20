@@ -23,7 +23,7 @@ export const PreviewLogo = () => (
         Brought to you by: <img alt="coz-logo" src={cozLogo}></img>
       </p>
     </div>
-    <div id="mobile-coz-logo" className="logo-sub-text" to="/">
+    <div id="mobile-coz-logo" to="/">
       <img alt="coz-logo" src={cozLogoMobile}></img>
     </div>
   </React.Fragment>
@@ -122,7 +122,7 @@ export const Navigation = props => {
         <div id="logo">
           <img id="neo-3-logo" src={neoLogo} alt="logo" />
           <div id="logo-spacer" />
-          <Link className="logo-sub-text" to="/">
+          <Link id="coz-logo-home-link" to="/">
             <PreviewLogo />
           </Link>
         </div>

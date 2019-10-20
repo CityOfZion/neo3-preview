@@ -1,5 +1,10 @@
 import React, { Fragment } from 'react'
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  withRouter,
+} from 'react-router-dom'
 
 import Footer from './components/footer/Footer'
 import Navigation from './components/navigation'
@@ -14,56 +19,76 @@ import Address from './containers/address/Address'
 
 import './App.css'
 
+class ScrollToTop extends React.Component {
+  componentDidUpdate(prevProps) {
+    if (
+      this.props.history.action === 'PUSH' ||
+      this.props.history.action === 'POP'
+    ) {
+      console.log('scrolling to top!')
+      window.scrollTo(0, 0)
+    }
+  }
+
+  render() {
+    return this.props.children
+  }
+}
+
+const ScrollToTopWithRouter = withRouter(ScrollToTop)
+
 export default () => (
   <Fragment>
     <div className="content">
       <Router>
-        <Navigation />
-        <div className="router-content">
-          <Switch>
-            <Route
-              path="/transactions"
-              component={props => <Transactions {...props} />}
-            />
-            <Route
-              path="/transaction/:id"
-              component={props => <Transaction {...props} />}
-            />
-            <Route
-              path="/block/:id"
-              component={props => <Block {...props} />}
-            />
-            <Route
-              path="/blocks/:page"
-              component={props => <Blocks {...props} />}
-              exact
-            />
-            <Route
-              path="/blocks"
-              component={props => <Blocks {...props} />}
-              exact
-            />
-            <Route
-              path="/contract/:id"
-              component={props => <Contract {...props} />}
-            />
-            <Route
-              path="/contracts/:page"
-              component={props => <Contracts {...props} />}
-              exact
-            />
-            <Route
-              path="/contracts"
-              component={props => <Contracts {...props} />}
-              exact
-            />
-            <Route
-              path="/address/:id"
-              component={props => <Address {...props} />}
-            />
-            <Route path="/" component={props => <LandingPage {...props} />} />
-          </Switch>
-        </div>
+        <ScrollToTopWithRouter>
+          <Navigation />
+          <div className="router-content">
+            <Switch>
+              <Route
+                path="/transactions"
+                component={props => <Transactions {...props} />}
+              />
+              <Route
+                path="/transaction/:id"
+                component={props => <Transaction {...props} />}
+              />
+              <Route
+                path="/block/:id"
+                component={props => <Block {...props} />}
+              />
+              <Route
+                path="/blocks/:page"
+                component={props => <Blocks {...props} />}
+                exact
+              />
+              <Route
+                path="/blocks"
+                component={props => <Blocks {...props} />}
+                exact
+              />
+              <Route
+                path="/contract/:id"
+                component={props => <Contract {...props} />}
+              />
+              <Route
+                path="/contracts/:page"
+                component={props => <Contracts {...props} />}
+                exact
+              />
+              <Route
+                path="/contracts"
+                component={props => <Contracts {...props} />}
+                exact
+              />
+              <Route
+                path="/address/:id"
+                component={props => <Address {...props} />}
+              />
+              <Route path="/" component={props => <LandingPage {...props} />} />
+            </Switch>
+          </div>
+        </ScrollToTopWithRouter>
       </Router>
     </div>
     <Footer />

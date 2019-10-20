@@ -14,7 +14,7 @@
   cursor: pointer;
 }
 
-#navigation a {
+#desktop_navigation_options a {
   margin: 24px;
   font-size: 17px;
   color: #ffffff;
@@ -38,7 +38,6 @@
 .logo-sub-text {
   display: flex;
   flex-direction: column;
-  margin: 0 0 0 12px !important;
 }
 
 .logo-sub-text p {
@@ -168,13 +167,24 @@ Note: Beware of modifying this element as it can break the animations - you shou
   }
 }
 
-@media only screen and (max-width: 1130px) {
+.logo-sub-text {
+  margin-left: 24px;
+}
+
+@media only screen and (max-width: 1200px) {
   #navigation {
     height: 112px;
   }
   #desktop-links-and-search-container {
     flex-direction: column;
     margin: 12px 24px 12px 12px;
+  }
+  #logo-spacer {
+    margin-left: 12px;
+  }
+
+  .logo-sub-text {
+    margin-left: 12px;
   }
 
   #desktop-links-and-search-container {
@@ -213,6 +223,7 @@ Note: Beware of modifying this element as it can break the animations - you shou
   #mobile-coz-logo {
     display: flex;
     align-items: center;
+    margin-left: 12px;
     img {
       max-width: 149px;
       max-height: 36px;
