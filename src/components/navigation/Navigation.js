@@ -1,6 +1,7 @@
 import React from 'react'
 import { NavLink, Link } from 'react-router-dom'
 import { slide as Menu } from 'react-burger-menu'
+import noScroll from 'no-scroll'
 
 import neoLogo from '../../images/neo-logo.svg'
 import cozLogo from '../../images/coz-logo.svg'
@@ -88,6 +89,15 @@ export const Navigation = props => {
     error,
     clearSearchInputError,
   } = props
+
+  // Prevent the background from scrolling if mobile nav is open
+  React.useEffect(() => {
+    if (mobileMenuIsOpen) {
+      noScroll.on()
+    } else {
+      noScroll.off()
+    }
+  }, [mobileMenuIsOpen])
 
   return (
     <React.Fragment>

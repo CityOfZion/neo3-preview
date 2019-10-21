@@ -115,15 +115,16 @@ Note: Beware of modifying this element as it can break the animations - you shou
   padding: 2.5em 1.5em 0;
   font-size: 1.15em;
   overflow: hidden !important;
+  margin-top: -24px;
 }
 
 #close-mobile-menu-button {
   font-size: 18px;
   color: #ffffff;
   text-align: right;
-  margin-top: -56px;
+  margin-top: -30px;
   position: absolute;
-  right: 24px;
+  right: 30px;
   cursor: pointer;
 }
 

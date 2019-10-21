@@ -5,6 +5,7 @@ import modalClose from '../../images/modal-close.svg'
 import chevronRight from '../../images/carousel/chevron-right.svg'
 import chevronLeft from '../../images/carousel/chevron-left.svg'
 import ItemsCarousel from 'react-items-carousel'
+import noScroll from 'no-scroll'
 
 import './FeatureCards.scss'
 
@@ -48,6 +49,16 @@ export const FeatureCards = ({ numberOfCards }) => {
   const selectedFeature = features.find(
     feature => feature.title === selectedFeatureTitle,
   )
+
+  // Prevent the background from scrolling if modal is open
+  React.useEffect(() => {
+    if (featureModalOpen) {
+      noScroll.on()
+    } else {
+      noScroll.off()
+    }
+  }, [featureModalOpen])
+
   return (
     <React.Fragment>
       {selectedFeature && (
