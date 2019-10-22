@@ -275,13 +275,14 @@ export function disassemble(script) {
         } else {
           inst += ' ' + fulldata
         }
-        i += parseInt(opcodedata.size) * 2
+        i += fulldata.length
       }
-      else {
-        inst = 'INVALID_OPCODE'
-      }
-      out += inst + '\n'
+      i += parseInt(opcodedata.size) * 2
     }
+    else {
+      inst = 'INVALID_OPCODE ' + opcode
+    }
+    out += inst + '\n'
   }
   return out
 }
