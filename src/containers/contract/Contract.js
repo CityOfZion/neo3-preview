@@ -32,7 +32,6 @@ class Contract extends React.Component {
           <div className="panels-container">
             <div className="panels-row">
               <Panel
-                valueStyle={{ fontSize: '12px' }}
                 title="Block"
                 value={
                   <div

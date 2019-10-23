@@ -63,11 +63,7 @@ class Block extends React.Component {
             <div className="panels-container">
               <div className="panels-row">
                 <Panel title="Index" value={block.index.toLocaleString()} />
-                <Panel
-                  valueStyle={{ fontSize: '12px' }}
-                  title="Hash"
-                  value={block.hash}
-                />
+                <Panel title="Hash" value={block.hash} />
               </div>
               <div className="panels-row">
                 <Panel title="Size" value={`${block.size} bytes`} />

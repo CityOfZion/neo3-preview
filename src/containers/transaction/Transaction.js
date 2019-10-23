@@ -121,11 +121,7 @@ class Block extends React.Component {
                 <Panel title="Size" value={`${transaction.size} bytes`} />
               </div>
               <div className="panels-row">
-                <Panel
-                  valueStyle={{ fontSize: '12px' }}
-                  title="Hash"
-                  value={transaction.hash}
-                />
+                <Panel title="Hash" value={transaction.hash} />
                 <Panel
                   title="Network Fee"
                   value={`${CONVERT_TO_DECIMAL(transaction.net_fee)} GAS`}
