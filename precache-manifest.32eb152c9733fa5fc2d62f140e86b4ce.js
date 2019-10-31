@@ -1,19 +1,19 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "9597e823ad7b27b1b4b5d9bb1d9af0c6",
+    "revision": "4b0a8dd6e3f648f886b35e24466f3158",
     "url": "/index.html"
   },
   {
-    "revision": "7bed302664b0e322bc46",
-    "url": "/static/css/main.dabb1d22.chunk.css"
+    "revision": "86b53d5fe61da982fb4d",
+    "url": "/static/css/main.aab3fddb.chunk.css"
   },
   {
-    "revision": "c1f8572e1d17e14d93ff",
-    "url": "/static/js/2.2d7380e8.chunk.js"
+    "revision": "35c30007e440602299d1",
+    "url": "/static/js/2.09532eaa.chunk.js"
   },
   {
-    "revision": "7bed302664b0e322bc46",
-    "url": "/static/js/main.3acdc5be.chunk.js"
+    "revision": "86b53d5fe61da982fb4d",
+    "url": "/static/js/main.a3907102.chunk.js"
   },
   {
     "revision": "d815e5f9d14b36e707b8",
@@ -64,20 +64,16 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/static/media/dual-token.3d55b6e7.svg"
   },
   {
-    "revision": "e7ff3f8b2a965311d8b2c70558baba77",
-    "url": "/static/media/fb-social.e7ff3f8b.svg"
-  },
-  {
     "revision": "5e4cf737326917a5b603d8081e80a681",
     "url": "/static/media/fs.5e4cf737.svg"
   },
   {
-    "revision": "475b127e6032894e697dabc03ab1aa5c",
-    "url": "/static/media/id.475b127e.svg"
+    "revision": "4fe41f53505ad943666c2805ce9bbfc9",
+    "url": "/static/media/github-social.4fe41f53.svg"
   },
   {
-    "revision": "19217fb37f4165663852eddee5d935e4",
-    "url": "/static/media/linkedin-social.19217fb3.svg"
+    "revision": "475b127e6032894e697dabc03ab1aa5c",
+    "url": "/static/media/id.475b127e.svg"
   },
   {
     "revision": "c8149587e21b04a4f495c06012cfd37b",
@@ -128,12 +124,12 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/static/media/signal.e9614480.svg"
   },
   {
-    "revision": "f78e390e844682127fb086764a9948a9",
-    "url": "/static/media/smart-contract.f78e390e.svg"
+    "revision": "252fb4a52cb4a68a44a336c92f8b6312",
+    "url": "/static/media/slack-social.252fb4a5.svg"
   },
   {
-    "revision": "2a85ba62f4801497b0f5f7057b1fc236",
-    "url": "/static/media/telegram-social.2a85ba62.svg"
+    "revision": "f78e390e844682127fb086764a9948a9",
+    "url": "/static/media/smart-contract.f78e390e.svg"
   },
   {
     "revision": "0c62a7a8973eecba9922d58534a97486",
