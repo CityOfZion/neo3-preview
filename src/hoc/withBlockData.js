@@ -28,6 +28,7 @@ const mapStateToProps = ({ blocks }) => ({
     [],
   blocks: blocks.list && blocks.list.map(mapBlockData),
   isLoading: blocks.isLoading,
+  totalCount: blocks.totalCount,
 })
 
 const mapDispatchToProps = dispatch => ({
@@ -41,7 +42,8 @@ export default function withBlockData(WrappedComponent) {
   )(
     class extends React.Component {
       componentDidMount() {
-        this.props.fetchBlocks()
+        const { page = 1 } = this.props.match.params
+        this.props.fetchBlocks(page)
       }
 
       render() {

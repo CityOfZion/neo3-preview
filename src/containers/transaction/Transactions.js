@@ -21,6 +21,7 @@ export const mapTxData = data => {
 class Transactions extends React.Component {
   state = {
     page: 1,
+    paginationData: '',
   }
 
   static defaultProps = {
@@ -34,6 +35,7 @@ class Transactions extends React.Component {
       { name: 'Created On', accessor: 'time' },
     ]
     const { transactions, isLoading } = this.props
+    const { paginationData } = this.state
 
     return (
       <div id="transactions-list">
@@ -41,10 +43,12 @@ class Transactions extends React.Component {
           <Spinner />
         ) : (
           <React.Fragment>
+            <div className="list-header-and-pagination-info-row">
+              <h1> Transactions </h1>
+              {paginationData && <span> {paginationData}</span>}
+            </div>
             <List
               handleRowClick={row =>
-                console.log(row) ||
-                // NOTE: this is beause querying the API by block hash is currently not working
                 this.props.history.push(`/transaction/${row.id}`)
               }
               rowId="hash"
@@ -56,6 +60,7 @@ class Transactions extends React.Component {
             <Pagination
               paginated={false}
               currPage={this.state.page}
+              returnPaginationData={this.handleUpdatePaginationData}
               handleSelectPage={page => {
                 if (!page) {
                   this.setState(state => ({
@@ -74,8 +79,16 @@ class Transactions extends React.Component {
   }
 
   loadNewTransactionPage = page => {
-    //this.props.history.push(`/transactions/${page}`)
     this.props.fetchTransactions(page)
+  }
+
+  handleUpdatePaginationData = data => {
+    const { beginningCount, endCount } = data
+
+    const paginationData = `Transactions ${beginningCount} to ${endCount}`
+    this.setState({
+      paginationData,
+    })
   }
 }
 

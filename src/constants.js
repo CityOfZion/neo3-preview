@@ -23,7 +23,7 @@ export const SEARCH_TYPES = {
 }
 
 export const GENERATE_BASE_URL = (net = 'test_net') =>
-  `https://5jcgfs9ixb.execute-api.us-east-1.amazonaws.com/api/${net}/v1`
+  `https://2708pm0epa.execute-api.us-east-1.amazonaws.com/dev/${net}/v1`
 
 // TODO: implement a much better solution
 export const CONVERT_TO_DECIMAL = value => value / 100000000

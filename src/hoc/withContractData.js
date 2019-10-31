@@ -9,7 +9,7 @@ const mapStateToProps = ({ contracts }) => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-  fetchContracts: () => dispatch(fetchContracts()),
+  fetchContracts: page => dispatch(fetchContracts(page)),
   fetchContract: hash => dispatch(fetchContract(hash)),
 })
 
@@ -20,7 +20,8 @@ export default function withContractData(WrappedComponent) {
   )(
     class extends React.Component {
       componentDidMount() {
-        this.props.fetchContracts()
+        const { page = 1 } = this.props.match.params
+        this.props.fetchContracts(page)
       }
 
       render() {

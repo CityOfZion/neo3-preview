@@ -6,6 +6,10 @@ import withBlockData from '../../hoc/withBlockData'
 import Spinner from '../../components/spinner/Spinner'
 
 class Blocks extends React.Component {
+  state = {
+    paginationData: '',
+  }
+
   static defaultProps = {
     blocks: [],
   }
@@ -18,8 +22,9 @@ class Blocks extends React.Component {
       { name: 'Created On', accessor: 'time' },
     ]
 
-    const { blocks, isLoading } = this.props
-    let { page = 1 } = this.props.match.params
+    const { blocks, isLoading, totalCount } = this.props
+    const { paginationData } = this.state
+    const { page = 1 } = this.props.match.params
 
     return (
       <div id="blocks-list">
@@ -27,11 +32,13 @@ class Blocks extends React.Component {
           <Spinner />
         ) : (
           <React.Fragment>
+            <div className="list-header-and-pagination-info-row">
+              <h1> Blocks </h1>
+              {totalCount && <span> {paginationData}</span>}
+            </div>
             <List
               isLoading={isLoading}
               handleRowClick={row =>
-                console.log(row) ||
-                // NOTE: this is beause querying the API by block hash is currently not working
                 this.props.history.push(
                   `/block/${
                     this.props.blocks.find(block => block.hash === row.hash)
@@ -45,6 +52,8 @@ class Blocks extends React.Component {
             <Pagination
               currPage={Number(page)}
               handleSelectPage={page => this.loadNewBlockPage(page)}
+              returnPaginationData={this.handleUpdatePaginationData}
+              totalCount={totalCount}
             />
           </React.Fragment>
         )}
@@ -55,6 +64,18 @@ class Blocks extends React.Component {
   loadNewBlockPage = page => {
     this.props.history.push(`/blocks/${page}`)
     this.props.fetchBlocks(page)
+  }
+
+  handleUpdatePaginationData = data => {
+    const { totalCount } = this.props
+    const { beginningCount, endCount } = data
+
+    const paginationData = `Blocks ${beginningCount} to ${endCount} of ${Number(
+      totalCount,
+    ).toLocaleString()}`
+    this.setState({
+      paginationData,
+    })
   }
 }
 
