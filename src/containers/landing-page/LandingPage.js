@@ -22,8 +22,6 @@ class LandingPage extends React.Component {
 
     const json = await response.json()
 
-    console.log({ json })
-
     if (json) {
       let fileExtension
 
