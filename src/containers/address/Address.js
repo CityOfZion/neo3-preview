@@ -40,7 +40,7 @@ const mapAssetDisplay = balanceInfo => {
 export const mapTransferData = data => {
   return {
     ...data,
-    time: moment(data.time).format('MM-DD-YYYY | MM:HH:SS'),
+    time: moment(data.time).format('MM-DD-YYYY | HH:mm:ss'),
     displayTransactionId: () => (
       <div className="list-block-height-container">
         <img src={transferIcon} alt="block-icon" className="block-icon" />

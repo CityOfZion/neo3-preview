@@ -8,7 +8,7 @@ import signal from '../images/signal.svg'
 export const mapBlockData = block => {
   return {
     ...block,
-    time: moment(block.time).format('MM-DD-YYYY | MM:HH:SS'),
+    time: moment(block.time).format('MM-DD-YYYY | HH:mm:ss'),
     index: () => (
       <div className="list-block-height-container">
         <img src={signal} alt="block-icon" className="block-icon" />

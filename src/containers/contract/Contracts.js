@@ -7,7 +7,7 @@ import moment from 'moment'
 
 const mapContractData = data => ({
   ...data,
-  time: moment(data.time).format('MM-DD-YYYY | MM:HH:SS'),
+  time: moment(data.time).format('MM-DD-YYYY | HH:mm:ss'),
   block: data.block,
 })
 
