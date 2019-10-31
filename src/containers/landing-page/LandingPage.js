@@ -17,7 +17,7 @@ class LandingPage extends React.Component {
 
   async componentDidMount() {
     const response = await fetch(
-      'https://api.github.com/repos/neo-project/neo-cli/releases/latest',
+      'https://api.github.com/repos/neo-project/neo-cli/releases',
     )
 
     const json = await response.json()
@@ -35,7 +35,10 @@ class LandingPage extends React.Component {
         fileExtension = MAC_EXTENSION
       if (window.navigator.userAgent.includes('Linux'))
         fileExtension = LINUX_EXTENSION
-      const asset = json.assets.find(asset =>
+
+      const release = json.find(release => release.name.includes('Neo CLI v3'))
+
+      const asset = release.assets.find(asset =>
         asset.browser_download_url.includes(fileExtension),
       )
 
