@@ -17,7 +17,7 @@ const mapDispatchToProps = dispatch => ({
   fetchBlock: id => dispatch(fetchBlock(id)),
 })
 
-const formattedTime = time => moment(time).format('MM-DD-YYYY | MM:HH:SS')
+const formattedTime = time => moment(time).format('MM-DD-YYYY | HH:mm:ss')
 
 export const mapTxData = data => {
   return {

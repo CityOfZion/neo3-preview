@@ -7,7 +7,7 @@ import { fetchTransactions } from '../actions/transactionActions'
 export const mapTransactionData = tx => {
   return {
     hash: tx.hash,
-    time: moment(tx.time).format('MM-DD-YYYY | MM:HH:SS'),
+    time: moment(tx.time).format('MM-DD-YYYY | HH:mm:ss'),
     size: `${tx.size} bytes`,
   }
 }

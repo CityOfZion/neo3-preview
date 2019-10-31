@@ -5,7 +5,7 @@ import Spinner from '../../components/spinner/Spinner'
 import withContractData from '../../hoc/withContractData'
 import Panel from '../../components/panel/Panel'
 
-const formattedTime = time => moment(time).format('MM-DD-YYYY | MM:HH:SS')
+const formattedTime = time => moment(time).format('MM-DD-YYYY | HH:mm:ss')
 
 class Contract extends React.Component {
   componentDidMount() {
