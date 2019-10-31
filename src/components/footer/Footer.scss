@@ -31,6 +31,13 @@
   opacity: 1;
 }
 
+#footer-social-icons {
+  a {
+    display: flex;
+    align-items: center;
+  }
+}
+
 @media only screen and (max-width: 810px) {
   .footer {
     flex-direction: column;
