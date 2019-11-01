@@ -1,5 +1,6 @@
 .carousel-news-article-container {
   padding: 24px 0;
+  margin: 0 12px;
   min-height: 350px;
   display: block;
   &:hover {
@@ -54,18 +55,33 @@
   justify-content: center;
 }
 
-.carousel-button-container {
+.carousel-button-and-header-container {
   display: flex;
-  justify-content: flex-end;
-  margin: -55px 0 12px 0;
+  justify-content: space-between;
 
-  img {
-    padding: 0 6px;
-    cursor: pointer;
+  h1 {
+    margin-left: 0 !important;
   }
 
-  img:first-child {
-    margin-right: 24px;
+  .carousel-button-container {
+    display: flex;
+    justify-content: flex-end;
+
+    img {
+      cursor: pointer;
+      opacity: 0.75;
+    }
+
+    img:hover {
+      opacity: 1;
+    }
+
+    img:first-child {
+      margin-right: 12px;
+    }
+    img:last-child {
+      margin-left: 12px;
+    }
   }
 }
 

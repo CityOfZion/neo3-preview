@@ -89,17 +89,20 @@ export const FeatureCards = ({ numberOfCards }) => {
         </Modal>
       )}
       <div className="feature-card-container carousel-news-article-container">
-        <div className="carousel-button-container">
-          <img
-            src={chevronLeft}
-            alt="chevron-left"
-            onClick={() => setActiveItemIndex(activeItemIndex - 1)}
-          />
-          <img
-            src={chevronRight}
-            alt="chevron-right"
-            onClick={() => setActiveItemIndex(activeItemIndex + 1)}
-          />
+        <div className="carousel-button-and-header-container">
+          <h1> Neo3 Features</h1>
+          <div className="carousel-button-container">
+            <img
+              src={chevronLeft}
+              alt="chevron-left"
+              onClick={() => setActiveItemIndex(activeItemIndex - 1)}
+            />
+            <img
+              src={chevronRight}
+              alt="chevron-right"
+              onClick={() => setActiveItemIndex(activeItemIndex + 1)}
+            />
+          </div>
         </div>
         <ItemsCarousel
           activeItemIndex={activeItemIndex}

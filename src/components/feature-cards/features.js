@@ -11,7 +11,7 @@ import voting from '../../images/features/voting.svg'
 
 export const features = [
   {
-    title: 'dBFT2.0',
+    title: 'dBFT 2.0',
     description:
       'A consensus algorithm with high stability, high TPS, and single block transaction finality.',
     image: dbft2,
@@ -149,7 +149,7 @@ export const features = [
     ),
   },
   {
-    title: 'SmartContract',
+    title: 'Smart Contract',
     description:
       'A smart contract system designed to be developer-friendly with support for multiple popular languages, cross-platform compatibility, and parallel execution.',
     image: smartContract,

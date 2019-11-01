@@ -10,6 +10,8 @@
 
 .router-content {
   padding: 24px 48px;
+  max-width: 1184px;
+  margin: auto;
 }
 
 .wrapper {
