@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 
 import { fetchBlocks } from '../actions/blockActions'
 import signal from '../images/signal.svg'
+import { convertMilliseconds } from '../utils/time'
 
 export const mapBlockData = block => {
   return {
@@ -17,6 +18,8 @@ export const mapBlockData = block => {
     ),
     size: `${block.size} bytes`,
     height: block.index,
+    transactions: block.txCount,
+    blocktime: convertMilliseconds(block.blocktime),
   }
 }
 
@@ -30,6 +33,14 @@ const mapStateToProps = ({ blocks }) => ({
   isLoading: blocks.isLoading,
   totalCount: blocks.totalCount,
 })
+
+const columns = [
+  { name: 'Height', accessor: 'index' },
+  { name: 'Size', accessor: 'size' },
+  { name: 'Transactions', accessor: 'transactions' },
+  { name: 'Created On', accessor: 'time' },
+  { name: 'Block Time', accessor: 'blocktime' },
+]
 
 const mapDispatchToProps = dispatch => ({
   fetchBlocks: index => dispatch(fetchBlocks(index)),
@@ -47,7 +58,7 @@ export default function withBlockData(WrappedComponent) {
       }
 
       render() {
-        return <WrappedComponent {...this.props} />
+        return <WrappedComponent columns={columns} {...this.props} />
       }
     },
   )

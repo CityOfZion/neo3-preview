@@ -15,14 +15,7 @@ class Blocks extends React.Component {
   }
 
   render() {
-    const columns = [
-      { name: 'Height', accessor: 'index' },
-      { name: 'Size', accessor: 'size' },
-      { name: 'Hash', accessor: 'hash' },
-      { name: 'Created On', accessor: 'time' },
-    ]
-
-    const { blocks, isLoading, totalCount } = this.props
+    const { blocks, isLoading, totalCount, columns } = this.props
     const { paginationData } = this.state
     const { page = 1 } = this.props.match.params
 
@@ -38,13 +31,9 @@ class Blocks extends React.Component {
             </div>
             <List
               isLoading={isLoading}
+              rowId="height"
               handleRowClick={row =>
-                this.props.history.push(
-                  `/block/${
-                    this.props.blocks.find(block => block.hash === row.hash)
-                      .height
-                  }`,
-                )
+                this.props.history.push(`/block/${row.id}`)
               }
               columns={columns}
               data={blocks}
