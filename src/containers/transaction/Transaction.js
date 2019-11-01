@@ -10,6 +10,8 @@ import Panel from '../../components/panel/Panel'
 import { CONVERT_TO_DECIMAL, TRANSFER, ASSETS } from '../../constants'
 import Transfer from '../../components/transfer/Transfer'
 import Spinner from '../../components/spinner/Spinner'
+import Button from '../../components/button/Button'
+import ExploreButton from '../../components/button/ExploreButton'
 
 const generateTransfersArr = async transaction => {
   const transfers = []
@@ -62,6 +64,8 @@ class Block extends React.Component {
   state = {
     transfers: [],
     hasParsedTransfers: false,
+    rawScriptIsOpen: false,
+    disassembledScriptIsOpen: false,
   }
 
   async componentDidMount() {
@@ -143,8 +147,19 @@ class Block extends React.Component {
               </div>
             </div>
 
-            <h1 className="panel-header">Raw Script</h1>
-            <div className="secondary-panels-row">
+            <div className="panel-header-and-explore-row">
+              <h1> Raw Script</h1>
+              <ExploreButton
+                handleOpen={isOpen =>
+                  this.setState({ rawScriptIsOpen: isOpen })
+                }
+              />
+            </div>
+
+            <div
+              className="secondary-panels-row"
+              style={{ display: this.state.rawScriptIsOpen ? 'flex' : 'none' }}
+            >
               <div className="secondary-panels-column">
                 <div className="bold-subtitle"> Bytecode invocation script</div>
                 <Panel secondary value={transaction.witnesses[0].invocation} />
@@ -161,7 +176,10 @@ class Block extends React.Component {
               </div>
             </div>
 
-            <div className="secondary-panels-row">
+            <div
+              className="secondary-panels-row"
+              style={{ display: this.state.rawScriptIsOpen ? 'flex' : 'none' }}
+            >
               <div className="secondary-panels-column">
                 <div className="bold-subtitle">Script</div>
                 <Panel secondary value={transaction.script} />
@@ -172,8 +190,21 @@ class Block extends React.Component {
               </div>
             </div>
 
-            <h1 className="panel-header">Disassembled Script</h1>
-            <div className="secondary-panels-row">
+            <div className="panel-header-and-explore-row">
+              <h1>Disassembled Script</h1>
+              <ExploreButton
+                handleOpen={isOpen =>
+                  this.setState({ disassembledScriptIsOpen: isOpen })
+                }
+              />
+            </div>
+
+            <div
+              className="secondary-panels-row"
+              style={{
+                display: this.state.disassembledScriptIsOpen ? 'flex' : 'none',
+              }}
+            >
               <div className="secondary-panels-column">
                 <div className="bold-subtitle"> Opcode invocation script</div>
                 <Panel
@@ -192,7 +223,12 @@ class Block extends React.Component {
               </div>
             </div>
 
-            <div className="secondary-panels-row">
+            <div
+              className="secondary-panels-row"
+              style={{
+                display: this.state.disassembledScriptIsOpen ? 'flex' : 'none',
+              }}
+            >
               <div className="secondary-panels-column">
                 <div className="bold-subtitle">Script</div>
                 <Panel

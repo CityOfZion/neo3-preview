@@ -70,6 +70,14 @@
   border-bottom: solid 2px #f9fafa;
 }
 
+.panel-header-and-explore-row {
+  margin: 24px 0 12px 0;
+  padding-bottom: 12px;
+  border-bottom: solid 2px #f9fafa;
+  display: flex;
+  justify-content: space-between;
+}
+
 .secondary-panel {
   min-width: 40% !important;
   flex: 1;
