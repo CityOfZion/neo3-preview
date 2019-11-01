@@ -31,14 +31,16 @@
     color: #f9fafa;
     text-align: center;
     line-height: 24px;
+    margin: 0;
   }
 
   button {
-    max-width: 129px;
-    max-height: 44px;
+    width: 129px;
+    height: 44px;
     margin-top: auto;
     margin-left: auto;
     margin-right: auto;
+    padding: 6px;
   }
 
   img {

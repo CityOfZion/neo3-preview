@@ -100,11 +100,9 @@ class LandingPage extends React.Component {
             isLoading={isLoading}
           ></List>
         </div>
-        <h1> NEO3 Features</h1>
 
         <FeatureCards />
 
-        <h1> Recent Articles</h1>
         <NewsArticles />
       </div>
     )

@@ -19,7 +19,7 @@ const activeStyle = {
 export const PreviewLogo = () => (
   <React.Fragment>
     <div id="desktop-coz-logo" className="logo-sub-text" to="/">
-      <h3> NEO3 Preview Explorer</h3>
+      <h3> Neo3 Preview Explorer</h3>
       <p>
         Brought to you by: <img alt="coz-logo" src={cozLogo}></img>
       </p>
@@ -132,13 +132,14 @@ export const Navigation = props => {
         </div>
       </Menu>
       <nav id="navigation">
-        <div id="logo">
-          <img id="neo-3-logo" src={neoLogo} alt="logo" />
-          <div id="logo-spacer" />
-          <Link id="coz-logo-home-link" to="/">
+        <Link id="coz-logo-home-link" to="/">
+          <div id="logo">
+            <img id="neo-3-logo" src={neoLogo} alt="logo" />
+            <div id="logo-spacer" />
+
             <PreviewLogo />
-          </Link>
-        </div>
+          </div>
+        </Link>
         <div id="desktop-links-and-search-container">
           <Search
             error={error}
