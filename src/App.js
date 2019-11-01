@@ -25,7 +25,6 @@ class ScrollToTop extends React.Component {
       this.props.history.action === 'PUSH' ||
       this.props.history.action === 'POP'
     ) {
-      console.log('scrolling to top!')
       window.scrollTo(0, 0)
     }
   }

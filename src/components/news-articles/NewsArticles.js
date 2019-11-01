@@ -31,7 +31,6 @@ export const NewsArticles = React.memo(({ numberOfCards }) => {
           />
         </div>
         <ItemsCarousel
-          requestToChangeActive={index => console.log({ index })}
           activeItemIndex={activeItemIndex}
           numberOfCards={numberOfCards}
           gutter={20}

@@ -51,6 +51,10 @@ export const mapTransferData = data => {
 }
 
 class Address extends React.Component {
+  state = {
+    paginationData: '',
+  }
+
   componentDidMount() {
     const id = this.props.match.params.id
     this.props.fetchAddress(id)
@@ -71,7 +75,9 @@ class Address extends React.Component {
       balance,
       transferHistory,
       transferHistoryPage,
+      totalCount,
     } = this.props
+    const { paginationData } = this.state
     const mappedBalanceData = balance.map(mapBalanceData).map(mapAssetDisplay)
     const mappedTransferData = transferHistory.map(mapTransferData)
     const balanceColumns = [
@@ -104,7 +110,10 @@ class Address extends React.Component {
             )}
           </div>
           <div id="address-transactions-list">
-            <h1> Transactions </h1>
+            <div className="list-header-and-pagination-info-row">
+              <h1> Transactions ({totalCount})</h1>
+              {totalCount && <span> {paginationData}</span>}
+            </div>
             {!!transferHistory.length && (
               <List
                 rowId="txid"
@@ -116,8 +125,10 @@ class Address extends React.Component {
               />
             )}
             <Pagination
+              returnPaginationData={this.handleUpdatePaginationData}
               paginated={false}
               currPage={Number(transferHistoryPage)}
+              totalCount={totalCount}
               handleSelectPage={page =>
                 this.props.fetchAddressTransferHistory(
                   requestedAddress,
@@ -131,6 +142,16 @@ class Address extends React.Component {
     ) : (
       <Spinner />
     )
+  }
+
+  handleUpdatePaginationData = data => {
+    const { totalCount } = this.props
+    const { beginningCount, endCount } = data
+
+    const paginationData = `Transactions ${beginningCount} to ${endCount} of ${totalCount}`
+    this.setState({
+      paginationData,
+    })
   }
 }
 

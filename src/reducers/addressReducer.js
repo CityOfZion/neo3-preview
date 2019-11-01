@@ -37,7 +37,8 @@ export default (
     case REQUEST_ADDRESS_TRANSFER_HISTORY_SUCCESS:
       return Object.assign({}, state, {
         transferHistoryLoading: false,
-        transferHistory: action.json,
+        transferHistory: action.json.items,
+        totalCount: action.json.totalCount,
         lastUpdated: action.receivedAt,
         transferHistoryPage: action.transferHistoryPage,
       })
