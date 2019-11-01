@@ -1,5 +1,6 @@
 .card {
   background-color: var(--secondary-blue);
+  border-top: 3px transparent solid;
   max-width: 276px;
   max-height: 95px !important;
   min-width: 150px;
@@ -19,6 +20,7 @@
   font-size: 30px;
   color: #f9fafa;
   text-align: center;
+  margin-top: -5px;
 }
 
 .card p {
