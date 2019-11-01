@@ -41,6 +41,7 @@ export const NewsArticles = React.memo(({ numberOfCards }) => {
           classes={classes}
           chevronWidth={40}
           disableSwipe
+          requestToChangeActive={() => undefined}
         >
           {articles.map(article => (
             <a

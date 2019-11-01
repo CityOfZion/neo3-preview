@@ -112,6 +112,7 @@ export const FeatureCards = ({ numberOfCards }) => {
           classes={classes}
           chevronWidth={40}
           disableSwipe
+          requestToChangeActive={() => undefined}
         >
           {features.map(feature => (
             <div key={feature.title} className="feature-card">

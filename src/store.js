@@ -44,6 +44,8 @@ export default function configureStore(initialState = INITIAL_STATE) {
   return createStore(
     rootReducer,
     initialState,
-    applyMiddleware(thunk, loggerMiddleware),
+    process.env.NODE_ENV === 'production'
+      ? applyMiddleware(thunk)
+      : applyMiddleware(thunk, loggerMiddleware),
   )
 }

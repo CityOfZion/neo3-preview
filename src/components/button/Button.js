@@ -16,8 +16,6 @@ export default ({
     'active-button': active,
     ...classes,
   })
-
-  console.log(btnClass)
   return (
     <button {...props} className={btnClass}>
       {children}
