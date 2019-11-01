@@ -49,14 +49,7 @@ class LandingPage extends React.Component {
   }
 
   render() {
-    const columns = [
-      { name: 'Height', accessor: 'index' },
-      { name: 'Size', accessor: 'size' },
-      { name: 'Hash', accessor: 'hash' },
-      { name: 'Created On', accessor: 'time' },
-    ]
-
-    const { filteredBlocks, isLoading } = this.props
+    const { filteredBlocks, isLoading, columns } = this.props
     const { downloadLink } = this.state
 
     return (
@@ -100,14 +93,8 @@ class LandingPage extends React.Component {
 
         <div id="lading-page-block-list-container">
           <List
-            handleRowClick={row =>
-              this.props.history.push(
-                `/block/${
-                  this.props.blocks.find(block => block.hash === row.hash)
-                    .height
-                }`,
-              )
-            }
+            rowId="height"
+            handleRowClick={row => this.props.history.push(`/block/${row.id}`)}
             columns={columns}
             data={isLoading ? blockListStub : filteredBlocks}
             isLoading={isLoading}
