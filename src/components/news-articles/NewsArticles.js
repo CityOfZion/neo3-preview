@@ -16,51 +16,52 @@ export const NewsArticles = React.memo(({ numberOfCards }) => {
   const [activeItemIndex, setActiveItemIndex] = useState(0)
 
   return (
-    <React.Fragment>
-      <div className="feature-card-container carousel-news-article-container">
-        <div className="carousel-button-and-header-container">
-          <h1> Recent Articles</h1>
-          <div className="carousel-button-container">
-            <img
-              src={chevronLeft}
-              alt="chevron-left"
-              onClick={() => setActiveItemIndex(activeItemIndex - 1)}
-            />
-            <img
-              src={chevronRight}
-              alt="chevron-right"
-              onClick={() => setActiveItemIndex(activeItemIndex + 1)}
-            />
-          </div>
+    <div
+      id="news-article-carousel-container"
+      className="feature-card-container carousel-news-article-container"
+    >
+      <div className="carousel-button-and-header-container">
+        <h1> Recent Articles</h1>
+        <div className="carousel-button-container">
+          <img
+            src={chevronLeft}
+            alt="chevron-left"
+            onClick={() => setActiveItemIndex(activeItemIndex - 1)}
+          />
+          <img
+            src={chevronRight}
+            alt="chevron-right"
+            onClick={() => setActiveItemIndex(activeItemIndex + 1)}
+          />
         </div>
-        <ItemsCarousel
-          activeItemIndex={activeItemIndex}
-          numberOfCards={numberOfCards}
-          gutter={20}
-          infiniteLoop
-          classes={classes}
-          chevronWidth={40}
-          disableSwipe
-          requestToChangeActive={() => undefined}
-        >
-          {articles.map(article => (
-            <a
-              key={article.title}
-              className="feature-card news-article"
-              href={article.link}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <div className="feature-card-title-container">
-                <img src={article.image} alt="" />
-                <span>{article.date}</span>
-                <h1> {article.title}</h1>
-              </div>
-            </a>
-          ))}
-        </ItemsCarousel>
       </div>
-    </React.Fragment>
+      <ItemsCarousel
+        activeItemIndex={activeItemIndex}
+        numberOfCards={numberOfCards}
+        gutter={20}
+        infiniteLoop
+        classes={classes}
+        chevronWidth={40}
+        disableSwipe
+        requestToChangeActive={() => undefined}
+      >
+        {articles.map(article => (
+          <a
+            key={article.title}
+            className="feature-card news-article"
+            href={article.link}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <div className="feature-card-title-container">
+              <img src={article.image} alt="" />
+              <span>{article.date}</span>
+              <h1> {article.title}</h1>
+            </div>
+          </a>
+        ))}
+      </ItemsCarousel>
+    </div>
   )
 })
 
