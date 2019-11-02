@@ -92,7 +92,7 @@
   margin-right: 12px;
 }
 
-@media only screen and (max-width: 1343px) {
+@media only screen and (max-width: 1175px) {
   #call-to-action-content p {
     flex: 1;
   }
@@ -156,8 +156,16 @@
     margin-right: 12px;
   }
   #lading-page-block-list-container {
-    padding: 12px;
+    padding: 12px 6px;
     margin-bottom: 12px;
+  }
+
+  .header-and-link .link {
+    margin-right: 6px;
+  }
+
+  #landing-page h1 {
+    margin-left: 6px;
   }
 
   #statistics-card-container {
@@ -177,10 +185,6 @@
 }
 
 @media only screen and (max-width: 400px) {
-  #landing-page h1 {
-    margin-left: 12px;
-  }
-
   .header-and-link a {
     margin-right: 12px;
   }

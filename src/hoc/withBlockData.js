@@ -5,6 +5,8 @@ import { connect } from 'react-redux'
 import { fetchBlocks } from '../actions/blockActions'
 import signal from '../images/signal.svg'
 import { convertMilliseconds } from '../utils/time'
+import useWindowWidth from '../hooks/useWindowWith'
+import { arrayExpression } from '@babel/types'
 
 export const mapBlockData = block => {
   return {
@@ -34,14 +36,6 @@ const mapStateToProps = ({ blocks }) => ({
   totalCount: blocks.totalCount,
 })
 
-const columns = [
-  { name: 'Height', accessor: 'index' },
-  { name: 'Size', accessor: 'size' },
-  { name: 'Transactions', accessor: 'transactions' },
-  { name: 'Created On', accessor: 'time' },
-  { name: 'Block Time', accessor: 'blocktime' },
-]
-
 const mapDispatchToProps = dispatch => ({
   fetchBlocks: index => dispatch(fetchBlocks(index)),
 })
@@ -50,16 +44,31 @@ export default function withBlockData(WrappedComponent) {
   return connect(
     mapStateToProps,
     mapDispatchToProps,
-  )(
-    class extends React.Component {
-      componentDidMount() {
-        const { page = 1 } = this.props.match.params
-        this.props.fetchBlocks(page)
-      }
+  )(props => {
+    const { page = 1 } = props.match.params
+    const { fetchBlocks } = props
+    const width = useWindowWidth()
 
-      render() {
-        return <WrappedComponent columns={columns} {...this.props} />
-      }
-    },
-  )
+    const columns = [
+      { name: 'Height', accessor: 'index' },
+      { name: 'Size', accessor: 'size' },
+      { name: 'Transactions', accessor: 'transactions' },
+      { name: 'Created On', accessor: 'time' },
+      { name: 'Block Time', accessor: 'blocktime' },
+    ]
+
+    if (width < 436) {
+      columns.forEach(
+        (column, i) => column.name === 'Transactions' && columns.splice(i, 1),
+      )
+    }
+
+    console.log({ width })
+
+    React.useEffect(() => {
+      fetchBlocks(page)
+    }, [page, fetchBlocks])
+
+    return <WrappedComponent columns={columns} {...props} />
+  })
 }
