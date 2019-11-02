@@ -87,6 +87,10 @@
 }
 
 @media only screen and (max-width: 810px) {
+  .carousel-news-article-container {
+    margin: 0 6px;
+  }
+
   .carousel-button-container {
     img {
       max-width: 24px;
