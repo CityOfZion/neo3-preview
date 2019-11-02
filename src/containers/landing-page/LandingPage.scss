@@ -72,9 +72,7 @@
 
   span {
     text-overflow: ellipsis;
-
     white-space: nowrap;
-
     overflow: hidden;
   }
 }
@@ -120,10 +118,7 @@
     padding-bottom: 12px;
     flex-direction: row;
     flex: 1;
-
-    span {
-      display: none;
-    }
+    justify-content: center;
   }
 }
 
@@ -152,8 +147,11 @@
   }
 
   #call-to-action p {
-    margin-left: 12px;
-    margin-right: 12px;
+    text-align: center;
+    padding: 0;
+    margin: 6px 6px 12px 6px;
+    max-width: 500px;
+    align-self: center;
   }
   #lading-page-block-list-container {
     padding: 12px 6px;
@@ -182,13 +180,27 @@
   }
 }
 
+@media only screen and (max-width: 525px) {
+  #call-to-action-button-container {
+    justify-content: space-around;
+    span {
+      display: none;
+    }
+  }
+}
+
 @media only screen and (max-width: 400px) {
   .header-and-link a {
     margin-right: 12px;
   }
 
+  #call-to-action h1 {
+    margin-top: 6px;
+  }
+
   #call-to-action-button-container {
     padding: 0;
+    margin-bottom: 6px;
     justify-content: space-around;
   }
 
