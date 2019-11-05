@@ -63,8 +63,6 @@ export default function withBlockData(WrappedComponent) {
       )
     }
 
-    console.log({ width })
-
     React.useEffect(() => {
       fetchBlocks(page)
     }, [page, fetchBlocks])
