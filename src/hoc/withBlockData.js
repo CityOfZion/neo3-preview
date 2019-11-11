@@ -6,7 +6,6 @@ import { fetchBlocks } from '../actions/blockActions'
 import signal from '../images/signal.svg'
 import { convertMilliseconds } from '../utils/time'
 import useWindowWidth from '../hooks/useWindowWith'
-import { arrayExpression } from '@babel/types'
 
 export const mapBlockData = block => {
   return {

@@ -10,7 +10,6 @@ import Panel from '../../components/panel/Panel'
 import { CONVERT_TO_DECIMAL, TRANSFER, ASSETS } from '../../constants'
 import Transfer from '../../components/transfer/Transfer'
 import Spinner from '../../components/spinner/Spinner'
-import Button from '../../components/button/Button'
 import ExploreButton from '../../components/button/ExploreButton'
 
 const generateTransfersArr = async transaction => {

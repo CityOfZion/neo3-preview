@@ -16,8 +16,12 @@ jobs:
           paths:
             - ./node_modules
       - run: # run tests
+          name: lint
+          # For now we will treat all warnings as errors https://github.com/facebook/create-react-app/issues/3657
+          command: npm run ci-lint
+      - run: # run tests
           name: test
-          command: npm test
+          command: npm run test
 
   deploy:
     docker:
