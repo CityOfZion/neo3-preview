@@ -1,0 +1,38 @@
+.notification-panel {
+  width: 100%;
+  background-color: var(--secondary-blue);
+}
+
+.notification-panel-header {
+  background: var(--green);
+  color: var(--primary-blue);
+  border-radius: 3px;
+  font-weight: 500;
+  font-size: 14px;
+  padding: 12px;
+  margin-bottom: 12px;
+}
+
+.notification-state-row-container {
+  display: flex;
+  align-items: center;
+  padding: 6px 12px;
+
+  span {
+    width: 20px;
+  }
+
+  p {
+    margin: 0 12px;
+    padding: 6px 12px;
+    border-radius: 3px;
+    font-weight: 500;
+    font-size: 14px;
+    letter-spacing: 0;
+    text-align: center;
+  }
+}
+
+.notification-state-row-container:last-child {
+  margin-bottom: 12px;
+}

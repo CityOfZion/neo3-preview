@@ -1,0 +1,16 @@
+.inner-select-container {
+  min-width: 125px;
+  margin-right: 12px;
+  border-right: solid 1px rgba(249, 250, 250, 0.3);
+}
+.select-container {
+  display: flex;
+  align-items: center;
+  background-color: var(--secondary-blue);
+  border-radius: 3px;
+  padding-right: 12px;
+}
+
+.react-select__indicator {
+  padding: 4px 8px !important;
+}

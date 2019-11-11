@@ -29,3 +29,21 @@ export const GENERATE_BASE_URL = (net = 'test_net') =>
 export const CONVERT_TO_DECIMAL = value => value / 100000000
 
 export const TRANSFER = '5472616e73666572'
+
+export const hexToAscii = str1 => {
+  const hex = str1.toString()
+  let str = ''
+  for (let n = 0; n < hex.length; n += 2) {
+    str += String.fromCharCode(parseInt(hex.substr(n, 2), 16))
+  }
+  return str
+}
+
+export const asciiToByteArray = str => {
+  var utf8 = unescape(encodeURIComponent(str))
+
+  var arr = []
+  for (var i = 0; i < utf8.length; i++) {
+    arr.push(utf8.charCodeAt(i))
+  }
+}

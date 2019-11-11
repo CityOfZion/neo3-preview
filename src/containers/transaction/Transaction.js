@@ -12,6 +12,7 @@ import Transfer from '../../components/transfer/Transfer'
 import Spinner from '../../components/spinner/Spinner'
 import Button from '../../components/button/Button'
 import ExploreButton from '../../components/button/ExploreButton'
+import Notification from '../../components/notification/Notification'
 
 const generateTransfersArr = async transaction => {
   const transfers = []
@@ -60,7 +61,7 @@ const mapDispatchToProps = dispatch => ({
 
 const formattedTime = time => moment(time).format('MM-DD-YYYY | HH:mm:ss')
 
-class Block extends React.Component {
+class Transaction extends React.Component {
   state = {
     transfers: [],
     hasParsedTransfers: false,
@@ -242,6 +243,12 @@ class Block extends React.Component {
                 <div className="secondary-panel hidden-panel" />
               </div>
             </div>
+            {transaction.Item.notifications.map(notification => (
+              <Notification
+                key={notification.contract}
+                notification={notification}
+              />
+            ))}
           </React.Fragment>
         ) : (
           <Spinner />
@@ -254,4 +261,4 @@ class Block extends React.Component {
 export default connect(
   mapStateToProps,
   mapDispatchToProps,
-)(Block)
+)(Transaction)
