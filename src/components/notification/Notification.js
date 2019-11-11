@@ -1,5 +1,6 @@
 import React from 'react'
 import Select from '../select/Select'
+import { Link } from 'react-router-dom'
 
 import ExploreButton from '../button/ExploreButton'
 import './Notification.scss'
@@ -10,7 +11,7 @@ const HEX_STRING_OPTION = {
   value: 'Hexstring',
   label: 'Hexstring',
   // BUG: assumes the input will always be plain string
-  // we need to create a better API here for conversion
+  // we need to create a better API here for
   convert: async value => asciiToByteArray(value),
 }
 
@@ -153,7 +154,12 @@ export const Notification = ({ notification }) => {
       <div className="panel-header-and-explore-row">
         <h1>
           Notifications
-          <div className="bold-subtitle"> {notification.contract}</div>
+          <div className="bold-subtitle">
+            <Link to={`/contract/${notification.contract}`}>
+              {' '}
+              {notification.contract}{' '}
+            </Link>
+          </div>
         </h1>
 
         <ExploreButton handleOpen={isOpen => setIsOpen(isOpen)} />
