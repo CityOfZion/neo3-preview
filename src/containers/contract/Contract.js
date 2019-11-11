@@ -5,6 +5,7 @@ import Spinner from '../../components/spinner/Spinner'
 import withContractData from '../../hoc/withContractData'
 import Panel from '../../components/panel/Panel'
 import ExploreButton from '../../components/button/ExploreButton'
+import Manifest from '../../components/manifest/Manifest'
 
 const formattedTime = time => moment(time).format('MM-DD-YYYY | HH:mm:ss')
 
@@ -68,6 +69,15 @@ class Contract extends React.Component {
             style={{ display: this.state.scriptIsOpen ? 'flex' : 'none' }}
           >
             <Panel secondary value={contract.script} />
+          </div>
+          <div className="panel-header-and-explore-row">
+            <h1>Manifest</h1>
+            <ExploreButton
+              handleOpen={isOpen => this.setState({ manifestIsOpen: isOpen })}
+            />
+          </div>
+          <div style={{ display: this.state.manifestIsOpen ? 'flex' : 'none' }}>
+            <Manifest manifest={contract.manifest} />
           </div>
         </div>
       </React.Fragment>
