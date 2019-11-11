@@ -9,10 +9,6 @@ import './ExpandingPanel.scss'
 const ExpandingPanel = ({ title, handleOpen, open, children }) => {
   const [isOpen, setIsOpen] = React.useState(open)
 
-  // React.useEffect(() => {
-  //   handleOpen(isOpen)
-  // }, [isOpen, handleOpen])
-
   return (
     <div className="expanding-panel-container">
       <div
