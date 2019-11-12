@@ -3,6 +3,7 @@
   "homepage": "http://neo3-preview.com",
   "version": "0.1.0",
   "private": true,
+  "license": "MIT",
   "dependencies": {
     "classnames": "^2.2.6",
     "crypto-js": "^3.1.9-1",
@@ -22,6 +23,7 @@
     "react-select": "^3.0.8",
     "redux": "^4.0.4",
     "redux-logger": "^3.0.6",
+    "redux-mock-store": "^1.5.3",
     "redux-thunk": "^2.3.0"
   },
   "scripts": {
@@ -30,7 +32,9 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d build",
+    "lint": "eslint  src",
+    "ci-lint": "eslint --max-warnings=0 src"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -49,5 +53,10 @@
   },
   "devDependencies": {
     "gh-pages": "^2.1.1"
+  },
+  "jest": {
+    "transformIgnorePatterns": [
+      "<rootDir>/node_modules/(?!lodash-es)"
+    ]
   }
 }
