@@ -1,12 +1,12 @@
 import React from 'react'
+import { get } from 'lodash-es'
 
 import './Manifest.scss'
 import ExpandingPanel from '../expanding-panel/ExpandingPanel'
 import { TX_STATE_TYPE_MAPPINGS } from '../../constants'
 
-export const Parameter = ({ parameter }) => (
+export const Parameter = ({ parameter, hideComma }) => (
   <React.Fragment>
-    <span className="param-paren">(</span>
     <div
       className="method-parameters"
       style={{
@@ -19,26 +19,38 @@ export const Parameter = ({ parameter }) => (
           border: `solid 1px ${TX_STATE_TYPE_MAPPINGS[parameter.type].color}`,
         }}
       >
-        {' '}
         {parameter.name} :
       </span>
       <span>{parameter.type} </span>
-    </div>{' '}
-    <span className="param-paren">)</span>
+    </div>
+    {!hideComma && <span className="param-paren">,</span>}
   </React.Fragment>
 )
 
 export const ManifestRowContents = ({ method }) => (
   <div className="manifest-method-row-container">
     <span>{method.name} </span>
-    {!!method.parameters.length &&
-      method.parameters.map((parameter, i) => (
-        <Parameter parameter={parameter} key={i} />
-      ))}
+    {!!method.parameters.length && (
+      <React.Fragment>
+        <span className="param-paren">(</span>
+        {method.parameters.map((parameter, i) => (
+          <Parameter
+            parameter={parameter}
+            hideComma={i + 1 === method.parameters.length}
+            key={i}
+          />
+        ))}
+        <span className="param-paren">)</span>
+      </React.Fragment>
+    )}
     <span className="method-seperator">:</span>
     <p
       style={{
-        background: TX_STATE_TYPE_MAPPINGS[method.returnType].color,
+        background: get(
+          TX_STATE_TYPE_MAPPINGS[method.returnType],
+          'color',
+          '#00D69D',
+        ),
       }}
     >
       {method.returnType}
@@ -51,9 +63,7 @@ const Manifest = ({ manifest }) => {
     <div className="manifest-container">
       <ExpandingPanel title={manifest.abi.entryPoint.name} open={false}>
         <div className="notification-panel methods-panel">
-          {/* {manifest.abi.methods.map((method, i) => ( */}
           <ManifestRowContents method={manifest.abi.entryPoint} />
-          {/* ))} */}
         </div>
       </ExpandingPanel>
       <ExpandingPanel title="Methods" open={false}>
