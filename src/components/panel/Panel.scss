@@ -76,6 +76,12 @@
   border-bottom: solid 2px #f9fafa;
   display: flex;
   justify-content: space-between;
+
+  h1 {
+    div {
+      margin-left: 12px;
+    }
+  }
 }
 
 .secondary-panel {

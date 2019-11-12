@@ -1,0 +1,21 @@
+.expanding-panel-header {
+  display: flex;
+  justify-content: space-between;
+  border-radius: 3px;
+  height: 40px;
+  align-items: center;
+
+  button {
+    background-color: var(--secondary-blue);
+    min-height: 40px !important;
+    min-width: 40px !important;
+
+    svg {
+    }
+  }
+}
+
+.expanding-panel-title {
+  margin: 12px;
+  font-weight: 600;
+}
