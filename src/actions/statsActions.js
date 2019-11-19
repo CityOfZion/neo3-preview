@@ -1,3 +1,5 @@
+import { isEmpty } from 'lodash-es'
+
 import { GENERATE_BASE_URL } from '../constants'
 import { convertMillisecondsToSeconds } from '../utils/time'
 
@@ -31,13 +33,11 @@ export const requestStatsError = error => dispatch => {
 
 export function shouldFetchStats(state, index) {
   const data = state.stats.stats
-
-  if (!data) {
+  if (isEmpty(data) && !state.stats.isLoading) {
     return true
   } else if (state.stats.isLoading) {
     return false
   }
-
   if (state.stats.lastUpdated) {
     const currSeconds = convertMillisecondsToSeconds(Date.now())
     const lastUpdateSeconds = convertMillisecondsToSeconds(
