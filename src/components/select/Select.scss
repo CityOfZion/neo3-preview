@@ -3,6 +3,7 @@
   margin-right: 12px;
   border-right: solid 1px rgba(249, 250, 250, 0.3);
 }
+
 .select-container {
   display: flex;
   align-items: center;
@@ -13,4 +14,27 @@
 
 .react-select__indicator {
   padding: 4px 8px !important;
+}
+
+@media only screen and (max-width: 710px) {
+  .select-container {
+    flex-direction: column;
+    padding-right: 0;
+    background-color: transparent;
+
+    .inner-select-container {
+      margin-right: 0;
+      margin-bottom: 6px;
+      border-right: none;
+      background-color: var(--secondary-blue);
+      border-radius: 3px;
+    }
+
+    .select-computed-value {
+      word-wrap: anywhere;
+      background-color: var(--secondary-blue);
+      padding: 6px 12px;
+      border-radius: 3px;
+    }
+  }
 }

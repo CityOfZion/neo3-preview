@@ -76,6 +76,7 @@ export const NotificationPanel = ({ notification }) => {
 
 export const Notification = ({ notification }) => {
   const [isOpen, setIsOpen] = React.useState(false)
+
   return (
     <React.Fragment>
       <div className="panel-header-and-explore-row">

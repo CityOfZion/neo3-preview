@@ -37,3 +37,13 @@
 .notification-state-row-container:last-child {
   margin-bottom: 12px;
 }
+
+@media only screen and (max-width: 710px) {
+  .notification-state-row-container {
+    flex-direction: column;
+
+    .select-container {
+      margin-top: 6px;
+    }
+  }
+}

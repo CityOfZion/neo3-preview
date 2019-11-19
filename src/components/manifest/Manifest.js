@@ -66,13 +66,15 @@ const Manifest = ({ manifest }) => {
           <ManifestRowContents method={manifest.abi.entryPoint} />
         </div>
       </ExpandingPanel>
-      <ExpandingPanel title="Methods" open={false}>
-        <div className="notification-panel methods-panel">
-          {manifest.abi.methods.map((method, i) => (
-            <ManifestRowContents method={method} key={i} />
-          ))}
-        </div>
-      </ExpandingPanel>
+      {!!manifest.abi.methods.length && (
+        <ExpandingPanel title="Methods" open={false}>
+          <div className="notification-panel methods-panel">
+            {manifest.abi.methods.map((method, i) => (
+              <ManifestRowContents method={method} key={i} />
+            ))}
+          </div>
+        </ExpandingPanel>
+      )}
       {!!manifest.abi.events.length && (
         <ExpandingPanel title="Events" open={false}>
           <div className="notification-panel methods-panel">
