@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import ItemsCarousel from 'react-items-carousel'
+import classNames from 'classnames'
 
 import chevronRight from '../../images/carousel/chevron-right.svg'
 import chevronLeft from '../../images/carousel/chevron-left.svg'
@@ -10,10 +11,22 @@ import './NewsArticles.scss'
 
 const classes = {
   itemWrapper: 'carousel-item-wrapper',
+  itemsWrapper: 'carousel-wrapper',
 }
 
 export const NewsArticles = React.memo(({ numberOfCards }) => {
   const [activeItemIndex, setActiveItemIndex] = useState(0)
+
+  const shouldBlur = i => {
+    if (numberOfCards < 4) return false
+    const endingIndex = (activeItemIndex + numberOfCards) % articles.length
+    let startingIndex = endingIndex + 1
+    if (startingIndex >= articles.length) {
+      startingIndex = 0
+    }
+    if (i === endingIndex) return true
+    if (i === startingIndex) return true
+  }
 
   return (
     <div
@@ -45,21 +58,27 @@ export const NewsArticles = React.memo(({ numberOfCards }) => {
         disableSwipe
         requestToChangeActive={() => undefined}
       >
-        {articles.map(article => (
-          <a
-            key={article.title}
-            className="feature-card news-article"
-            href={article.link}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <div className="feature-card-title-container">
-              <img src={article.image} alt="" />
-              <span>{article.date}</span>
-              <h1> {article.title}</h1>
-            </div>
-          </a>
-        ))}
+        {articles.map((article, i) => {
+          const classes = classNames({
+            'feature-card news-article': true,
+            'blur-card': shouldBlur(i),
+          })
+          return (
+            <a
+              key={article.title}
+              className={classes}
+              href={article.link}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <div className="feature-card-title-container">
+                <img src={article.image} alt="" />
+                <span>{article.date}</span>
+                <h1> {article.title}</h1>
+              </div>
+            </a>
+          )
+        })}
       </ItemsCarousel>
     </div>
   )

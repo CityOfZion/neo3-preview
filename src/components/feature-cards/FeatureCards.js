@@ -1,10 +1,13 @@
 import React, { useState } from 'react'
-import Button from '../button/Button'
+import ItemsCarousel from 'react-items-carousel'
 import Modal from 'react-modal'
+import classNames from 'classnames'
+
+import Button from '../button/Button'
 import modalClose from '../../images/modal-close.svg'
 import chevronRight from '../../images/carousel/chevron-right.svg'
 import chevronLeft from '../../images/carousel/chevron-left.svg'
-import ItemsCarousel from 'react-items-carousel'
+
 import noScroll from 'no-scroll'
 
 import './FeatureCards.scss'
@@ -35,7 +38,35 @@ const customStyles = {
 }
 
 const classes = {
+  itemsWrapper: 'carousel-wrapper',
   itemWrapper: 'carousel-item-wrapper',
+}
+
+export const CarouselNewsCardWithBlur = props => {
+  const { feature, setSelectedFeatureTitle, openModal, shouldBlur } = props
+  const classes = classNames({
+    'feature-card': true,
+    'blur-card': shouldBlur,
+  })
+  return (
+    <div className={classes}>
+      <div className="feature-card-title-container">
+        <img src={feature.image} alt="" />
+        <h1> {feature.title}</h1>
+      </div>
+      <p>{feature.description}</p>
+      <Button
+        secondary
+        disabled={shouldBlur}
+        onClick={() => {
+          setSelectedFeatureTitle(feature.title)
+          openModal()
+        }}
+      >
+        Learn More
+      </Button>
+    </div>
+  )
 }
 
 export const FeatureCards = ({ numberOfCards }) => {
@@ -50,7 +81,18 @@ export const FeatureCards = ({ numberOfCards }) => {
     feature => feature.title === selectedFeatureTitle,
   )
 
-  // Prevent the background from scrolling if modal is open
+  const shouldBlur = i => {
+    if (numberOfCards < 4) return false
+    const endingIndex = (activeItemIndex + numberOfCards) % features.length
+    let startingIndex = endingIndex + numberOfCards - 1
+    if (startingIndex >= features.length) {
+      startingIndex = ((endingIndex + numberOfCards) % features.length) - 1
+    }
+    if (i === endingIndex) return true
+    if (i === startingIndex) return true
+  }
+
+  // Prevent the background from scrolling if modal is ope
   React.useEffect(() => {
     if (featureModalOpen) {
       noScroll.on()
@@ -95,7 +137,9 @@ export const FeatureCards = ({ numberOfCards }) => {
             <img
               src={chevronLeft}
               alt="chevron-left"
-              onClick={() => setActiveItemIndex(activeItemIndex - 1)}
+              onClick={() => {
+                setActiveItemIndex(activeItemIndex - 1)
+              }}
             />
             <img
               src={chevronRight}
@@ -114,24 +158,17 @@ export const FeatureCards = ({ numberOfCards }) => {
           disableSwipe
           requestToChangeActive={() => undefined}
         >
-          {features.map(feature => (
-            <div key={feature.title} className="feature-card">
-              <div className="feature-card-title-container">
-                <img src={feature.image} alt="" />
-                <h1> {feature.title}</h1>
-              </div>
-              <p>{feature.description}</p>
-              <Button
-                secondary
-                onClick={() => {
-                  setSelectedFeatureTitle(feature.title)
-                  openModal()
-                }}
-              >
-                Learn More
-              </Button>
-            </div>
-          ))}
+          {features.map((feature, i) => {
+            return (
+              <CarouselNewsCardWithBlur
+                key={feature.title}
+                feature={feature}
+                setSelectedFeatureTitle={setSelectedFeatureTitle}
+                openModal={openModal}
+                shouldBlur={shouldBlur(i)}
+              />
+            )
+          })}
         </ItemsCarousel>
       </div>
     </React.Fragment>
