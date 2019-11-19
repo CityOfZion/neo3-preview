@@ -141,3 +141,24 @@
     }
   }
 }
+
+@media only screen and (max-width: 710px) {
+  .panel-header-and-explore-row {
+    a {
+      font-size: 14px;
+    }
+    h1 {
+      flex-direction: column;
+      display: flex;
+
+      .bold-subtitle {
+        margin: 0;
+
+        a {
+          padding-right: 12px;
+          display: block;
+        }
+      }
+    }
+  }
+}
