@@ -47,7 +47,7 @@ jobs:
             - "f2:62:34:3a:55:5a:1c:b8:23:0a:13:23:72:1a:91:11"
       - run:
           name: Deploy docs to gh-pages branch
-          command: npm run deploy --message "[skip ci] Updates"
+          command: npm run deploy
 
 workflows:
   version: 2
