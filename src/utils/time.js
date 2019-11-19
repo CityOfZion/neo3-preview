@@ -5,3 +5,5 @@ export const convertMilliseconds = ms => {
 }
 
 export const formatTime = time => moment(time).format('MM-DD-YYYY | HH:mm:ss')
+
+export const convertMillisecondsToSeconds = millis => Math.floor(millis / 1000)
