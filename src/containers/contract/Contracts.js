@@ -44,7 +44,7 @@ class Contracts extends React.Component {
             </div>
             <List
               handleRowClick={row =>
-                row.block && this.props.history.push(`/contract/${row.hash}`)
+                this.props.history.push(`/contract/${row.hash}`)
               }
               columns={columns}
               data={contracts.map(mapContractData)}
