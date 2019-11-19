@@ -1,4 +1,9 @@
+import { isEmpty } from 'lodash-es'
+
 import { GENERATE_BASE_URL } from '../constants'
+import { convertMillisecondsToSeconds } from '../utils/time'
+
+const STATS_CACHE_LENGTH_IN_SECONDS = 120
 
 export const REQUEST_STATS = 'REQUEST_STATS'
 export const requestStats = indexOrHash => dispatch => {
@@ -28,11 +33,23 @@ export const requestStatsError = error => dispatch => {
 
 export function shouldFetchStats(state, index) {
   const data = state.stats.stats
-  if (!data) {
+  if (isEmpty(data) && !state.stats.isLoading) {
     return true
   } else if (state.stats.isLoading) {
     return false
   }
+  if (state.stats.lastUpdated) {
+    const currSeconds = convertMillisecondsToSeconds(Date.now())
+    const lastUpdateSeconds = convertMillisecondsToSeconds(
+      state.stats.lastUpdated,
+    )
+    const diffInSeconds = currSeconds - lastUpdateSeconds
+
+    if (diffInSeconds > STATS_CACHE_LENGTH_IN_SECONDS) {
+      return true
+    }
+  }
+
   return false
 }
 

@@ -16,6 +16,7 @@ export default (
       return Object.assign({}, state, {
         isLoading: false,
         stats: action.json,
+        lastUpdated: action.receivedAt,
       })
     default:
       return state

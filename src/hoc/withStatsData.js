@@ -15,15 +15,10 @@ export default function withStatsData(WrappedComponent) {
   return connect(
     mapStateToProps,
     mapDispatchToProps,
-  )(
-    class extends React.Component {
-      componentDidMount() {
-        this.props.fetchStats()
-      }
-
-      render() {
-        return <WrappedComponent {...this.props} />
-      }
-    },
-  )
+  )(props => {
+    React.useEffect(() => {
+      props.fetchStats()
+    })
+    return <WrappedComponent {...props} />
+  })
 }
