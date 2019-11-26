@@ -88,6 +88,7 @@ export const Navigation = props => {
     shouldClearSearch,
     error,
     clearSearchInputError,
+    isSearching,
   } = props
 
   // Prevent the background from scrolling if mobile nav is open
@@ -128,6 +129,7 @@ export const Navigation = props => {
             handleSearch={search => handleSearchInput(search)}
             clearSearchInputError={clearSearchInputError}
             shouldClearSearch={shouldClearSearch}
+            isSearching={isSearching}
           />
         </div>
       </Menu>
@@ -146,6 +148,7 @@ export const Navigation = props => {
             clearSearchInputError={clearSearchInputError}
             handleSearch={search => handleSearchInput(search)}
             shouldClearSearch={shouldClearSearch}
+            isSearching={isSearching}
           />
           <div id="desktop_navigation_options">
             <NavigationLinks />

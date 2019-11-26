@@ -28,6 +28,20 @@
   #search-input-icon {
     cursor: pointer;
   }
+
+  input {
+    border: 1px solid transparent;
+  }
+
+  input:focus {
+    border: 1px solid #00e599;
+    border-radius: 3px;
+    outline: none;
+  }
+}
+
+.is-searching {
+  color: transparent !important;
 }
 
 .search-error {

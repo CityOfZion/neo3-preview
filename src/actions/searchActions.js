@@ -68,43 +68,45 @@ export function handleSearchInput(rawSearch) {
 }
 
 export async function determineSearchType(search) {
-  let searchType
-
   const isPossibleTxOrContract = search.includes('0x')
 
-  if (isPossibleTxOrContract) {
-    let transaction = await fetch(
-      `${GENERATE_BASE_URL()}/get_transaction/${search}`,
-    )
-    transaction = await transaction.json()
-    if (!isEmpty(transaction)) {
-      searchType = SEARCH_TYPES.TRANSACTION
-      return searchType
-    }
+  const invokePromiseAndIgnoreError = url =>
+    fetch(url)
+      .then(result => result && result.json())
+      .catch(e => undefined)
 
-    let contractResponse = await fetch(
-      `${GENERATE_BASE_URL()}/get_contract/${search}`,
+  const urls = []
+
+  if (isPossibleTxOrContract) {
+    urls.push(
+      ...[
+        `${GENERATE_BASE_URL()}/get_transaction/${search}`,
+        `${GENERATE_BASE_URL()}/get_contract/${search}`,
+      ],
     )
-    contractResponse = await contractResponse.json()
-    if (!isEmpty(contractResponse)) searchType = SEARCH_TYPES.CONTRACT
   } else {
-    let balance = await fetch(
-      `${GENERATE_BASE_URL()}/get_transfer_history/${search}/1`,
-    ).catch(e => Promise.resolve())
-    if (balance) {
-      balance = await balance.json()
-      if (balance.length) {
-        searchType = SEARCH_TYPES.ADDRESS
-        return searchType
-      }
-    }
-    let block = await fetch(`${GENERATE_BASE_URL()}/get_block/${search}`)
-    block = await block.json()
-    if (!isEmpty(block)) {
-      searchType = SEARCH_TYPES.BLOCK
-      return searchType
-    }
+    urls.push(
+      ...[
+        `${GENERATE_BASE_URL()}/get_transfer_history/${search}/1`,
+        `${GENERATE_BASE_URL()}/get_block/${search}`,
+      ],
+    )
   }
 
-  return searchType
+  const results = await Promise.all(
+    urls
+      .map(url => invokePromiseAndIgnoreError.bind(null, url))
+      .map(req => req()),
+  )
+
+  if (isPossibleTxOrContract) {
+    const [transaction, contract] = results
+    if (!isEmpty(transaction)) return SEARCH_TYPES.TRANSACTION
+    if (contract) return SEARCH_TYPES.CONTRACT
+  } else {
+    const [history, block] = results
+    if (history && history.items && history.items.length)
+      return SEARCH_TYPES.ADDRESS
+    if (block) return SEARCH_TYPES.BLOCK
+  }
 }
