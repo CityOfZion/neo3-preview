@@ -79,7 +79,12 @@ class Transaction extends React.Component {
   }
 
   async componentDidUpdate(prevProps) {
-    if (!isEmpty(this.props.transaction) && !this.state.hasParsedTransfers) {
+    const id = this.props.match.params.id
+    if (prevProps.match.params.id !== id) {
+      this.props.fetchTransaction(id)
+    }
+
+    if (this.props.transaction !== prevProps.transaction) {
       const transfers = await generateTransfersArr(this.props.transaction)
       this.setState({ transfers, hasParsedTransfers: true })
     }

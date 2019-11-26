@@ -22,7 +22,7 @@ class Contract extends React.Component {
   componentDidUpdate(prevProps) {
     const id = this.props.match.params.id
     if (prevProps.match.params.id !== id) {
-      this.props.fetchBlock(id)
+      this.props.fetchContract(id)
     }
   }
 
