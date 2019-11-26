@@ -1,6 +1,7 @@
 import React from 'react'
 import classNames from 'classnames'
 
+import Spinner from '../spinner/Spinner'
 import SearchIcon from '../../images/search-icon.svg'
 
 import './Search.scss'
@@ -10,6 +11,7 @@ export default ({
   shouldClearSearch,
   error,
   clearSearchInputError,
+  isSearching,
 }) => {
   const [inputValue, setInputValue] = React.useState('')
 
@@ -33,6 +35,7 @@ export default ({
 
   const inputClass = classNames({
     'search-error': error,
+    'is-searching': isSearching,
   })
 
   return (
@@ -43,10 +46,12 @@ export default ({
         type="text"
         name="name"
         onChange={onChangeHandler}
-        value={inputValue}
-        placeholder="Search block height, address, transaction ID"
+        value={isSearching ? '' : inputValue}
+        placeholder={
+          isSearching ? '' : 'Search block height, address, transaction ID'
+        }
       />
-
+      {isSearching && <Spinner searchSpinner />}
       <img
         onClick={() => handleSearch(inputValue)}
         id="search-input-icon"

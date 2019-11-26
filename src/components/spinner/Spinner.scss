@@ -3,32 +3,67 @@
   min-height: 60vh;
   justify-content: center;
   align-items: center;
+
+  .spinner {
+    width: 85px;
+  }
+
+  .spinner > div {
+    width: 20px;
+    height: 20px;
+    background-color: var(--green);
+
+    border-radius: 100%;
+    display: inline-block;
+    -webkit-animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+    animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+    margin: 2px;
+  }
+
+  .spinner .bounce1 {
+    -webkit-animation-delay: -0.32s;
+    animation-delay: -0.32s;
+  }
+
+  .spinner .bounce2 {
+    -webkit-animation-delay: -0.16s;
+    animation-delay: -0.16s;
+  }
 }
 
-.spinner {
-  width: 85px;
-}
+.search-spinner-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 24px;
+  position: absolute;
+  margin-top: 2px;
 
-.spinner > div {
-  width: 20px;
-  height: 20px;
-  background-color: var(--green);
+  .spinner {
+    width: 42px;
+  }
 
-  border-radius: 100%;
-  display: inline-block;
-  -webkit-animation: sk-bouncedelay 1.4s infinite ease-in-out both;
-  animation: sk-bouncedelay 1.4s infinite ease-in-out both;
-  margin: 2px;
-}
+  .spinner > div {
+    width: 10px;
+    height: 10px;
+    background-color: var(--green);
 
-.spinner .bounce1 {
-  -webkit-animation-delay: -0.32s;
-  animation-delay: -0.32s;
-}
+    border-radius: 100%;
+    display: inline-block;
+    -webkit-animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+    animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+    margin: 2px;
+  }
 
-.spinner .bounce2 {
-  -webkit-animation-delay: -0.16s;
-  animation-delay: -0.16s;
+  .spinner .bounce1 {
+    -webkit-animation-delay: -0.32s;
+    animation-delay: -0.32s;
+  }
+
+  .spinner .bounce2 {
+    -webkit-animation-delay: -0.16s;
+    animation-delay: -0.16s;
+  }
 }
 
 @-webkit-keyframes sk-bouncedelay {
@@ -52,5 +87,17 @@
   40% {
     -webkit-transform: scale(1);
     transform: scale(1);
+  }
+}
+
+@media only screen and (max-width: 1200px) {
+  .search-spinner-container {
+    margin-top: -2px;
+  }
+}
+
+@media only screen and (max-width: 810px) {
+  .search-spinner-container {
+    margin-top: 10px;
   }
 }
