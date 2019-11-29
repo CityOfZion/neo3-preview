@@ -33,11 +33,11 @@ const generateTransfersArr = async transaction => {
             value => value.type === 'Integer',
           ).value
           const from_address = await NeoConvertor.Address.scriptHashToAddress(
-            notification.state.value[2].value,
+            notification.state.value[1].value,
             true,
           )
           const to_address = await NeoConvertor.Address.scriptHashToAddress(
-            notification.state.value[1].value,
+            notification.state.value[2].value,
             true,
           )
           transfers.push({
