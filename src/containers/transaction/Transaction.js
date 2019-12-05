@@ -32,19 +32,15 @@ const generateTransfersArr = async transaction => {
           const amount = notification.state.value.find(
             value => value.type === 'Integer',
           ).value
-          const from_address = await NeoConvertor.Address.scriptHashToAddress(
-            notification.state.value[1].value,
-            true,
-          )
-          const to_address = await NeoConvertor.Address.scriptHashToAddress(
+          const address = await NeoConvertor.Address.scriptHashToAddress(
             notification.state.value[2].value,
             true,
           )
           transfers.push({
             name: asset.name,
             amount: asset.name === 'NEO' ? amount : CONVERT_TO_DECIMAL(amount),
-            to: to_address,
-            from: from_address,
+            to: address,
+            from: transaction.sender,
           })
         }
       }

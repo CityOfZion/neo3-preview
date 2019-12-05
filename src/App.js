@@ -16,7 +16,7 @@ import Contracts from './containers/contract/Contracts'
 import Contract from './containers/contract/Contract'
 import Transaction from './containers/transaction/Transaction'
 import Address from './containers/address/Address'
-
+import GettingStarted from './containers/getting-started/GettingStarted'
 import './App.css'
 
 class ScrollToTop extends React.Component {
@@ -83,6 +83,10 @@ export default () => (
               <Route
                 path="/address/:id"
                 component={props => <Address {...props} />}
+              />
+              <Route
+                path="/getting-started"
+                component={props => <GettingStarted {...props}/>}
               />
               <Route path="/" component={props => <LandingPage {...props} />} />
             </Switch>
