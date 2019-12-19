@@ -37,7 +37,6 @@ export const articles = [
     image: neovm,
     date: 'September 20th 2019',
   },
-
   {
     title: 'On the importance of Oracles: NEO3 and dBFT',
     link:
@@ -50,13 +49,6 @@ export const articles = [
     link:
       'https://medium.com/neo-smart-economy/scoped-witnesses-how-to-securely-transfer-assets-on-neo-3-6ac012221188',
     image: scopedWitnesses,
-    date: 'September 16th 2019',
-  },
-  {
-    title: 'NGD releases NEO3 Preview1 build, launches first NEO3 TestNet',
-    link:
-      'https://neonewstoday.com/development/ngd-releases-neo3-preview1-build-launches-first-neo3-testnet/',
-    image: preview,
     date: 'September 16th 2019',
   },
 ]
