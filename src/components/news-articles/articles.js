@@ -4,8 +4,16 @@ import neovm from '../../images/temp-news-articles/neovm-decoupling.png'
 import oracles from '../../images/temp-news-articles/oracles-dbft.png'
 import scopedWitnesses from '../../images/temp-news-articles/scoped-witnesses.png'
 import neofs from '../../images/temp-news-articles/send-neofs.png'
+import neoCoreDevelopment from '../../images/temp-news-articles/neo-coredevelopment.png'
 
 export const articles = [
+  {
+    title: 'NGD summarizes latest Neo3 core development in December report',
+    link:
+      'https://neonewstoday.com/development/ngd-summarizes-latest-neo3-core-development-in-december-report',
+    image: neoCoreDevelopment,
+    date: 'December 17, 2019',
+  },
   {
     title:
       'Send.NeoFS web service launched, allowing users to easily upload files to the NeoFS TestNet',
@@ -44,7 +52,6 @@ export const articles = [
     image: scopedWitnesses,
     date: 'September 16th 2019',
   },
-
   {
     title: 'NGD releases NEO3 Preview1 build, launches first NEO3 TestNet',
     link:
