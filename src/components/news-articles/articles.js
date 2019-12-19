@@ -1,4 +1,3 @@
-import preview from '../../images/temp-news-articles/neo3-preview1.png'
 import neofsLocal from '../../images/temp-news-articles/neofs-local.png'
 import neovm from '../../images/temp-news-articles/neovm-decoupling.png'
 import oracles from '../../images/temp-news-articles/oracles-dbft.png'
