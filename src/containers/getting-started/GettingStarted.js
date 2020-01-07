@@ -1,9 +1,8 @@
 import React from 'react'
 import './GettingStarted.scss'
 
-// fix spacing
 const GettingStarted = () => (
-  <div class="GettingStartedContainer">
+  <div className="GettingStartedContainer">
     <div id="GettingStartedFirstBlock">
       <h1> Neo 3.x Privatenet Tutorial </h1>
       <p>
@@ -31,39 +30,42 @@ const GettingStarted = () => (
         <a
           target="_blank"
           href="https://dotnet.microsoft.com/download/dotnet-core/2.1"
+          rel="noopener noreferrer"
         >
           {' '}
           .Net Core 2.1 Runtime or SDK{' '}
         </a>
       </li>
     </div>
-    <div class="NumberedSections">
+    <div className="NumberedSections">
       <div>
-        <div class="FancyNumber">1</div>
+        <div className="FancyNumber">1</div>
         <h1>Installation</h1>
-        <p></p>
-        <uli>
-          1. Install the .NET SDK for your platform according to instructions
-          from Microsoft
-        </uli>
-        <p></p>
-        <uli>
-          2. Download the latest Neo 3.0 preview release for your platform from{' '}
-          <a
-            target="_blank"
-            href="https://github.com/neo-project/neo-cli/releases"
-          >
-            https://github.com/neo-project/neo-cli/releases{' '}
-          </a>{' '}
-        </uli>
-        <p></p>
-        <uli>3. Unzip the file into the folder of your choice</uli>
-        <p></p>
-        <uli>4. Open a terminal window and change directory to that folder</uli>
-        <p></p>
-        <uli>5. Run the following commands in that terminal:</uli>
-        <p></p>
-        <div class="CodeBlock">
+        <ol>
+          <li>
+            Install the .NET SDK for your platform according to instructions
+            from Microsoft
+          </li>
+
+          <li>
+            Download the latest Neo 3.0 preview release for your platform from{' '}
+            <a
+              target="_blank"
+              href="https://github.com/neo-project/neo-cli/releases"
+              rel="noopener noreferrer"
+            >
+              https://github.com/neo-project/neo-cli/releases{' '}
+            </a>{' '}
+          </li>
+
+          <li>Unzip the file into the folder of your choice</li>
+
+          <li> Open a terminal window and change directory to that folder</li>
+
+          <li> Run the following commands in that terminal:</li>
+        </ol>
+
+        <div className="CodeBlock">
           cd neo-cli <br></br>
           <br></br>
           curl -o protocol.json
@@ -80,19 +82,21 @@ const GettingStarted = () => (
           <br></br>
         </div>
       </div>
+      <br></br>
+      <br></br>
       <div>
-        <div class="FancyNumber">2</div>
+        <div className="FancyNumber">2</div>
         <h1>Run the node</h1>
         <br />
         On Windows or Linux:
         <br />
         <br />
-        <div class="CodeBlock">dotnet ./neo-cli.dll /rpc</div>
+        <div className="CodeBlock">dotnet ./neo-cli.dll /rpc</div>
         <br />
         On OSX:
         <br />
         <br />
-        <div class="CodeBlock">
+        <div className="CodeBlock">
           DYLD_INSERT_LIBRARIES=/usr/local/lib/libtcmalloc.dylib dotnet
           ./neo-cli.dll /rpc
         </div>
@@ -105,7 +109,7 @@ const GettingStarted = () => (
           Now you can view the wallet balance running the command{' '}
           <code>list asset</code> in the prompt:
         </p>
-        <div class="CodeBlock">
+        <div className="CodeBlock">
           PRivaTenetyWuqK7Gj7Vd747d77ssYeDhL <br></br>
           NEO: 0<br></br>
           GAS: 0<br></br>
@@ -129,7 +133,7 @@ const GettingStarted = () => (
         wallet file above, you just need to transfer the funds to it:
         <br />
         <br />
-        <div class="CodeBlock">
+        <div className="CodeBlock">
           send neo PRivaTenetyWuqK7Gj7Vd747d77ssYeDhL 100000000
           <br />
           send gas PRivaTenetyWuqK7Gj7Vd747d77ssYeDhL 30000000
@@ -149,68 +153,71 @@ const GettingStarted = () => (
       </div>
       <br />
       <br />
-      <div class="FancyNumber">3</div>
-      <h1>Running a client node</h1>
-      <br />
-      Since the consensus node is limited to only one wallet, you may wish to
-      run a second non-consensus node on-demand for interacting with your
-      privatenet and testing smart contracts. To do this, you can copy the
-      relevant files to another folder and run a second instance of neo-cli.
-      Both nodes can run simultaneously on the same computer, as long as the
-      port numbers in <code>config.json</code> don't overlap. (Additionally, on
-      Windows, the Chain_* folders must have a unique name even if they are in
-      different locations - this is a limitation of the LevelDB library on
-      Windows.) This is all taken into account in the configuration file at the
-      location in the curl command below.
-      <br />
-      <br />
-      Here's how to create and start a second instance (you will want to open a
-      new terminal window so that the consensus instance can continue running).
-      In the same folder as your neo-cli.dll and all your configuration files,
-      run:
-      <br />
-      <br />
-      <div class="CodeBlock">
-        mkdir client <br />
-        cp *.dll protocol.json wallet.json client
+      <div>
+        <div className="FancyNumber">3</div>
+        <h1>Running a client node</h1>
         <br />
-        cd client
+        Since the consensus node is limited to only one wallet, you may wish to
+        run a second non-consensus node on-demand for interacting with your
+        privatenet and testing smart contracts. To do this, you can copy the
+        relevant files to another folder and run a second instance of neo-cli.
+        Both nodes can run simultaneously on the same computer, as long as the
+        port numbers in <code>config.json</code> don't overlap. (Additionally,
+        on Windows, the Chain_* folders must have a unique name even if they are
+        in different locations - this is a limitation of the LevelDB library on
+        Windows.) This is all taken into account in the configuration file at
+        the location in the curl command below.
         <br />
-        curl -o config.json
-        https://raw.githubusercontent.com/hal0x2328/neo3-privatenet-tutorial/master/config.privatenet3-client.json
         <br />
-        dotnet ./neo-cli.dll
+        Here's how to create and start a second instance (you will want to open
+        a new terminal window so that the consensus instance can continue
+        running). In the same folder as your neo-cli.dll and all your
+        configuration files, run:
         <br />
+        <br />
+        <div className="CodeBlock">
+          mkdir client <br />
+          cp *.dll protocol.json wallet.json client
+          <br />
+          cd client
+          <br />
+          curl -o config.json
+          https://raw.githubusercontent.com/hal0x2328/neo3-privatenet-tutorial/master/config.privatenet3-client.json
+          <br />
+          dotnet ./neo-cli.dll
+          <br />
+        </div>
+        <br />
+        <br />
+        (Remember to use the{' '}
+        <code>DYLD_INSERT_LIBRARIES=/usr/local/lib/libtcmalloc.dylib</code>{' '}
+        command prefix if running on OSX). <br />
+        <br />
+        The client configuration doesn't automatically open a wallet for you, so
+        once neo-cli is started, you can run
+        <br />
+        <br />
+        <div className="CodeBlock">open wallet wallet.json</div>
+        <br />
+        and enter the password <code>one</code> to access your privatenet
+        NEO/GAS. You can verify that the client node is connected to the
+        consensus node by running the command
+        <br />
+        <br />
+        <div className="CodeBlock">show state</div>
+        <br />
+        This will display the local node's block height as well as the consensus
+        node's block height at the top of the screen. When the numbers match,
+        your client node is in sync and ready to interact with the blockchain.
+        <br />
+        <br />
+        Now your Neo 3.x privatenet is ready for testing contracts and dApps.
+        You can type <code>help</code> in the neo-cli prompt for information
+        about all the available commands. Additionally you can send and receive
+        information from the node using the Neo API over the JSON-RPC protocol
+        on TCP port 40332.
       </div>
-      <br />
-      <br />
-      (Remember to use the{' '}
-      <code>DYLD_INSERT_LIBRARIES=/usr/local/lib/libtcmalloc.dylib</code>{' '}
-      command prefix if running on OSX). <br />
-      <br />
-      The client configuration doesn't automatically open a wallet for you, so
-      once neo-cli is started, you can run
-      <br />
-      <br />
-      <div class="CodeBlock">open wallet wallet.json</div>
-      <br />
-      and enter the password <code>one</code> to access your privatenet NEO/GAS.
-      You can verify that the client node is connected to the consensus node by
-      running the command
-      <br />
-      <br />
-      <div class="CodeBlock">show state</div>
-      <br />
-      This will display the local node's block height as well as the consensus
-      node's block height at the top of the screen. When the numbers match, your
-      client node is in sync and ready to interact with the blockchain.
-      <br />
-      <br />
-      Now your Neo 3.x privatenet is ready for testing contracts and dApps. You
-      can type <code>help</code> in the neo-cli prompt for information about all
-      the available commands. Additionally you can send and receive information
-      from the node using the Neo API over the JSON-RPC protocol on TCP port
-      40332.
+      <div className="EndOfReadme"></div>
     </div>
   </div>
 )
