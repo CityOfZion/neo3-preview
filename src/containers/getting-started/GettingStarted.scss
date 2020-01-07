@@ -1,0 +1,98 @@
+.GettingStartedContainer {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 828px;
+  margin: auto;
+  padding: 12px 0;
+  margin-bottom: 24px;
+
+  #GettingStartedFirstBlock {
+    background-color: var(--secondary-blue);
+    padding: 24px;
+    margin-bottom: 36px;
+  }
+
+  .CodeBlock {
+    padding: 12px 24px;
+    background-color: var(--secondary-blue);
+    font-size: 10pt;
+    font-family: SFMono-Regular, Consolas, Liberation Mono, Menlo, monospace;
+    word-wrap: break-word;
+  }
+
+  .NumberedSections {
+    border-left: dashed 2px var(--green);
+    padding-left: 60px;
+    margin-left: 40px;
+  }
+
+  .FancyNumber {
+    font-size: 60px;
+    font-weight: bold;
+    border: solid 2px var(--green);
+    border-radius: 3px;
+    max-height: 72px;
+    max-width: 72px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #141443;
+    margin-left: -100px;
+    margin-bottom: -60px;
+    margin-right: 60px;
+  }
+
+  .EndOfReadme {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--green);
+    height: 16px;
+    border-radius: 3px;
+    width: 16px;
+
+    margin-left: -69px;
+  }
+
+  code {
+    background-color: var(--secondary-blue);
+    font-size: 10pt;
+    font-family: SFMono-Regular, Consolas, Liberation Mono, Menlo, monospace;
+    word-wrap: break-word;
+  }
+
+  ol {
+    padding: 0 24px;
+
+    li {
+      padding-left: 6px;
+    }
+  }
+}
+
+@media only screen and (max-width: 810px) {
+  .GettingStartedContainer {
+    padding: 0;
+
+    .NumberedSections {
+      border-left: dashed 1px var(--green);
+    }
+
+    .FancyNumber {
+      font-size: 42px;
+      font-weight: bold;
+      border: solid 2px var(--green);
+      border-radius: 3px;
+      max-height: 50px;
+      max-width: 50px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #141443;
+      margin-left: -88px;
+      margin-bottom: -60px;
+      margin-right: 42px;
+    }
+  }
+}

@@ -3,7 +3,7 @@ import React from 'react'
 import List from '../../components/list/List'
 import Button from '../../components/button/Button'
 import withBlockData from '../../hoc/withBlockData'
-
+import { Link } from 'react-router-dom'
 import './LandingPage.scss'
 import FeatureCards from '../../components/feature-cards/FeatureCards'
 import NewsArticles from '../../components/news-articles/NewsArticles'
@@ -63,13 +63,9 @@ class LandingPage extends React.Component {
               now.
             </p>
             <div id="call-to-action-button-container">
-              <a
-                href="https://github.com/hal0x2328/neo3-privatenet-tutorial"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
+              <Link to="/getting-started/">
                 <Button secondary>Get Started</Button>
-              </a>
+              </Link>
               <span> or skip the tutorial</span>
 
               <a href={downloadLink}>
