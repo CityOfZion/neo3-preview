@@ -1,0 +1,43 @@
+.GettingStartedContainer {
+  code {
+    background-color: var(--secondary-blue);
+    font-size: 10pt;
+    font-family: SFMono-Regular, Consolas, Liberation Mono, Menlo, monospace;
+  }
+  padding: 12px 180px 12px 240px;
+}
+
+#GettingStartedFirstBlock {
+  background-color: var(--secondary-blue);
+  padding: 12px 24px;
+  margin-bottom: 30px;
+  margin-left: -40px;
+}
+
+.CodeBlock {
+  padding: 12px 24px;
+  background-color: var(--secondary-blue);
+  font-size: 10pt;
+  font-family: SFMono-Regular, Consolas, Liberation Mono, Menlo, monospace;
+}
+
+.NumberedSections {
+  border-left: dashed 2px var(--green);
+  padding-left: 60px;
+}
+
+.FancyNumber {
+  font-size: 60px;
+  font-weight: bold;
+  border: solid 2px var(--green);
+  border-radius: 3px;
+  max-height: 72px;
+  max-width: 72px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #141443;
+  margin-left: -100px;
+  margin-bottom: -60px;
+  margin-right: 60px;
+}
