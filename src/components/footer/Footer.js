@@ -13,7 +13,7 @@ export default () => {
       <div className="footer-flex-container">
         <PreviewLogo />
       </div>
-      <span className="footer-flex-container">© 2019 City Of Zion</span>
+      <span className="footer-flex-container">© 2020 City Of Zion</span>
       <div id="footer-social-icons" className="footer-flex-container">
         <a
           href="https://twitter.com/coz_official"
