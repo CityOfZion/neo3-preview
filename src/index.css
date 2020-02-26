@@ -90,11 +90,11 @@ div:focus {
   outline: 0;
 }
 
-.list-block-height-container img, #footer-social-icons a, .carousel-button-container img, #desktop-coz-logo img, #chevron-right-transfer, #burger-menu-icon, .expanding-panel-container .explore-button img {
+.list-block-height-container img, #footer-social-icons a, .carousel-button-container img, #desktop-coz-logo img, #mobile-coz-logo img, #chevron-right-transfer, #burger-menu-icon, .expanding-panel-container .explore-button img {
   filter: invert(100%);
 }
 
-.dark-mode .list-block-height-container img, .dark-mode #footer-social-icons a, .dark-mode .carousel-button-container img, .dark-mode #desktop-coz-logo img, .dark-mode #chevron-right-transfer, .dark-mode #burger-menu-icon, .dark-mode .expanding-panel-container .explore-button img {
+.dark-mode .list-block-height-container img, .dark-mode #footer-social-icons a, .dark-mode .carousel-button-container img, .dark-mode #desktop-coz-logo img, .dark-mode #mobile-coz-logo img .dark-mode #chevron-right-transfer, .dark-mode #burger-menu-icon, .dark-mode .expanding-panel-container .explore-button img {
   filter: invert(0%);
 }
 
