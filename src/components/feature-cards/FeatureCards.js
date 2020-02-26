@@ -21,7 +21,7 @@ const customStyles = {
     margin: 'auto',
     opacity: 1,
     border: 'none',
-    background: '#1F1F4B',
+    background: 'var(--overlay-color-secondary)',
     width: '60vw',
     display: 'flex',
     flexDirection: 'column',
@@ -31,7 +31,7 @@ const customStyles = {
     inset: 0,
   },
   overlay: {
-    backgroundColor: 'rgba(0, 0, 51, .80)',
+    backgroundColor: 'var(--overlay-color)',
     display: 'flex',
     overflow: 'auto',
   },

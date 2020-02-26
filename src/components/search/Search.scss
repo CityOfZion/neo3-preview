@@ -1,23 +1,20 @@
 #search-input {
-  background: var(--secondary-blue);
+  background: var(--secondary-color);
   border-radius: 3px;
   border: none;
   width: 325px;
   height: 35px;
-
-  font-size: 14px;
-  color: #ffffff;
   text-align: left;
   padding: 6px 12px;
   padding-right: 40px;
-
   font-size: 17px;
-  color: #ffffff;
+  color: var(--text-color);
+
 }
 
 #search-input::placeholder {
   font-size: 17px;
-  color: #ffffff;
+  color: var(--text-color);
   text-align: left;
 }
 

@@ -8,21 +8,21 @@
   margin-bottom: 24px;
 
   #GettingStartedFirstBlock {
-    background-color: var(--secondary-blue);
+    background-color: var(--secondary-color);
     padding: 24px;
     margin-bottom: 36px;
   }
 
   .CodeBlock {
     padding: 12px 24px;
-    background-color: var(--secondary-blue);
+    background-color: var(--secondary-color);
     font-size: 10pt;
     font-family: SFMono-Regular, Consolas, Liberation Mono, Menlo, monospace;
     word-wrap: break-word;
   }
 
   .NumberedSections {
-    border-left: dashed 2px var(--green);
+    border-left: dashed 2px var(--tertiary-color);
     padding-left: 60px;
     margin-left: 40px;
   }
@@ -30,14 +30,14 @@
   .FancyNumber {
     font-size: 60px;
     font-weight: bold;
-    border: solid 2px var(--green);
+    border: solid 2px var(--tertiary-color);
     border-radius: 3px;
     max-height: 72px;
     max-width: 72px;
     display: flex;
     justify-content: center;
     align-items: center;
-    background: #141443;
+    background: var(--primary-color);
     margin-left: -100px;
     margin-bottom: -60px;
     margin-right: 60px;
@@ -47,7 +47,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background: var(--green);
+    background: var(--tertiary-color);
     height: 16px;
     border-radius: 3px;
     width: 16px;
@@ -56,7 +56,7 @@
   }
 
   code {
-    background-color: var(--secondary-blue);
+    background-color: var(--secondary-color);
     font-size: 10pt;
     font-family: SFMono-Regular, Consolas, Liberation Mono, Menlo, monospace;
     word-wrap: break-word;
@@ -76,13 +76,13 @@
     padding: 0;
 
     .NumberedSections {
-      border-left: dashed 1px var(--green);
+      border-left: dashed 1px var(--tertiary-color);
     }
 
     .FancyNumber {
       font-size: 42px;
       font-weight: bold;
-      border: solid 2px var(--green);
+      border: solid 2px var(--tertiary-color);
       border-radius: 3px;
       max-height: 50px;
       max-width: 50px;

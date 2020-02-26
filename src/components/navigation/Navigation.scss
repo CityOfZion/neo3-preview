@@ -6,7 +6,7 @@
 }
 
 #nav-bottom-border {
-  border-bottom: thin #f9fafa solid;
+  border-bottom: thin var(--text-color-secondary) solid;
   margin: 0 24px;
 }
 
@@ -17,14 +17,14 @@
 #desktop_navigation_options a {
   margin: 24px;
   font-size: 17px;
-  color: #ffffff;
+  color: var(--text-color);
   text-align: center;
   text-decoration: none;
 }
 
 #desktop_navigation_options a {
   &:hover {
-    color: var(--green);
+    color: var(--tertiary-color);
     text-decoration: underline;
   }
 }
@@ -51,14 +51,14 @@
   align-items: center;
   margin: 0;
   font-size: 14px;
-  color: #ffffff;
+  color: var(--text-color);
   justify-content: center;
 }
 
 .logo-sub-text h3 {
   margin: 0;
   font-size: 24px;
-  color: #ffffff;
+  color: var(--text-color);
   white-space: nowrap;
   overflow: hidden;
 }
@@ -68,7 +68,7 @@
 }
 
 #logo-spacer {
-  border: 1px solid #f9fafa;
+  border: 1px solid var(--text-color-secondary);
   height: 55px;
   margin-left: 24px;
 }
@@ -112,8 +112,8 @@ Note: Beware of modifying this element as it can break the animations - you shou
 
 /* General sidebar styles */
 .bm-menu {
-  background: #000033;
-  opacity: 0.95;
+  background: var(--quinary-color);
+  /*opacity: 0.95;*/
   padding: 2.5em 1.5em 0;
   font-size: 1.15em;
   overflow: hidden !important;
@@ -122,7 +122,7 @@ Note: Beware of modifying this element as it can break the animations - you shou
 
 #close-mobile-menu-button {
   font-size: 18px;
-  color: #ffffff;
+  color: var(--text-color);
   text-align: right;
   margin-top: -30px;
   position: absolute;
@@ -146,7 +146,7 @@ Note: Beware of modifying this element as it can break the animations - you shou
   display: inline-block;
   margin: 24px 0;
   font-size: 30px;
-  color: #ffffff;
+  color: var(--text-color);
   text-align: center;
 }
 
@@ -248,7 +248,7 @@ Note: Beware of modifying this element as it can break the animations - you shou
   }
 
   #logo-spacer {
-    border: 1px solid #f9fafa;
+    border: 1px solid var(--text-color-secondary);
     height: 40px;
     margin-left: 12px;
   }

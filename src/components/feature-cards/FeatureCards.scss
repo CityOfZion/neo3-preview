@@ -23,7 +23,7 @@
 .feature-card {
   display: flex;
   flex-direction: column;
-  background-color: var(--secondary-blue);
+  background-color: var(--secondary-color);
   margin: 10px;
   padding: 24px;
   border-radius: 3px;
@@ -41,7 +41,7 @@
     text-align: center;
     padding-bottom: 12px;
     font-size: 17px;
-    color: #f9fafa;
+    color: var(--text-color);
     text-align: center;
     line-height: 24px;
     margin: 0;
@@ -84,7 +84,7 @@
 
   p {
     font-size: 17px;
-    color: #f9fafa;
+    color: var(--text-color);
     text-align: center;
     line-height: 24px;
   }

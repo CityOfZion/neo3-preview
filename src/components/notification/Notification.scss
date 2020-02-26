@@ -1,12 +1,12 @@
 .notification-panel {
   width: 100%;
-  background-color: var(--secondary-blue);
-  border-bottom: 2px solid var(--green);
+  background-color: var(--secondary-color);
+  border-bottom: 2px solid var(--tertiary-color);
 }
 
 .notification-panel-header {
-  background: var(--green);
-  color: var(--primary-blue);
+  background: var(--tertiary-color);
+  color: var(--primary-color);
   border-radius: 3px;
   font-weight: 600;
   font-size: 14px;
@@ -31,6 +31,7 @@
     font-size: 14px;
     letter-spacing: 0;
     text-align: center;
+    color: #fff;
   }
 }
 
