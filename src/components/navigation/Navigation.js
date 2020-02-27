@@ -136,7 +136,7 @@ export const Navigation = props => {
       <nav id="navigation">
         <Link id="coz-logo-home-link" to="/">
           <div id="logo">
-            <a id="neo-3-logo" alt="logo" ></a>
+            <span id="neo-3-logo" alt="logo" ></span>
             <div id="logo-spacer" />
 
             <PreviewLogo />
