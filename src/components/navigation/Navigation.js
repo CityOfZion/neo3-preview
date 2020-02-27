@@ -1,7 +1,6 @@
 import React from 'react'
 import { NavLink, Link } from 'react-router-dom'
 import { slide as Menu } from 'react-burger-menu'
-import ThemeToggle from '../toggle/ThemeToggle'
 import noScroll from 'no-scroll'
 
 import cozLogo from '../../images/coz-logo.svg'
