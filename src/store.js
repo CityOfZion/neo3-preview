@@ -36,6 +36,9 @@ export const INITIAL_STATE = {
     searchType: null,
   },
   stats: {},
+  theme: {
+    mode: 'DARK'
+  }
 }
 
 const loggerMiddleware = createLogger()
