@@ -6,14 +6,18 @@ html {
   overflow: auto;
 }
 
+html.dark-mode {
+  background-color: var(--primary-color);
+}
+
 html,
 body {
   min-height: 100vh;
-  background-color: var(--primary-color);
-  color: var(--text-color-secondary);
 }
 
 body {
+  background-color: var(--primary-color);
+  color: var(--text-color-secondary);
   margin: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -89,28 +93,6 @@ div:focus {
 
 .dark-mode .list-block-height-container img, .dark-mode #footer-social-icons a, .dark-mode .carousel-button-container img, .dark-mode #desktop-coz-logo img, .dark-mode #mobile-coz-logo img, .dark-mode #chevron-right-transfer, .dark-mode #burger-menu-icon, .dark-mode .expanding-panel-container .explore-button img {
   filter: invert(0%);
-}
-
-#neo-3-logo::after {
-  background: url("images/neo_color_dark.svg") no-repeat;
-  content: "";
-  width: 10em;
-  display: block;
-  height: 4em;
-}
-
-.dark-mode #neo-3-logo::after {
-  background: url("images/neo_color_light.svg") no-repeat;
-  content: "";
-  width: 10em;
-  display: block;
-  height: 4em;
-}
-
-@media only screen and (max-width: 810px) {
-  #neo-3-logo::after {
-    margin-left: -3em;
-  }
 }
 
 @media screen and (-webkit-min-device-pixel-ratio: 0) {
