@@ -1,56 +1,51 @@
-import React, { Component } from 'react';
-import Toggle from 'react-toggle';
+import React, { useEffect } from 'react'
+import Toggle from 'react-toggle'
 
 import withThemeData from '../../hoc/withThemeData'
-import './Toggle.scss';
+import './Toggle.scss'
 
-class ThemeToggle extends Component {
-  constructor(props) {
-    super(props);
+export const LIGHT_THEME = 'LIGHT'
+export const DARK_THEME = 'DARK'
 
-    if(JSON.parse(localStorage.getItem('neo3-preview-dark-mode')) === true) {
-      document.body.classList.add('dark-mode');
-    }
-
-    this.state = {
-      darkMode: JSON.parse(localStorage.getItem('neo3-preview-dark-mode'))
-    }
-
-    this.handleModeChange = this.handleModeChange.bind(this);
+const applyTheme = (theme, setTheme) => {
+  if (theme === DARK_THEME) {
+    document.body.classList.add('dark-mode')
+    setTheme(DARK_THEME)
+  } else {
+    document.body.classList.remove('dark-mode')
+    setTheme(LIGHT_THEME)
   }
+}
 
-  getState() {
-    return this.state.darkMode;
-  }
+const handleModeChange = (theme, setTheme) => {
+  localStorage.setItem('neo3-preview-theme', theme)
+  applyTheme(theme, setTheme)
+}
 
-  handleModeChange() {
-    if(!this.state.darkMode) {
-      document.body.classList.add('dark-mode');
-      this.props.setTheme('DARK');
-    } else {
-      document.body.classList.remove('dark-mode');
-      this.props.setTheme('LIGHT');
-    }
+const ThemeToggle = ({ setTheme, theme }) => {
+  const { mode } = theme
 
-    this.setState({
-      darkMode: (!this.state.darkMode)
-    });
+  useEffect(() => {
+    const theme = localStorage.getItem('neo3-preview-theme')
+    setTheme(theme)
+    applyTheme(theme, setTheme)
+  }, [setTheme])
 
-    localStorage.setItem('neo3-preview-dark-mode', !this.state.darkMode);
-
-  }
-
-  render() {
-    return (
-      <div id="footer-theme-toggle">
-        <span>{this.state.darkMode === true ? 'Dark' : 'Light'} Mode</span>
-        <Toggle
-        defaultChecked={this.state.darkMode}
+  return (
+    <div id="footer-theme-toggle">
+      <span>{mode === DARK_THEME ? 'Dark' : 'Light'} Mode</span>
+      <Toggle
+        defaultChecked={mode === LIGHT_THEME}
         icons={false}
-        onChange={this.handleModeChange} />
-      </div>
-    );
-  }
+        onChange={() =>
+          handleModeChange(
+            mode === DARK_THEME ? LIGHT_THEME : DARK_THEME,
+            setTheme,
+          )
+        }
+      />
+    </div>
+  )
 }
 
 export default withThemeData(ThemeToggle)
