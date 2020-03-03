@@ -3,13 +3,10 @@ import { NavLink, Link } from 'react-router-dom'
 import { slide as Menu } from 'react-burger-menu'
 import noScroll from 'no-scroll'
 
-//import neoLogoLight from '../../images/neo_color_light.svg'
-//import neoLogoDark from '../../images/neo-logo-dark.svg'
 import cozLogo from '../../images/coz-logo.svg'
 import cozLogoMobile from '../../images/coz-logo-mobile.png'
 import menuIcon from '../../images/menu.svg'
 import Search from '../search/Search'
-//import ThemeToggle from '../toggle/ThemeToggle'
 import ThemedLogo from '../toggle/ThemedLogo'
 
 import './Navigation.scss'
