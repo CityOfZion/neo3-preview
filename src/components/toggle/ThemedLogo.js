@@ -15,10 +15,6 @@ export const LightLogo = () => (
 
 class ThemedLogo extends Component {
 
-  constructor() {
-    super();
-  }
-
   componentDidMount() {
 
     if (localStorage.getItem("neo3-preview-dark-mode") === null || localStorage.getItem("neo3-preview-dark-mode") === 'true') {
