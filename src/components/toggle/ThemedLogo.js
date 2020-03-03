@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux'
 
 import withThemeData from '../../hoc/withThemeData'
 import neoLogoDark from '../../images/neo_color_light.svg'
@@ -18,30 +17,27 @@ class ThemedLogo extends Component {
 
   constructor() {
     super();
-    this.state = {
-      theme: null
-    };
   }
 
   componentDidMount() {
-    console.log(localStorage.getItem("neo3-preview-dark-mode"))
-    if (localStorage.getItem("neo3-preview-dark-mode") === null) {
-      this.setState({ theme: "neo3-preview-light-mode" });
+
+    if (localStorage.getItem("neo3-preview-dark-mode") === null || localStorage.getItem("neo3-preview-dark-mode") === 'true') {
+
+      this.props.setTheme('DARK');
+    } else {
+      this.props.setTheme('LIGHT');
     }
 
-    this.setState({ theme: "neo3-preview-light-mode" });
-    console.log(this.props.theme.theme)
   }
 
   render() {
-    const { theme } = this.state;
 
     return (
       <>
-        {this.props.theme.mode === "LIGHT" ? (
-          <LightLogo />
-        ) : (
+        {this.props.theme.mode === "DARK" ? (
           <DarkLogo />
+        ) : (
+          <LightLogo />
         )}
       </>
     );

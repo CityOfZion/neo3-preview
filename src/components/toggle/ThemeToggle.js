@@ -4,9 +4,6 @@ import Toggle from 'react-toggle';
 import withThemeData from '../../hoc/withThemeData'
 import './Toggle.scss';
 
-
-
-
 class ThemeToggle extends Component {
   constructor(props) {
     super(props);
@@ -38,7 +35,7 @@ class ThemeToggle extends Component {
     this.setState({
       darkMode: (!this.state.darkMode)
     });
-    
+
     localStorage.setItem('neo3-preview-dark-mode', !this.state.darkMode);
 
   }
