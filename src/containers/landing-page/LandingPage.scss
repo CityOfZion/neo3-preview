@@ -1,5 +1,5 @@
 #call-to-action {
-  background-color: var(--secondary-blue);
+  background-color: var(--secondary-color);
   padding: 12px;
   margin: 12px 12px 24px 12px;
   border-radius: 3px;
@@ -66,7 +66,7 @@
 }
 
 .list-block-height-container {
-  color: var(--green);
+  color: var(--tertiary-color);
   display: flex;
   align-items: center;
 
@@ -128,7 +128,7 @@
   }
   #landing-page h1 {
     font-size: 24px;
-    color: #ffffff;
+    color: var(--text-color);
   }
 
   #landing-page a {

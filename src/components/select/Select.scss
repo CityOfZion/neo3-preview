@@ -7,9 +7,13 @@
 .select-container {
   display: flex;
   align-items: center;
-  background-color: var(--secondary-blue);
+  background-color: var(--primary-color);
   border-radius: 3px;
   padding-right: 12px;
+}
+
+.inner-select-container .react-select__control, .inner-select-container .react-select__menu, .inner-select-container .react-select__menu, .select-computed-value {
+  background-color: var(--primary-color);
 }
 
 .react-select__indicator {
@@ -26,7 +30,7 @@ select:-webkit-autofill,
 select:-webkit-autofill:hover,
 select:-webkit-autofill:focus {
   border: 1px solid green;
-  -webkit-text-fill-color: #f9fafa;
+  -webkit-text-fill-color: var(--text-color-secondary);
   -webkit-box-shadow: 0 0 0px 1000px '#000033' inset;
   transition: background-color 5000s ease-in-out 0s;
 }
@@ -41,13 +45,13 @@ select:-webkit-autofill:focus {
       margin-right: 0;
       margin-bottom: 6px;
       border-right: none;
-      background-color: var(--secondary-blue);
+      background-color: var(--secondary-color);
       border-radius: 3px;
     }
 
     .select-computed-value {
       word-wrap: anywhere;
-      background-color: var(--secondary-blue);
+      background-color: var(--secondary-color);
       padding: 6px 12px;
       border-radius: 3px;
     }

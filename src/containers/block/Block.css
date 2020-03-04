@@ -6,7 +6,7 @@
   margin: 6px 0 0;
   font-size: 17px;
   font-weight: bold;
-  color: #ffffff;
+  color: var(--text-color);
   display: inline-block;
   word-break: break-word;
 }

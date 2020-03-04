@@ -3,17 +3,17 @@ import { NavLink, Link } from 'react-router-dom'
 import { slide as Menu } from 'react-burger-menu'
 import noScroll from 'no-scroll'
 
-import neoLogo from '../../images/neo-logo.svg'
 import cozLogo from '../../images/coz-logo.svg'
 import cozLogoMobile from '../../images/coz-logo-mobile.png'
 import menuIcon from '../../images/menu.svg'
 import Search from '../search/Search'
+import ThemedLogo from '../toggle/ThemedLogo'
 
 import './Navigation.scss'
 
 const activeStyle = {
   fontWeight: 'bold',
-  color: 'var(--green)',
+  color: 'var(--tertiary-color)',
 }
 
 export const PreviewLogo = () => (
@@ -136,7 +136,7 @@ export const Navigation = props => {
       <nav id="navigation">
         <Link id="coz-logo-home-link" to="/">
           <div id="logo">
-            <img id="neo-3-logo" src={neoLogo} alt="logo" />
+            <ThemedLogo />
             <div id="logo-spacer" />
 
             <PreviewLogo />

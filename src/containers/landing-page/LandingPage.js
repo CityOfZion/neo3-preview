@@ -22,7 +22,7 @@ class LandingPage extends React.Component {
 
     const json = await response.json()
 
-    if (json) {
+    if (json && Array.isArray(json)) {
       let fileExtension
 
       const LINUX_EXTENSION = 'neo-cli-linux-x64.zip'

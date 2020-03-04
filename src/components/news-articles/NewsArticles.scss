@@ -25,7 +25,7 @@
         padding: 17px 17px 0 17px;
         font-weight: 400;
         font-size: 14px;
-        color: #ffffff;
+        color: var(--text-color);
         line-height: 16px;
       }
 
@@ -39,7 +39,7 @@
       h1 {
         padding: 17px 17px 24px 17px;
         font-size: 17px;
-        color: #ffffff;
+        color: var(--text-color);
 
         font-weight: 600;
       }

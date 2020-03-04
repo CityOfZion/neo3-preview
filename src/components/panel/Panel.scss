@@ -1,12 +1,12 @@
 .panel {
-  background-color: var(--secondary-blue);
+  background-color: var(--secondary-color);
   padding: 6px 16px;
   height: 24px;
   display: flex;
   align-items: center;
   font-weight: 400;
   font-size: 14px;
-  border-bottom: solid 2px var(--green);
+  border-bottom: solid 2px var(--tertiary-color);
 
   div {
     display: block;
@@ -67,13 +67,13 @@
 .panel-header {
   margin: 24px 0 12px 0;
   padding-bottom: 12px;
-  border-bottom: solid 2px #f9fafa;
+  border-bottom: solid 2px var(--text-color-secondary);
 }
 
 .panel-header-and-explore-row {
   margin: 24px 0 12px 0;
   padding-bottom: 12px;
-  border-bottom: solid 2px #f9fafa;
+  border-bottom: solid 2px var(--text-color-secondary);
   display: flex;
   justify-content: space-between;
 

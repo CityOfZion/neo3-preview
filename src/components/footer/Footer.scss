@@ -1,6 +1,6 @@
 .footer {
   flex-shrink: 0;
-  border-top: thin solid #f9fafa;
+  border-top: thin solid var(--text-color-secondary);
   margin: 0 24px;
   padding: 24px 0;
   display: flex;
@@ -15,6 +15,33 @@
 
 .footer span {
   justify-content: center;
+}
+
+#footer-theme-toggle {
+  display: flex;
+  align-items: center;
+  padding: 0.5em;
+  margin-right: 1em;
+  border-radius: 100px;
+  background-color: var(--secondary-color);
+}
+
+.react-toggle:hover:not(.react-toggle--disabled) .react-toggle-track {
+  background-color: #555;
+  box-shadow: 0px 0px 2px 2px #0099e0;
+}
+
+.react-toggle:active:not(.react-toggle--disabled) .react-toggle-thumb {
+  box-shadow: none !important;
+}
+
+.react-toggle--focus .react-toggle-thumb {
+  box-shadow: none !important;
+}
+
+#footer-theme-toggle span {
+  margin-right: 1em;
+  font-size: 0.8em;
 }
 
 #footer-social-icons {
@@ -38,6 +65,16 @@
   }
 }
 
+.react-toggle--checked .react-toggle-track {
+  background-color: #4d4d4d;
+}
+
+.react-toggle--checked .react-toggle-thumb {
+  border-color: #fafafa;
+  background-color: #fafafa;
+  opacity: 0.75;
+}
+
 @media only screen and (max-width: 810px) {
   .footer {
     flex-direction: column;
@@ -45,7 +82,6 @@
   }
 
   #footer-social-icons img {
-    margin-top: 6px;
     max-width: 25px;
   }
 

@@ -6,6 +6,7 @@ import transactionReducer from './transactionReducer'
 import addressReducer from './addressReducer'
 import searchReducer from './searchReducer'
 import statsReducer from './statsReducer'
+import themeReducer from './themeReducer'
 
 export default combineReducers({
   blocks: blockReducer,
@@ -15,4 +16,5 @@ export default combineReducers({
   address: addressReducer,
   search: searchReducer,
   stats: statsReducer,
+  theme: themeReducer,
 })

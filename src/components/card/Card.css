@@ -1,12 +1,12 @@
 .card {
-  background-color: var(--secondary-blue);
+  background-color: var(--secondary-color);
   border-top: 3px transparent solid;
   max-width: 276px;
   max-height: 95px !important;
   min-width: 150px;
   min-height: 95px;
   margin: 10px;
-  border-bottom: 3px var(--green) solid;
+  border-bottom: 3px var(--tertiary-color) solid;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -18,7 +18,7 @@
 .card h2 {
   margin: 0;
   font-size: 30px;
-  color: #f9fafa;
+  color: var(--text-color-secondary);
   text-align: center;
   margin-top: -5px;
 }
@@ -26,7 +26,7 @@
 .card p {
   margin: 0;
   font-size: 17px;
-  color: #f9fafa;
+  color: var(--text-color-secondary);
   text-align: center;
   line-height: 24px;
 }

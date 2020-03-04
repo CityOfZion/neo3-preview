@@ -1,10 +1,5 @@
-import React, { Fragment } from 'react'
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  withRouter,
-} from 'react-router-dom'
+import React, { Fragment, useEffect } from 'react'
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 
 import Footer from './components/footer/Footer'
 import Navigation from './components/navigation'
@@ -18,31 +13,41 @@ import Transaction from './containers/transaction/Transaction'
 import Address from './containers/address/Address'
 import GettingStarted from './containers/getting-started/GettingStarted'
 import './App.css'
+import withThemeData from './hoc/withThemeData'
+import { applyTheme, DARK_THEME } from './components/toggle/ThemeToggle'
+import usePrevious from './hooks/userPrevious'
 
-class ScrollToTop extends React.Component {
-  componentDidUpdate(prevProps) {
-    if (
-      this.props.history.action === 'PUSH' ||
-      this.props.history.action === 'POP'
-    ) {
-      window.scrollTo(0, 0)
+// Causes the router to scroll to the top of the page
+// on any route change but not theme changes
+const ScrollToTop = ({ theme, ...otherProps }) => {
+  const previousProps = usePrevious({ theme }) || {}
+  useEffect(() => {
+    if (previousProps.theme !== theme) {
+      return
     }
-  }
+    return window.scrollTo(0, 0)
+  }, [otherProps, theme, previousProps.theme])
 
-  render() {
-    return this.props.children
-  }
+  return null
 }
 
-const ScrollToTopWithRouter = withRouter(ScrollToTop)
+const App = ({ theme, setTheme }) => {
+  const { mode } = theme
 
-export default () => (
-  <Fragment>
-    <div className="content">
-      <Router>
-        <ScrollToTopWithRouter>
+  useEffect(() => {
+    const savedTheme = localStorage.getItem('neo3-preview-theme')
+    applyTheme(savedTheme || DARK_THEME, setTheme)
+  }, [setTheme])
+
+  return mode ? (
+    <Fragment>
+      <div className="content">
+        <Router>
           <Navigation />
           <div className="router-content">
+            <Route
+              component={props => <ScrollToTop {...props} theme={theme} />}
+            />
             <Switch>
               <Route
                 path="/transactions"
@@ -86,14 +91,18 @@ export default () => (
               />
               <Route
                 path="/getting-started"
-                component={props => <GettingStarted {...props}/>}
+                component={props => <GettingStarted {...props} />}
               />
               <Route path="/" component={props => <LandingPage {...props} />} />
             </Switch>
           </div>
-        </ScrollToTopWithRouter>
-      </Router>
-    </div>
-    <Footer />
-  </Fragment>
-)
+        </Router>
+      </div>
+      <Footer />
+    </Fragment>
+  ) : (
+    <div />
+  )
+}
+
+export default withThemeData(App)

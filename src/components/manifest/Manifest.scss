@@ -22,13 +22,14 @@
   span {
     font-weight: 400;
     font-size: 14px;
-    color: #ffffff;
+    color: var(--text-color);
     letter-spacing: 0;
     margin-right: 12px;
   }
 
   p {
     min-height: 28px;
+    color: #fff;
     display: flex;
     align-items: center;
     padding: 0 12px;
@@ -39,7 +40,7 @@
   .method-seperator {
     font-weight: 600;
     font-size: 20px;
-    color: #ffffff;
+    color: var(--text-color);
     letter-spacing: 0;
   }
 }
@@ -58,6 +59,7 @@
 
   .parameter-name {
     background: #262651;
+    color: #fff;
     padding: 0 6px;
     border-radius: 3px 0 0 3px;
   }

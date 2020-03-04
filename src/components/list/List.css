@@ -3,10 +3,10 @@
 
 .data-list > span {
   padding: 6px 24px;
-  background: var(--secondary-blue);
+  background: var(--secondary-color);
   font-weight: 600;
   font-size: 14px;
-  color: white;
+  color: var(--text-color-secondary);
   line-height: 32px;
   cursor: pointer;
   text-overflow: ellipsis;
@@ -18,8 +18,8 @@
 .data-list-column {
   padding: 12px 24px;
   font-weight: 300;
-  background: var(--green);
-  color: var(--primary-blue);
+  background: var(--tertiary-color);
+  color: var(--primary-color);
   font-weight: 600;
   font-size: 14px;
   color: #000033;
@@ -49,10 +49,10 @@
 @media only screen and (max-width: 810px) {
   .data-list > span {
     padding: 3px 6px;
-    background: var(--secondary-blue);
+    background: var(--secondary-color);
     font-weight: 600;
     font-size: 14px;
-    color: white;
+    color: var(--text-color-secondary);
     line-height: 32px;
     cursor: pointer;
     text-overflow: ellipsis;

@@ -14,9 +14,9 @@ const ExpandingPanel = ({ title, handleOpen, open, children }) => {
       <div
         className="notification-panel expanding-panel-header"
         style={{
-          backgroundColor: isOpen ? 'var(--green)' : 'var(--secondary-blue)',
-          color: isOpen ? '#000033' : '#FFFFFF',
-          borderBottom: isOpen ? '1px solid var(--green)' : 'none',
+          backgroundColor: isOpen ? 'var(--tertiary-color)' : 'var(--secondary-color)',
+          color: isOpen ? '#000033' : 'var(--text-color)',
+          borderBottom: isOpen ? '1px solid var(--tertiary-color)' : 'none',
         }}
       >
         <div className="expanding-panel-title">{title}</div>

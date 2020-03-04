@@ -1,10 +1,10 @@
 .secondary-button.active-button {
-  background: var(--secondary-green);
+  background: var(--quaternary-color);
   color: #000033;
 }
 
 .primary-button {
-  background: var(--green);
+  background: var(--tertiary-color);
   padding: 12px;
   min-width: 145px;
   font-size: 16px;
@@ -23,8 +23,8 @@
   padding: 12px;
   min-width: 145px;
   font-size: 16px;
-  border: 1px solid var(--green);
-  color: var(--green);
+  border: 1px solid var(--tertiary-color);
+  color: var(--tertiary-color);
   cursor: pointer;
   font-weight: 600;
   font-size: 16px;
@@ -39,7 +39,7 @@
 
 .secondary-button:hover,
 .secondary-button svg:hover {
-  background: var(--secondary-green);
+  background: var(--quaternary-color);
   color: #000033;
   polyline {
     stroke: #000033;
@@ -56,12 +56,12 @@
   cursor: default;
   opacity: 0.5;
   background: none;
-  color: var(--green);
+  color: var(--tertiary-color);
 
   polyline {
-    stroke: var(--green);
+    stroke: var(--tertiary-color);
   }
-  // background: var(--secondary-green);
+  // background: var(--quaternary-color);
   // color: #000033;
   // polyline {
   //   stroke: #000033;
