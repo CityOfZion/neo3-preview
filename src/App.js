@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect } from 'react'
+import React, { Fragment, useEffect, useMemo } from 'react'
 import {
   BrowserRouter as Router,
   Switch,
@@ -28,77 +28,82 @@ const ScrollToTop = () => {
   return null
 }
 
-const RetrieveTheme = withThemeData(({ setTheme }) => {
+const App = ({ theme, setTheme }) => {
+  const { mode } = theme
+  const themeIsDefined = Boolean(mode)
+
   useEffect(() => {
     const savedTheme = localStorage.getItem('neo3-preview-theme')
     applyTheme(savedTheme || DARK_THEME, setTheme)
   }, [setTheme])
 
-  return null
-})
-
-const App = () => {
-  return (
-    <Fragment>
-      <div className="content">
-        <Router>
-          <Navigation />
-          <ScrollToTop />
-          <RetrieveTheme />
-          <div className="router-content">
-            <Switch>
-              <Route
-                path="/transactions"
-                component={props => <Transactions {...props} />}
-              />
-              <Route
-                path="/transaction/:id"
-                component={props => <Transaction {...props} />}
-              />
-              <Route
-                path="/block/:id"
-                component={props => <Block {...props} />}
-              />
-              <Route
-                path="/blocks/:page"
-                component={props => <Blocks {...props} />}
-                exact
-              />
-              <Route
-                path="/blocks"
-                component={props => <Blocks {...props} />}
-                exact
-              />
-              <Route
-                path="/contract/:id"
-                component={props => <Contract {...props} />}
-              />
-              <Route
-                path="/contracts/:page"
-                component={props => <Contracts {...props} />}
-                exact
-              />
-              <Route
-                path="/contracts"
-                component={props => <Contracts {...props} />}
-                exact
-              />
-              <Route
-                path="/address/:id"
-                component={props => <Address {...props} />}
-              />
-              <Route
-                path="/getting-started"
-                component={props => <GettingStarted {...props} />}
-              />
-              <Route path="/" component={props => <LandingPage {...props} />} />
-            </Switch>
+  return useMemo(
+    () =>
+      themeIsDefined && (
+        <Fragment>
+          <div className="content">
+            <Router>
+              <Navigation />
+              <ScrollToTop />
+              <div className="router-content">
+                <Switch>
+                  <Route
+                    path="/transactions"
+                    component={props => <Transactions {...props} />}
+                  />
+                  <Route
+                    path="/transaction/:id"
+                    component={props => <Transaction {...props} />}
+                  />
+                  <Route
+                    path="/block/:id"
+                    component={props => <Block {...props} />}
+                  />
+                  <Route
+                    path="/blocks/:page"
+                    component={props => <Blocks {...props} />}
+                    exact
+                  />
+                  <Route
+                    path="/blocks"
+                    component={props => <Blocks {...props} />}
+                    exact
+                  />
+                  <Route
+                    path="/contract/:id"
+                    component={props => <Contract {...props} />}
+                  />
+                  <Route
+                    path="/contracts/:page"
+                    component={props => <Contracts {...props} />}
+                    exact
+                  />
+                  <Route
+                    path="/contracts"
+                    component={props => <Contracts {...props} />}
+                    exact
+                  />
+                  <Route
+                    path="/address/:id"
+                    component={props => <Address {...props} />}
+                  />
+                  <Route
+                    path="/getting-started"
+                    component={props => <GettingStarted {...props} />}
+                  />
+                  <Route
+                    path="/"
+                    component={props => <LandingPage {...props} />}
+                  />
+                </Switch>
+              </div>
+            </Router>
           </div>
-        </Router>
-      </div>
-      <Footer />
-    </Fragment>
+          <Footer />
+        </Fragment>
+      ),
+    [themeIsDefined],
   )
 }
 
-export default App
+export default withThemeData(App)
