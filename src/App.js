@@ -1,5 +1,10 @@
 import React, { Fragment, useEffect } from 'react'
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  useLocation,
+} from 'react-router-dom'
 
 import Footer from './components/footer/Footer'
 import Navigation from './components/navigation'
@@ -12,42 +17,35 @@ import Contract from './containers/contract/Contract'
 import Transaction from './containers/transaction/Transaction'
 import Address from './containers/address/Address'
 import GettingStarted from './containers/getting-started/GettingStarted'
-import './App.css'
-import withThemeData from './hoc/withThemeData'
 import { applyTheme, DARK_THEME } from './components/toggle/ThemeToggle'
-import usePrevious from './hooks/userPrevious'
+import withThemeData from './hoc/withThemeData'
+import './App.css'
 
-// Causes the router to scroll to the top of the page
-// on any route change but not theme changes
-const ScrollToTop = ({ theme, ...otherProps }) => {
-  const previousProps = usePrevious({ theme }) || {}
-  useEffect(() => {
-    if (previousProps.theme !== theme) {
-      return
-    }
-    return window.scrollTo(0, 0)
-  }, [otherProps, theme, previousProps.theme])
+const ScrollToTop = () => {
+  const { pathname } = useLocation()
+  useEffect(() => window.scrollTo(0, 0), [pathname])
 
   return null
 }
 
-const App = ({ theme, setTheme }) => {
-  const { mode } = theme
-
+const RetrieveTheme = withThemeData(({ setTheme }) => {
   useEffect(() => {
     const savedTheme = localStorage.getItem('neo3-preview-theme')
     applyTheme(savedTheme || DARK_THEME, setTheme)
   }, [setTheme])
 
-  return mode ? (
+  return null
+})
+
+const App = () => {
+  return (
     <Fragment>
       <div className="content">
         <Router>
           <Navigation />
+          <ScrollToTop />
+          <RetrieveTheme />
           <div className="router-content">
-            <Route
-              component={props => <ScrollToTop {...props} theme={theme} />}
-            />
             <Switch>
               <Route
                 path="/transactions"
@@ -100,9 +98,7 @@ const App = ({ theme, setTheme }) => {
       </div>
       <Footer />
     </Fragment>
-  ) : (
-    <div />
   )
 }
 
-export default withThemeData(App)
+export default App

@@ -4,8 +4,8 @@ import Toggle from 'react-toggle'
 import withThemeData from '../../hoc/withThemeData'
 import './Toggle.scss'
 
-export const LIGHT_THEME = 'LIGHT'
 export const DARK_THEME = 'DARK'
+export const LIGHT_THEME = 'LIGHT'
 
 export const applyTheme = (theme, setTheme) => {
   if (theme === DARK_THEME) {
