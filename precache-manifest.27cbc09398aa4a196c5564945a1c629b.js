@@ -1,19 +1,19 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "f75a28c08d675da3e4d4e13b1604c0c4",
+    "revision": "7fbb3c7dc8d641a4da1c828a7edf1477",
     "url": "/index.html"
   },
   {
-    "revision": "35bde68b430a770d3019",
-    "url": "/static/css/main.4ceca87f.chunk.css"
+    "revision": "5d17ca8383baeed20819",
+    "url": "/static/css/main.b59ffe3f.chunk.css"
   },
   {
-    "revision": "711a9f7a9d634d0b4141",
-    "url": "/static/js/2.e0068ac1.chunk.js"
+    "revision": "e66b82ed3460c4c5b605",
+    "url": "/static/js/2.98d0e86c.chunk.js"
   },
   {
-    "revision": "35bde68b430a770d3019",
-    "url": "/static/js/main.422bf002.chunk.js"
+    "revision": "5d17ca8383baeed20819",
+    "url": "/static/js/main.42c1bf15.chunk.js"
   },
   {
     "revision": "d815e5f9d14b36e707b8",
@@ -100,8 +100,12 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/static/media/neo-coredevelopment.91f60412.png"
   },
   {
+    "revision": "4a4e534b07a888e8a4044bebd4ac8014",
+    "url": "/static/media/neo_color_dark.4a4e534b.svg"
+  },
+  {
     "revision": "c535e5d722b769aa34cf839769dc3a92",
-    "url": "/static/media/neo-logo.c535e5d7.svg"
+    "url": "/static/media/neo_color_light.c535e5d7.svg"
   },
   {
     "revision": "f0b4cb0dc149ced549f71f28b6073014",
