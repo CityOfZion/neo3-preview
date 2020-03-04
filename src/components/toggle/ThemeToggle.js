@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import Toggle from 'react-toggle'
 
 import withThemeData from '../../hoc/withThemeData'
@@ -7,7 +7,7 @@ import './Toggle.scss'
 export const LIGHT_THEME = 'LIGHT'
 export const DARK_THEME = 'DARK'
 
-const applyTheme = (theme, setTheme) => {
+export const applyTheme = (theme, setTheme) => {
   if (theme === DARK_THEME) {
     document.body.classList.add('dark-mode')
     setTheme(DARK_THEME)
@@ -17,19 +17,13 @@ const applyTheme = (theme, setTheme) => {
   }
 }
 
-const handleModeChange = (theme, setTheme) => {
+const saveAndApplyTheme = (theme, setTheme) => {
   localStorage.setItem('neo3-preview-theme', theme)
   applyTheme(theme, setTheme)
 }
 
 const ThemeToggle = ({ setTheme, theme }) => {
   const { mode } = theme
-
-  useEffect(() => {
-    const theme = localStorage.getItem('neo3-preview-theme')
-    setTheme(theme)
-    applyTheme(theme, setTheme)
-  }, [setTheme])
 
   return (
     <div id="footer-theme-toggle">
@@ -38,7 +32,7 @@ const ThemeToggle = ({ setTheme, theme }) => {
         defaultChecked={mode === LIGHT_THEME}
         icons={false}
         onChange={() =>
-          handleModeChange(
+          saveAndApplyTheme(
             mode === DARK_THEME ? LIGHT_THEME : DARK_THEME,
             setTheme,
           )

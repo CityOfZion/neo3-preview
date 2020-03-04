@@ -1,4 +1,4 @@
-import { SET_THEME  } from '../actions/themeActions'
+import { SET_THEME } from '../actions/themeActions'
 export default (
   state = {
     mode: null,

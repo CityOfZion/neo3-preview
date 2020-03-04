@@ -2,8 +2,8 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { setTheme } from '../actions/themeActions'
 
-const mapStateToProps = (state) => ({
-  ...state
+const mapStateToProps = ({ theme }) => ({
+  theme,
 })
 
 const mapDispatchToProps = dispatch => ({

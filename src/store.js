@@ -37,8 +37,8 @@ export const INITIAL_STATE = {
   },
   stats: {},
   theme: {
-    mode: 'DARK'
-  }
+    mode: null,
+  },
 }
 
 const loggerMiddleware = createLogger()
