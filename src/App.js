@@ -14,7 +14,7 @@ import Address from './containers/address/Address'
 import GettingStarted from './containers/getting-started/GettingStarted'
 import './App.css'
 import withThemeData from './hoc/withThemeData'
-import { applyTheme, LIGHT_THEME } from './components/toggle/ThemeToggle'
+import { applyTheme, DARK_THEME } from './components/toggle/ThemeToggle'
 import usePrevious from './hooks/userPrevious'
 
 // Causes the router to scroll to the top of the page
@@ -36,7 +36,7 @@ const App = ({ theme, setTheme }) => {
 
   useEffect(() => {
     const savedTheme = localStorage.getItem('neo3-preview-theme')
-    applyTheme(savedTheme || LIGHT_THEME, setTheme)
+    applyTheme(savedTheme || DARK_THEME, setTheme)
   }, [setTheme])
 
   return mode ? (
