@@ -32,6 +32,10 @@ code {
     monospace;
 }
 
+.hide-card {
+  display: none !important;
+}
+
 :root {
   --primary-color: #ffffff;
   --secondary-color: #f6f6f6;
@@ -93,6 +97,18 @@ div:focus {
 
 .dark-mode .list-block-height-container img, .dark-mode #footer-social-icons a, .dark-mode .carousel-button-container img, .dark-mode #desktop-coz-logo img, .dark-mode #mobile-coz-logo img, .dark-mode #chevron-right-transfer, .dark-mode #burger-menu-icon, .dark-mode .expanding-panel-container .explore-button img {
   filter: invert(0%);
+}
+
+@media screen and (min-width: 1900px) {
+.carousel-wrapper {
+  width: 1825px !important;
+  margin-left: -325px;
+  overflow: hidden;
+}
+
+.carousel-item-wrapper {
+  width: 15.7% !important;
+}
 }
 
 @media screen and (-webkit-min-device-pixel-ratio: 0) {
