@@ -85,12 +85,12 @@ export const FeatureCards = ({ numberOfCards }) => {
 
     if (numberOfCards < 4) return false
 
-    if (numberOfCards == 6) {
-      if (i === activeItemIndex || i == activeItemIndex % features.length) return true
-      if (i === (activeItemIndex + 5) || i == (activeItemIndex + 5) % features.length) return true
+    if (numberOfCards === 6) {
+      if (i === activeItemIndex || i === activeItemIndex % features.length) return true
+      if (i === (activeItemIndex + 5) || i === (activeItemIndex + 5) % features.length) return true
     }
 
-    if (numberOfCards == 4) {
+    if (numberOfCards === 4) {
       const endingIndex = (activeItemIndex + numberOfCards) % features.length
       let startingIndex = endingIndex + numberOfCards - 1
       if (startingIndex >= features.length) {

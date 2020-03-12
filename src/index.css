@@ -32,10 +32,6 @@ code {
     monospace;
 }
 
-.hide-card {
-  display: none !important;
-}
-
 :root {
   --primary-color: #ffffff;
   --secondary-color: #f6f6f6;
