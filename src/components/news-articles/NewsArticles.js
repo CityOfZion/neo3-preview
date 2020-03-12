@@ -96,10 +96,10 @@ export const NewsArticles = React.memo(({ numberOfCards }) => {
 
 export default () => {
   const width = useWindowWidth()
-  const CARD_WIDTH = 310
+  const CARD_WIDTH = 300
   let numberOfCards = Math.floor(width / CARD_WIDTH)
 
-  if (width > 1900) {
+  if (width > 1800) {
     if (numberOfCards > 6) numberOfCards = 6
   } else {
     if (numberOfCards > 4) numberOfCards = 4

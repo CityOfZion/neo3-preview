@@ -99,7 +99,7 @@ div:focus {
   filter: invert(0%);
 }
 
-@media screen and (min-width: 1900px) {
+@media screen and (min-width: 1800px) {
 .carousel-wrapper {
   width: 1825px !important;
   margin-left: -325px;
