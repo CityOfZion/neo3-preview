@@ -46,6 +46,19 @@
   margin-bottom: 12px;
 }
 
+.dark-mode .cellhovered {
+  background: #444444 !important;
+}
+
+.cellhovered img {
+  filter: invert(0%);
+}
+
+.cellhovered {
+  background: #2B393F !important;
+  color: #fff !important
+}
+
 @media only screen and (max-width: 810px) {
   .data-list > span {
     padding: 3px 6px;
