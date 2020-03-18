@@ -30,7 +30,7 @@ export const List = ({
       return {
         borderRadius: '3px 0 0 3px',
       }
-    if (index === columns.length - 1)
+    if (index === columns.length)
       return {
         borderRadius: '0 3px 3px 0',
       }
@@ -47,6 +47,20 @@ export const List = ({
     'data-list-column': true,
   })
 
+  const onCellMouseEnter = (index) => {
+      const cells = document.getElementsByClassName(`index-row-${index}`);
+      if (cells.length > 0) {
+        for (const cell of cells) { cell.classList.add('cellhovered'); }
+      }
+    };
+
+  const onCellMouseLeave = (index) => {
+      const cells = document.getElementsByClassName(`index-row-${index}`);
+      if (cells.length > 0) {
+        for (const cell of cells) { cell.classList.remove('cellhovered'); }
+      }
+    };
+
   return (
     <div className="data-list-container">
       <div className="data-list" style={gridstyle}>
@@ -60,15 +74,17 @@ export const List = ({
           </div>
         ))}
 
-        {sortedByAccessor.map(data =>
+        {sortedByAccessor.map((data,index) =>
           Object.keys(data).map(
-            key =>
+            (key, i) =>
               key !== 'id' && (
                 <span
-                  style={conditionalBorderRadius()}
+                  style={conditionalBorderRadius(i)}
                   onClick={() => handleRowClick && handleRowClick(data)}
                   key={uniqueId()}
-                  className={rowClass}
+                  className={`index-row-${index} ` + rowClass}
+                  onMouseEnter={() => onCellMouseEnter(index)}
+                  onMouseLeave={() => onCellMouseLeave(index)}
                 >
                   {isLoading
                     ? ''
