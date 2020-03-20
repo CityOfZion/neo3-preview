@@ -47,19 +47,7 @@ export const List = ({
     'data-list-column': true,
   })
 
-  const onCellMouseEnter = (index) => {
-      const cells = document.getElementsByClassName(`index-row-${index}`);
-      if (cells.length > 0) {
-        for (const cell of cells) { cell.classList.add('cellhovered'); }
-      }
-    };
-
-  const onCellMouseLeave = (index) => {
-      const cells = document.getElementsByClassName(`index-row-${index}`);
-      if (cells.length > 0) {
-        for (const cell of cells) { cell.classList.remove('cellhovered'); }
-      }
-    };
+  const [currentHoveredIndex, setCurrentHoveredIndex] = React.useState(null)
 
   return (
     <div className="data-list-container">
@@ -74,17 +62,22 @@ export const List = ({
           </div>
         ))}
 
-        {sortedByAccessor.map((data,index) =>
-          Object.keys(data).map(
-            (key, i) =>
+        {sortedByAccessor.map((data, index) =>
+          Object.keys(data).map((key, i) => {
+            const hoveredClassName = `cellhovered + ${rowClass}`
+            return (
               key !== 'id' && (
                 <span
                   style={conditionalBorderRadius(i)}
                   onClick={() => handleRowClick && handleRowClick(data)}
                   key={uniqueId()}
-                  className={`index-row-${index} ` + rowClass}
-                  onMouseEnter={() => onCellMouseEnter(index)}
-                  onMouseLeave={() => onCellMouseLeave(index)}
+                  className={
+                    currentHoveredIndex === index
+                      ? hoveredClassName
+                      : rowClass
+                  }
+                  onMouseEnter={() => setCurrentHoveredIndex(index)}
+                  onMouseLeave={() => setCurrentHoveredIndex(null)}
                 >
                   {isLoading
                     ? ''
@@ -92,8 +85,9 @@ export const List = ({
                     ? data[key]()
                     : data[key]}
                 </span>
-              ),
-          ),
+              )
+            )
+          }),
         )}
       </div>
     </div>
