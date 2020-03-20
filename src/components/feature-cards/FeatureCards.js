@@ -82,14 +82,24 @@ export const FeatureCards = ({ numberOfCards }) => {
   )
 
   const shouldBlur = i => {
+
     if (numberOfCards < 4) return false
-    const endingIndex = (activeItemIndex + numberOfCards) % features.length
-    let startingIndex = endingIndex + numberOfCards - 1
-    if (startingIndex >= features.length) {
-      startingIndex = ((endingIndex + numberOfCards) % features.length) - 1
+
+    if (numberOfCards === 6) {
+      if (i === activeItemIndex || i === activeItemIndex % features.length) return true
+      if (i === (activeItemIndex + 5) || i === (activeItemIndex + 5) % features.length) return true
     }
-    if (i === endingIndex) return true
-    if (i === startingIndex) return true
+
+    if (numberOfCards === 4) {
+      const endingIndex = (activeItemIndex + numberOfCards) % features.length
+      let startingIndex = endingIndex + numberOfCards - 1
+      if (startingIndex >= features.length) {
+        startingIndex = ((endingIndex + numberOfCards) % features.length) - 1
+      }
+      if (i === endingIndex) return true
+      if (i === startingIndex) return true
+    }
+
   }
 
   // Prevent the background from scrolling if modal is ope
@@ -177,8 +187,14 @@ export const FeatureCards = ({ numberOfCards }) => {
 
 export default () => {
   const width = useWindowWidth()
-  const CARD_WIDTH = 310
+  const CARD_WIDTH = 300
   let numberOfCards = Math.floor(width / CARD_WIDTH)
-  if (numberOfCards > 4) numberOfCards = 4
+
+    if (width >= 1800) {
+      if (numberOfCards > 6) numberOfCards = 6
+    } else {
+      if (numberOfCards > 4) numberOfCards = 4
+    }
+
   return <FeatureCards numberOfCards={numberOfCards} />
 }
