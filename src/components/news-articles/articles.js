@@ -4,8 +4,25 @@ import oracles from '../../images/temp-news-articles/oracles-dbft.png'
 import scopedWitnesses from '../../images/temp-news-articles/scoped-witnesses.png'
 import neofs from '../../images/temp-news-articles/send-neofs.png'
 import neoCoreDevelopment from '../../images/temp-news-articles/neo-coredevelopment.png'
+import everstake from '../../images/temp-news-articles/everstake.png'
+import yearInReview from '../../images/temp-news-articles/2019.png'
 
 export const articles = [
+  {
+    title:
+      'Everstake becomes first non-Neo Foundation entity to operate Neo3 Preview TestNet consensus node',
+    link:
+      'https://neonewstoday.com/general/everstake-becomes-first-non-neo-foundation-entity-to-operate-neo3-preview-testnet-consensus-node/',
+    date: 'January 17, 2020',
+    image: everstake,
+  },
+  {
+    title: '2019 Year In Review: Neo3 Development',
+    link:
+      'https://neonewstoday.com/development/2019-year-in-review-neo3-development/',
+    date: 'December 29, 2020',
+    image: yearInReview,
+  },
   {
     title: 'NGD summarizes latest Neo3 core development in December report',
     link:
@@ -35,19 +52,5 @@ export const articles = [
       'https://medium.com/neo-smart-economy/behind-pr-149-a-bright-future-for-neovm-and-neo-3-3b779e8749c4',
     image: neovm,
     date: 'September 20th 2019',
-  },
-  {
-    title: 'On the importance of Oracles: NEO3 and dBFT',
-    link:
-      'https://medium.com/neo-smart-economy/on-the-importance-of-oracles-neo-3-0-and-dbft-17c37ee35f32',
-    image: oracles,
-    date: 'September 19th 2019',
-  },
-  {
-    title: 'Scoped Witnesses: How to Securely Transfer Assets on NEO3',
-    link:
-      'https://medium.com/neo-smart-economy/scoped-witnesses-how-to-securely-transfer-assets-on-neo-3-6ac012221188',
-    image: scopedWitnesses,
-    date: 'September 16th 2019',
   },
 ]
