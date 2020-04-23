@@ -42,7 +42,7 @@ const classes = {
   itemWrapper: 'carousel-item-wrapper',
 }
 
-export const CarouselNewsCardWithBlur = props => {
+export const CarouselNewsCardWithBlur = (props) => {
   const { feature, setSelectedFeatureTitle, openModal, shouldBlur } = props
   const classes = classNames({
     'feature-card': true,
@@ -78,16 +78,20 @@ export const FeatureCards = ({ numberOfCards }) => {
   const openModal = () => setFeatureModalOpen(true)
 
   const selectedFeature = features.find(
-    feature => feature.title === selectedFeatureTitle,
+    (feature) => feature.title === selectedFeatureTitle,
   )
 
-  const shouldBlur = i => {
-
+  const shouldBlur = (i) => {
     if (numberOfCards < 4) return false
 
     if (numberOfCards === 6) {
-      if (i === activeItemIndex || i === activeItemIndex % features.length) return true
-      if (i === (activeItemIndex + 5) || i === (activeItemIndex + 5) % features.length) return true
+      if (i === activeItemIndex || i === activeItemIndex % features.length)
+        return true
+      if (
+        i === activeItemIndex + 5 ||
+        i === (activeItemIndex + 5) % features.length
+      )
+        return true
     }
 
     if (numberOfCards === 4) {
@@ -99,7 +103,6 @@ export const FeatureCards = ({ numberOfCards }) => {
       if (i === endingIndex) return true
       if (i === startingIndex) return true
     }
-
   }
 
   // Prevent the background from scrolling if modal is ope
@@ -143,7 +146,7 @@ export const FeatureCards = ({ numberOfCards }) => {
       <div className="feature-card-container carousel-news-article-container">
         <div className="carousel-button-and-header-container">
           <h1> Neo3 Features</h1>
-          <div className="carousel-button-container">
+          <div className="carousel-button-container noselect">
             <img
               src={chevronLeft}
               alt="chevron-left"
@@ -190,11 +193,11 @@ export default () => {
   const CARD_WIDTH = 300
   let numberOfCards = Math.floor(width / CARD_WIDTH)
 
-    if (width >= 1800) {
-      if (numberOfCards > 6) numberOfCards = 6
-    } else {
-      if (numberOfCards > 4) numberOfCards = 4
-    }
+  if (width >= 1800) {
+    if (numberOfCards > 6) numberOfCards = 6
+  } else {
+    if (numberOfCards > 4) numberOfCards = 4
+  }
 
   return <FeatureCards numberOfCards={numberOfCards} />
 }

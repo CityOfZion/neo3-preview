@@ -40,7 +40,7 @@ code {
   --quinary-color: #efefef;
   --text-color: #003;
   --text-color-secondary: #003;
-  --overlay-color: rgba(0, 0, 51, .26);
+  --overlay-color: rgba(0, 0, 51, 0.26);
   --overlay-color-secondary: #f6f6f6;
 }
 
@@ -52,8 +52,8 @@ code {
   --quinary-color: #000033;
   --text-color: #fff;
   --text-color-secondary: #f9fafa;
-  --overlay-color: rgba(0, 0, 51, .80);
-  --overlay-color-secondary: #1F1F4B;
+  --overlay-color: rgba(0, 0, 51, 0.8);
+  --overlay-color-secondary: #1f1f4b;
 }
 
 a,
@@ -87,29 +87,52 @@ div:focus {
   outline: 0;
 }
 
-.list-block-height-container img, #footer-social-icons a, .carousel-button-container img, #desktop-coz-logo img, #mobile-coz-logo img, #chevron-right-transfer, #burger-menu-icon, .expanding-panel-container .explore-button img {
-    filter: invert(100%);
+.noselect {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
-.dark-mode .list-block-height-container img, .dark-mode #footer-social-icons a, .dark-mode .carousel-button-container img, .dark-mode #desktop-coz-logo img, .dark-mode #mobile-coz-logo img, .dark-mode #chevron-right-transfer, .dark-mode #burger-menu-icon, .dark-mode .expanding-panel-container .explore-button img {
-    filter: invert(0%);
+.list-block-height-container img,
+#footer-social-icons a,
+.carousel-button-container img,
+#desktop-coz-logo img,
+#mobile-coz-logo img,
+#chevron-right-transfer,
+#burger-menu-icon,
+.expanding-panel-container .explore-button img {
+  filter: invert(100%);
+}
+
+.dark-mode .list-block-height-container img,
+.dark-mode #footer-social-icons a,
+.dark-mode .carousel-button-container img,
+.dark-mode #desktop-coz-logo img,
+.dark-mode #mobile-coz-logo img,
+.dark-mode #chevron-right-transfer,
+.dark-mode #burger-menu-icon,
+.dark-mode .expanding-panel-container .explore-button img {
+  filter: invert(0%);
 }
 
 @media screen and (min-width: 1400px) and (max-width: 1799px) {
-    .carousel-wrapper {
-        overflow-x: visible !important;
-    }
+  .carousel-wrapper {
+    overflow-x: visible !important;
+  }
 }
 
 @media screen and (min-width: 1800px) {
-    .carousel-wrapper {
-        width: 1825px !important;
-        margin-left: -325px;
-        overflow: hidden;
-    }
-    .carousel-item-wrapper {
-        width: 15.7% !important;
-    }
+  .carousel-wrapper {
+    width: 1825px !important;
+    margin-left: -325px;
+    overflow: hidden;
+  }
+  .carousel-item-wrapper {
+    width: 15.7% !important;
+  }
 }
 
 @media screen and (-webkit-min-device-pixel-ratio: 0) {
