@@ -1,17 +1,18 @@
 {
   "files": {
-    "main.css": "/static/css/main.775b94c6.chunk.css",
-    "main.js": "/static/js/main.c1c72f31.chunk.js",
-    "main.js.map": "/static/js/main.c1c72f31.chunk.js.map",
+    "main.css": "/static/css/main.b7a6a3e0.chunk.css",
+    "main.js": "/static/js/main.87ee47e2.chunk.js",
+    "main.js.map": "/static/js/main.87ee47e2.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.30b84243.js",
     "runtime-main.js.map": "/static/js/runtime-main.30b84243.js.map",
     "static/js/2.14e2e6d0.chunk.js": "/static/js/2.14e2e6d0.chunk.js",
     "static/js/2.14e2e6d0.chunk.js.map": "/static/js/2.14e2e6d0.chunk.js.map",
     "index.html": "/index.html",
-    "precache-manifest.d4a6f1ed67230d46590cc11e4253252d.js": "/precache-manifest.d4a6f1ed67230d46590cc11e4253252d.js",
+    "precache-manifest.70a5d7bd54e4c39a670ee6a7f669e32b.js": "/precache-manifest.70a5d7bd54e4c39a670ee6a7f669e32b.js",
     "service-worker.js": "/service-worker.js",
-    "static/css/main.775b94c6.chunk.css.map": "/static/css/main.775b94c6.chunk.css.map",
+    "static/css/main.b7a6a3e0.chunk.css.map": "/static/css/main.b7a6a3e0.chunk.css.map",
     "static/js/2.14e2e6d0.chunk.js.LICENSE.txt": "/static/js/2.14e2e6d0.chunk.js.LICENSE.txt",
+    "static/media/2019.png": "/static/media/2019.cb896391.png",
     "static/media/GAS.svg": "/static/media/GAS.d3e396cd.svg",
     "static/media/NEO.svg": "/static/media/NEO.d140bd06.svg",
     "static/media/chevron-down-white.svg": "/static/media/chevron-down-white.7b2ea826.svg",
@@ -26,6 +27,7 @@
     "static/media/coz-logo.svg": "/static/media/coz-logo.aa4aec2c.svg",
     "static/media/dbft2.svg": "/static/media/dbft2.8b5dee87.svg",
     "static/media/dual-token.svg": "/static/media/dual-token.3d55b6e7.svg",
+    "static/media/everstake.png": "/static/media/everstake.fc09341b.png",
     "static/media/fs.svg": "/static/media/fs.5e4cf737.svg",
     "static/media/github-social.svg": "/static/media/github-social.4fe41f53.svg",
     "static/media/id.svg": "/static/media/id.475b127e.svg",
@@ -37,8 +39,6 @@
     "static/media/neofs-local.png": "/static/media/neofs-local.f0b4cb0d.png",
     "static/media/neovm-decoupling.png": "/static/media/neovm-decoupling.07f19bee.png",
     "static/media/oracle.svg": "/static/media/oracle.7f4dc492.svg",
-    "static/media/oracles-dbft.png": "/static/media/oracles-dbft.61253a83.png",
-    "static/media/scoped-witnesses.png": "/static/media/scoped-witnesses.5ac69c73.png",
     "static/media/search-icon.svg": "/static/media/search-icon.1bfeb42e.svg",
     "static/media/send-neofs.png": "/static/media/send-neofs.08abfd0d.png",
     "static/media/signal.svg": "/static/media/signal.e9614480.svg",
@@ -52,7 +52,7 @@
   "entrypoints": [
     "static/js/runtime-main.30b84243.js",
     "static/js/2.14e2e6d0.chunk.js",
-    "static/css/main.775b94c6.chunk.css",
-    "static/js/main.c1c72f31.chunk.js"
+    "static/css/main.b7a6a3e0.chunk.css",
+    "static/js/main.87ee47e2.chunk.js"
   ]
 }
