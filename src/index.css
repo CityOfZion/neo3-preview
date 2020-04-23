@@ -118,12 +118,6 @@ div:focus {
   filter: invert(0%);
 }
 
-@media screen and (min-width: 1400px) and (max-width: 1799px) {
-  .carousel-wrapper {
-    overflow-x: visible !important;
-  }
-}
-
 @media screen and (min-width: 1800px) {
   .carousel-wrapper {
     width: 1825px !important;
