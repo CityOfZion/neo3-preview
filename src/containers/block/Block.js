@@ -96,7 +96,4 @@ class Block extends React.Component {
   }
 }
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps,
-)(Block)
+export default connect(mapStateToProps, mapDispatchToProps)(Block)

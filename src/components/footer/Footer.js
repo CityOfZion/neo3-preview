@@ -16,7 +16,7 @@ export default () => {
       </div>
       <span className="footer-flex-container">© 2020 City Of Zion</span>
       <div id="footer-social-icons" className="footer-flex-container">
-        <ThemeToggle/>
+        <ThemeToggle />
         <a
           href="https://twitter.com/coz_official"
           target="_blank"

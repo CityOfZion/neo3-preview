@@ -42,7 +42,7 @@ const classes = {
   itemWrapper: 'carousel-item-wrapper',
 }
 
-export const CarouselNewsCardWithBlur = (props) => {
+export const CarouselNewsCardWithBlur = props => {
   const { feature, setSelectedFeatureTitle, openModal, shouldBlur } = props
   const classes = classNames({
     'feature-card': true,
@@ -78,10 +78,10 @@ export const FeatureCards = ({ numberOfCards }) => {
   const openModal = () => setFeatureModalOpen(true)
 
   const selectedFeature = features.find(
-    (feature) => feature.title === selectedFeatureTitle,
+    feature => feature.title === selectedFeatureTitle,
   )
 
-  const shouldBlur = (i) => {
+  const shouldBlur = i => {
     if (numberOfCards < 4) return false
 
     if (numberOfCards === 6) {

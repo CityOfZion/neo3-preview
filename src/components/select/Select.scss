@@ -12,7 +12,10 @@
   padding-right: 12px;
 }
 
-.inner-select-container .react-select__control, .inner-select-container .react-select__menu, .inner-select-container .react-select__menu, .select-computed-value {
+.inner-select-container .react-select__control,
+.inner-select-container .react-select__menu,
+.inner-select-container .react-select__menu,
+.select-computed-value {
   background-color: var(--primary-color);
 }
 

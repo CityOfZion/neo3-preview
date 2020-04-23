@@ -17,7 +17,7 @@ const classes = {
 export const NewsArticles = React.memo(({ numberOfCards }) => {
   const [activeItemIndex, setActiveItemIndex] = useState(0)
 
-  const shouldBlur = (i) => {
+  const shouldBlur = i => {
     if (numberOfCards < 4) return false
 
     if (numberOfCards === 6) {
