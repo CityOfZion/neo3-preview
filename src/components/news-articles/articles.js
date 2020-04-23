@@ -1,7 +1,5 @@
 import neofsLocal from '../../images/temp-news-articles/neofs-local.png'
 import neovm from '../../images/temp-news-articles/neovm-decoupling.png'
-import oracles from '../../images/temp-news-articles/oracles-dbft.png'
-import scopedWitnesses from '../../images/temp-news-articles/scoped-witnesses.png'
 import neofs from '../../images/temp-news-articles/send-neofs.png'
 import neoCoreDevelopment from '../../images/temp-news-articles/neo-coredevelopment.png'
 import everstake from '../../images/temp-news-articles/everstake.png'
@@ -13,14 +11,14 @@ export const articles = [
       'Everstake becomes first non-Neo Foundation entity to operate Neo3 Preview TestNet consensus node',
     link:
       'https://neonewstoday.com/general/everstake-becomes-first-non-neo-foundation-entity-to-operate-neo3-preview-testnet-consensus-node/',
-    date: 'January 17, 2020',
+    date: 'January 17th 2020',
     image: everstake,
   },
   {
     title: '2019 Year In Review: Neo3 Development',
     link:
       'https://neonewstoday.com/development/2019-year-in-review-neo3-development/',
-    date: 'December 29, 2020',
+    date: 'December 29th 2020',
     image: yearInReview,
   },
   {
@@ -28,7 +26,7 @@ export const articles = [
     link:
       'https://neonewstoday.com/development/ngd-summarizes-latest-neo3-core-development-in-december-report',
     image: neoCoreDevelopment,
-    date: 'December 17, 2019',
+    date: 'December 17th 2019',
   },
   {
     title:
