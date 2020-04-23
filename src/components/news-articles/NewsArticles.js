@@ -48,7 +48,7 @@ export const NewsArticles = React.memo(({ numberOfCards }) => {
     >
       <div className="carousel-button-and-header-container">
         <h1> Recent Articles</h1>
-        <div className="carousel-button-container">
+        <div className="carousel-button-container noselect">
           <img
             src={chevronLeft}
             alt="chevron-left"

@@ -146,7 +146,7 @@ export const FeatureCards = ({ numberOfCards }) => {
       <div className="feature-card-container carousel-news-article-container">
         <div className="carousel-button-and-header-container">
           <h1> Neo3 Features</h1>
-          <div className="carousel-button-container">
+          <div className="carousel-button-container noselect">
             <img
               src={chevronLeft}
               alt="chevron-left"
