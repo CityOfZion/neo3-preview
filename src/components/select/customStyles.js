@@ -7,7 +7,9 @@ export const customStyles = {
     ...provided,
     backgroundColor: state.isFocused ? '#000033' : 'transparent',
     display: 'flex',
-    border: state.isFocused ? 'solid 1px var(--text-color-secondary)' : 'solid 1px transparent',
+    border: state.isFocused
+      ? 'solid 1px var(--text-color-secondary)'
+      : 'solid 1px transparent',
     borderRadius: state.isFocused ? '3px 3px 0 0' : '3px',
     minHeight: '32px',
     opacity: state.isDisabled ? 0.4 : 1,
@@ -35,9 +37,12 @@ export const customStyles = {
   }),
   option: (provided, state) => ({
     ...provided,
-    color: state.isFocused || state.isSelected ? '#000033' : 'var(--text-color)',
+    color:
+      state.isFocused || state.isSelected ? '#000033' : 'var(--text-color)',
     backgroundColor:
-      state.isFocused || state.isSelected ? 'var(--tertiary-color)' : 'var(--primary-color)',
+      state.isFocused || state.isSelected
+        ? 'var(--tertiary-color)'
+        : 'var(--primary-color)',
     padding: '4px 8px',
     '&:active': {
       backgroundColor: 'var(--tertiary-color)',

@@ -18,12 +18,16 @@ export const NewsArticles = React.memo(({ numberOfCards }) => {
   const [activeItemIndex, setActiveItemIndex] = useState(0)
 
   const shouldBlur = i => {
-
     if (numberOfCards < 4) return false
 
     if (numberOfCards === 6) {
-      if (i === activeItemIndex || i === activeItemIndex % articles.length) return true
-      if (i === (activeItemIndex + 5) || i === (activeItemIndex + 5) % articles.length) return true
+      if (i === activeItemIndex || i === activeItemIndex % articles.length)
+        return true
+      if (
+        i === activeItemIndex + 5 ||
+        i === (activeItemIndex + 5) % articles.length
+      )
+        return true
     }
 
     if (numberOfCards === 4) {
@@ -35,7 +39,6 @@ export const NewsArticles = React.memo(({ numberOfCards }) => {
       if (i === endingIndex) return true
       if (i === startingIndex) return true
     }
-
   }
 
   return (

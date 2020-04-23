@@ -236,9 +236,7 @@ export function disassemble(script) {
   // resolve all interop method names to 32-bit hash
   let interopmethod = {}
   for (let i = 0; i < methodnames.length; i++) {
-    let hash = SHA256(methodnames[i])
-      .toString()
-      .slice(0, 8)
+    let hash = SHA256(methodnames[i]).toString().slice(0, 8)
     interopmethod[hash] = methodnames[i]
   }
 
@@ -266,7 +264,7 @@ export function disassemble(script) {
       } else if (opcodedata.type === 'read') {
         const datalen = parseInt(
           script.slice(i + 2, i + 2 + opcodedata.size * 2),
-          16
+          16,
         )
         const start = i + 2 + opcodedata.size * 2
         const fulldata = script.slice(start, start + datalen)
@@ -278,8 +276,7 @@ export function disassemble(script) {
         i += fulldata.length
       }
       i += parseInt(opcodedata.size) * 2
-    }
-    else {
+    } else {
       inst = 'INVALID_OPCODE ' + opcode
     }
     out += inst + '\n'

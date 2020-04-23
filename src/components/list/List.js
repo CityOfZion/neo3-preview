@@ -72,9 +72,7 @@ export const List = ({
                   onClick={() => handleRowClick && handleRowClick(data)}
                   key={uniqueId()}
                   className={
-                    currentHoveredIndex === index
-                      ? hoveredClassName
-                      : rowClass
+                    currentHoveredIndex === index ? hoveredClassName : rowClass
                   }
                   onMouseEnter={() => setCurrentHoveredIndex(index)}
                   onMouseLeave={() => setCurrentHoveredIndex(null)}
