@@ -12,7 +12,7 @@ export const searchInputEntered = search => dispatch => {
 }
 
 export const SEARCH_INPUT_ENTERED_SUCCESS = 'SEARCH_INPUT_ENTERED_SUCCESS'
-export const searchInputEnteredSuccess = (search, searchType) => (dispatch) => {
+export const searchInputEnteredSuccess = (search, searchType) => dispatch => {
   dispatch({
     type: SEARCH_INPUT_ENTERED_SUCCESS,
     searchType,
