@@ -125,8 +125,7 @@ div:focus {
 
   .content {
     margin: auto;
-    max-width: 1440px !important ;
-    min-width: 1440px !important;
+    width: 1440px;
   }
 
   #root {
