@@ -122,6 +122,15 @@ div:focus {
   .carousel-wrapper {
     overflow-x: visible !important;
   }
+
+  .content {
+    margin: auto;
+    width: 1440px;
+  }
+
+  #root {
+    overflow-x: hidden;
+  }
 }
 
 @media screen and (min-width: 1800px) {
