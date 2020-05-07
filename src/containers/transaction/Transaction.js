@@ -7,7 +7,12 @@ import { isEmpty } from 'lodash-es'
 import { fetchTransaction } from '../../actions/transactionActions'
 import { disassemble } from '../../utils/disassemble'
 import Panel from '../../components/panel/Panel'
-import { CONVERT_TO_DECIMAL, TRANSFER, ASSETS } from '../../constants'
+import {
+  CONVERT_TO_DECIMAL,
+  TRANSFER,
+  ASSETS,
+  getAddressFromSriptHash,
+} from '../../constants'
 import Transfer from '../../components/transfer/Transfer'
 import Spinner from '../../components/spinner/Spinner'
 import ExploreButton from '../../components/button/ExploreButton'
@@ -25,20 +30,26 @@ const generateTransfersArr = async transaction => {
           }
         })
 
+        console.log(isTransfer)
+
         if (isTransfer) {
           const asset = ASSETS.find(
             asset => asset.scripthash === notification.contract,
           )
-          const amount = notification.state.value.find(
+
+          const integerNotfication = notification.state.value.find(
             value => value.type === 'Integer',
-          ).value
-          const from_address = await NeoConvertor.Address.scriptHashToAddress(
-            notification.state.value[1].value,
-            true,
           )
-          const to_address = await NeoConvertor.Address.scriptHashToAddress(
+
+          console.log(integerNotfication)
+
+          const amount = integerNotfication ? integerNotfication.value : 0
+
+          const from_address = await getAddressFromSriptHash(
+            notification.state.value[1].value,
+          )
+          const to_address = await getAddressFromSriptHash(
             notification.state.value[2].value,
-            true,
           )
           transfers.push({
             name: asset.name,
