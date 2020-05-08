@@ -29,7 +29,6 @@ export const NotificationRow = ({ value, type, options = [] }) => {
   }, [selectedOption, options, value])
 
   const handleChange = selectedOption => {
-    console.log(selectedOption)
     setSelectedOption(selectedOption)
   }
 

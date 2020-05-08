@@ -1,4 +1,4 @@
-import Neon, { api, wallet, u } from '@cityofzion/neon-js'
+import { wallet, u } from '@cityofzion/neon-js'
 import NeoConvertor from 'neo-convertor'
 
 export const ASSETS = [

@@ -256,7 +256,6 @@ export function disassemble(encodedScript) {
   for (let i = 0; i < script.length; i += 2) {
     let inst
     let opcode = script.slice(i, i + 2)
-    console.log(opcode)
     if (opcodetable.hasOwnProperty(opcode)) {
       const opcodedata = opcodetable[opcode]
       inst = opcodedata.name
