@@ -29,9 +29,6 @@ const generateTransfersArr = async transaction => {
             isTransfer = true
           }
         })
-
-        console.log(isTransfer)
-
         if (isTransfer) {
           const asset = ASSETS.find(
             asset => asset.scripthash === notification.contract,
@@ -40,9 +37,6 @@ const generateTransfersArr = async transaction => {
           const integerNotfication = notification.state.value.find(
             value => value.type === 'Integer',
           )
-
-          console.log(integerNotfication)
-
           const amount = integerNotfication ? integerNotfication.value : 0
 
           const from_address = await getAddressFromSriptHash(
