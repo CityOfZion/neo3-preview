@@ -1,7 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import moment from 'moment'
-import NeoConvertor from 'neo-convertor'
 import { isEmpty } from 'lodash-es'
 
 import { fetchTransaction } from '../../actions/transactionActions'
