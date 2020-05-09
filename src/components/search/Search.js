@@ -36,12 +36,12 @@ export default ({
   const inputClass = classNames({
     'search-error': error,
     'is-searching': isSearching,
+    'search-input': true,
   })
 
   return (
     <div onKeyPress={listenForEnterKey} id="search-input-container">
       <input
-        id="search-input"
         className={inputClass}
         type="text"
         name="name"

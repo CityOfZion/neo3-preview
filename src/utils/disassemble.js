@@ -240,11 +240,12 @@ const opcodetable = {
   '0xDB': { name: 'CONVERT', size: 1, type: 'bytes' },
 }
 
-export function disassemble(encodedScript) {
+export async function disassemble(encodedScript) {
   let out = ''
   if (encodedScript === undefined) return out
 
   const script = encodedScript
+
   // resolve all interop method names to 32-bit hash
   let interopmethod = {}
   for (let i = 0; i < methodnames.length; i++) {

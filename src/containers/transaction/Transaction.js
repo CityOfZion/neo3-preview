@@ -74,6 +74,9 @@ class Transaction extends React.Component {
     hasParsedTransfers: false,
     rawScriptIsOpen: false,
     disassembledScriptIsOpen: false,
+    opCodeInvocation: '',
+    opCodeVerification: '',
+    script: '',
   }
 
   async componentDidMount() {
@@ -86,6 +89,22 @@ class Transaction extends React.Component {
     }
   }
 
+  async decodeScript() {
+    const { transaction } = this.props
+    const opCodeInvocation = await disassemble(
+      transaction.witnesses[0].invocation,
+    )
+    const opCodeVerification = await disassemble(
+      transaction.witnesses[0].verification,
+    )
+    const script = await disassemble(transaction.script)
+    this.setState({
+      opCodeInvocation,
+      opCodeVerification,
+      script,
+    })
+  }
+
   async componentDidUpdate(prevProps) {
     const id = this.props.match.params.id
     if (prevProps.match.params.id !== id) {
@@ -93,6 +112,7 @@ class Transaction extends React.Component {
     }
 
     if (this.props.transaction !== prevProps.transaction) {
+      this.decodeScript()
       const transfers = await generateTransfersArr(this.props.transaction)
       this.setState({ transfers, hasParsedTransfers: true })
     }
@@ -100,7 +120,12 @@ class Transaction extends React.Component {
 
   render() {
     const { transaction, isLoading } = this.props
-    const { transfers } = this.state
+    const {
+      transfers,
+      // opCodeInvocation,
+      // opCodeVerification,
+      script,
+    } = this.state
     const pre = { whiteSpace: 'pre-wrap' }
     return (
       <div className="wrapper">
@@ -199,7 +224,7 @@ class Transaction extends React.Component {
               </div>
             </div>
 
-            <div className="panel-header-and-explore-row">
+            {/* <div className="panel-header-and-explore-row">
               <h1>Disassembled Script</h1>
               <ExploreButton
                 handleOpen={isOpen =>
@@ -216,21 +241,13 @@ class Transaction extends React.Component {
             >
               <div className="secondary-panels-column">
                 <div className="bold-subtitle"> Opcode invocation script</div>
-                <Panel
-                  style={pre}
-                  secondary
-                  value={disassemble(transaction.witnesses[0].invocation)}
-                />
+                <Panel style={pre} secondary value={opCodeInvocation} />
               </div>
               <div className="secondary-panels-column">
                 <div className="bold-subtitle"> Opcode verification script</div>
-                <Panel
-                  style={pre}
-                  secondary
-                  value={disassemble(transaction.witnesses[0].verification)}
-                />
+                <Panel style={pre} secondary value={opCodeVerification} />
               </div>
-            </div>
+            </div> */}
 
             <div
               className="secondary-panels-row"
@@ -240,11 +257,7 @@ class Transaction extends React.Component {
             >
               <div className="secondary-panels-column">
                 <div className="bold-subtitle">Script</div>
-                <Panel
-                  style={pre}
-                  secondary
-                  value={disassemble(transaction.script)}
-                />
+                <Panel style={pre} secondary value={script} />
               </div>
               <div className="secondary-panels-column">
                 <div className="bold-subtitle"></div>

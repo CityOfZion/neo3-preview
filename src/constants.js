@@ -64,7 +64,6 @@ export const hexToAscii = async str1 => {
   const size = parseInt(str1.replace(/=/g, '').length * 0.75)
 
   if (size === 20) {
-    // const str1AsStr = str1.toString()
     return getAddressFromSriptHash(str1)
   } else {
     const unencoded = atob(unescape(str1))
