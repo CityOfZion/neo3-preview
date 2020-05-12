@@ -1,13 +1,17 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import moment from 'moment'
-import NeoConvertor from 'neo-convertor'
-import { isEmpty } from 'lodash-es'
+import { isEmpty, get } from 'lodash-es'
 
 import { fetchTransaction } from '../../actions/transactionActions'
 import { disassemble } from '../../utils/disassemble'
 import Panel from '../../components/panel/Panel'
-import { CONVERT_TO_DECIMAL, TRANSFER, ASSETS } from '../../constants'
+import {
+  CONVERT_TO_DECIMAL,
+  TRANSFER,
+  ASSETS,
+  getAddressFromSriptHash,
+} from '../../constants'
 import Transfer from '../../components/transfer/Transfer'
 import Spinner from '../../components/spinner/Spinner'
 import ExploreButton from '../../components/button/ExploreButton'
@@ -24,21 +28,20 @@ const generateTransfersArr = async transaction => {
             isTransfer = true
           }
         })
-
         if (isTransfer) {
           const asset = ASSETS.find(
             asset => asset.scripthash === notification.contract,
           )
-          const amount = notification.state.value.find(
+          const integerNotfication = notification.state.value.find(
             value => value.type === 'Integer',
-          ).value
-          const from_address = await NeoConvertor.Address.scriptHashToAddress(
-            notification.state.value[1].value,
-            true,
           )
-          const to_address = await NeoConvertor.Address.scriptHashToAddress(
-            notification.state.value[2].value,
-            true,
+          const amount = integerNotfication ? integerNotfication.value : 0
+
+          const from_address = getAddressFromSriptHash(
+            notification.state.value[1].value || '',
+          )
+          const to_address = getAddressFromSriptHash(
+            notification.state.value[2].value || '',
           )
           transfers.push({
             name: asset.name,
@@ -70,6 +73,9 @@ class Transaction extends React.Component {
     hasParsedTransfers: false,
     rawScriptIsOpen: false,
     disassembledScriptIsOpen: false,
+    // opCodeInvocation: '',
+    // opCodeVerification: '',
+    // script: '',
   }
 
   async componentDidMount() {
@@ -98,6 +104,7 @@ class Transaction extends React.Component {
     const { transaction, isLoading } = this.props
     const { transfers } = this.state
     const pre = { whiteSpace: 'pre-wrap' }
+
     return (
       <div className="wrapper">
         {transaction && !isLoading ? (
@@ -215,7 +222,9 @@ class Transaction extends React.Component {
                 <Panel
                   style={pre}
                   secondary
-                  value={disassemble(transaction.witnesses[0].invocation)}
+                  value={disassemble(
+                    get(transaction, 'witnesses[0].invocation', ''),
+                  )}
                 />
               </div>
               <div className="secondary-panels-column">
@@ -223,7 +232,9 @@ class Transaction extends React.Component {
                 <Panel
                   style={pre}
                   secondary
-                  value={disassemble(transaction.witnesses[0].verification)}
+                  value={disassemble(
+                    get(transaction, 'witnesses[0].verification', ''),
+                  )}
                 />
               </div>
             </div>

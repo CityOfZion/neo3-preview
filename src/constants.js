@@ -1,18 +1,40 @@
 import NeoConvertor from 'neo-convertor'
+import bs58check from 'bs58check'
 
 export const ASSETS = [
   {
-    decimals: '0',
-    name: 'NEO',
-    scripthash: '0x43cf98eddbe047e198a3e5d57006311442a0ca15',
-    symbol: 'neo',
-    firstseen: 0,
+    decimals: '8',
+    name: 'TokenTest',
+    scripthash: '0x37240b1a6fe30b91d29304011dc30810f9ff56ce',
+    symbol: 'TTS',
+    firstseen: 74565,
+  },
+  {
+    decimals: '8',
+    name: 'My Token v1.0',
+    scripthash: '0xa69d9fd5b49926607e0d4da6fd47ab0fd79fbd70',
+    symbol: 'MT',
+    firstseen: 71847,
+  },
+  {
+    decimals: '8',
+    name: 'MyTokenTest',
+    scripthash: '0xa89719dd87d5336032160fb60733317dc0e45ef2',
+    symbol: 'MTT',
+    firstseen: 70983,
   },
   {
     decimals: '8',
     name: 'GAS',
-    scripthash: '0xa1760976db5fcdfab2a9930e8f6ce875b2d18225',
+    scripthash: '0x8c23f196d8a1bfd103a9dcb1f9ccf0c611377d3b',
     symbol: 'gas',
+    firstseen: 0,
+  },
+  {
+    decimals: '0',
+    name: 'NEO',
+    scripthash: '0x9bde8f209c88dd0e7ca3bf0af0f476cdd8207789',
+    symbol: 'neo',
     firstseen: 0,
   },
 ]
@@ -25,24 +47,34 @@ export const SEARCH_TYPES = {
 }
 
 export const GENERATE_BASE_URL = (net = 'test_net') =>
-  `https://5jcgfs9ixb.execute-api.us-east-1.amazonaws.com/api/${net}/v1`
+  `https://orpbxyzosb.execute-api.us-east-1.amazonaws.com/preview2/${net}/v1`
 
 // TODO: implement a much better solution
 export const CONVERT_TO_DECIMAL = value => value / 100000000
 
-export const TRANSFER = '5472616e73666572'
+export const TRANSFER = 'VHJhbnNmZXI='
 
-export const hexToAscii = str1 => {
-  const hex = str1.toString()
-  let str = ''
-  for (let n = 0; n < hex.length; n += 2) {
-    str += String.fromCharCode(parseInt(hex.substr(n, 2), 16))
+export const getAddressFromSriptHash = hash => {
+  var d = Buffer.from(hash, 'base64')
+  let inputData = Buffer.alloc(21)
+  inputData.writeInt8(0x35, 0)
+  inputData.fill(d, 1)
+  return bs58check.encode(inputData)
+}
+
+export const hexToAscii = async str1 => {
+  const size = parseInt(str1.replace(/=/g, '').length * 0.75)
+
+  if (size === 20) {
+    return getAddressFromSriptHash(str1)
+  } else {
+    const unencoded = atob(unescape(str1))
+    return unencoded
   }
-  return str
 }
 
 export const asciiToByteArray = str => {
-  var utf8 = unescape(encodeURIComponent(str))
+  const utf8 = unescape(encodeURIComponent(str))
 
   var arr = []
   for (var i = 0; i < utf8.length; i++) {

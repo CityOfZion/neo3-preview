@@ -1,4 +1,4 @@
-#search-input {
+.search-input {
   background: var(--secondary-color);
   border-radius: 3px;
   border: none;
@@ -11,7 +11,7 @@
   color: var(--text-color);
 }
 
-#search-input::placeholder {
+.search-input::placeholder {
   font-size: 17px;
   color: var(--text-color);
   text-align: left;
@@ -21,7 +21,7 @@
   display: flex;
   align-items: center;
 
-  #search-input-icon {
+  .search-input-icon {
     cursor: pointer;
   }
 
@@ -45,7 +45,7 @@
 }
 
 @media screen and (-webkit-min-device-pixel-ratio: 0) {
-  #search-input {
+  .search-input {
     input {
       font-size: 16px;
     }

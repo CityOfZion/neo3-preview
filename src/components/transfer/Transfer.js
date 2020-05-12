@@ -19,7 +19,9 @@ export default ({ transfers = [], handleAddressClick }) =>
               {transfer.from}
             </div>
             <div className="transfer-amount-container">
-              <img src={tokens[transfer.name]} alt="token-logo" />{' '}
+              {tokens[transfer.name] && (
+                <img src={tokens[transfer.name]} alt="token-logo" />
+              )}{' '}
               {transfer.amount} {transfer.name}
             </div>
           </div>
@@ -37,7 +39,9 @@ export default ({ transfers = [], handleAddressClick }) =>
               {transfer.to}
             </div>
             <div className="transfer-amount-container">
-              <img src={tokens[transfer.name]} alt="token-logo" />{' '}
+              {tokens[transfer.name] && (
+                <img src={tokens[transfer.name]} alt="token-logo" />
+              )}{' '}
               {transfer.amount} {transfer.name}
             </div>
           </div>

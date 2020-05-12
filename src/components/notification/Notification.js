@@ -58,14 +58,23 @@ export const NotificationPanel = ({ notification }) => {
       {notification.state.value.map((state, i) => (
         <div className="notification-state-row-container" key={i}>
           <span> [{i}] </span>
-          <p style={{ background: TX_STATE_TYPE_MAPPINGS[state.type].color }}>
+          <p
+            style={{
+              background:
+                TX_STATE_TYPE_MAPPINGS[state.type] &&
+                TX_STATE_TYPE_MAPPINGS[state.type].color,
+            }}
+          >
             {state.type}
           </p>
           {state.value && (
             <NotificationRow
               value={state.value}
               type={state.type}
-              options={TX_STATE_TYPE_MAPPINGS[state.type].options}
+              options={
+                TX_STATE_TYPE_MAPPINGS[state.type] &&
+                TX_STATE_TYPE_MAPPINGS[state.type].options
+              }
             />
           )}
         </div>

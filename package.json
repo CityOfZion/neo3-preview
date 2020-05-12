@@ -5,6 +5,7 @@
   "private": true,
   "license": "MIT",
   "dependencies": {
+    "bs58check": "^2.1.2",
     "classnames": "^2.2.6",
     "crypto-js": "^3.1.9-1",
     "lodash-es": "^4.17.15",
