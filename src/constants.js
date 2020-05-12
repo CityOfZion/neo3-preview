@@ -1,19 +1,5 @@
-import { wallet, u } from '@cityofzion/neon-js'
-import { enc } from 'crypto-js'
 import NeoConvertor from 'neo-convertor'
 import bs58check from 'bs58check'
-
-export function base642hex(input) {
-  return enc.Base64.parse(input).toString(enc.Hex)
-}
-
-export function base64Encode(input) {
-  return enc.Base64.stringify(enc.Utf8.parse(input))
-}
-
-export function base64Decode(input) {
-  return enc.Base64.parse(input).toString(enc.Utf8)
-}
 
 export const ASSETS = [
   {
