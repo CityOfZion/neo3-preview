@@ -102,12 +102,7 @@ class Transaction extends React.Component {
 
   render() {
     const { transaction, isLoading } = this.props
-    const {
-      transfers,
-      // opCodeInvocation,
-      // opCodeVerification,
-      // script,
-    } = this.state
+    const { transfers } = this.state
     const pre = { whiteSpace: 'pre-wrap' }
 
     return (
