@@ -1,4 +1,5 @@
 import SHA256 from 'crypto-js/sha256'
+import { getAddressFromSriptHash } from '../constants'
 
 const maxarglen = 128
 
@@ -240,11 +241,11 @@ const opcodetable = {
   '0xDB': { name: 'CONVERT', size: 1, type: 'bytes' },
 }
 
-export async function disassemble(encodedScript) {
+export function disassemble(encodedScript) {
   let out = ''
   if (encodedScript === undefined) return out
 
-  const script = encodedScript
+  const script = getAddressFromSriptHash(encodedScript)
 
   // resolve all interop method names to 32-bit hash
   let interopmethod = {}

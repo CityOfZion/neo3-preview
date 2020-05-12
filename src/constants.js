@@ -1,5 +1,19 @@
 import { wallet, u } from '@cityofzion/neon-js'
+import { enc } from 'crypto-js'
 import NeoConvertor from 'neo-convertor'
+import bs58check from 'bs58check'
+
+export function base642hex(input) {
+  return enc.Base64.parse(input).toString(enc.Hex)
+}
+
+export function base64Encode(input) {
+  return enc.Base64.stringify(enc.Utf8.parse(input))
+}
+
+export function base64Decode(input) {
+  return enc.Base64.parse(input).toString(enc.Utf8)
+}
 
 export const ASSETS = [
   {
@@ -54,10 +68,12 @@ export const CONVERT_TO_DECIMAL = value => value / 100000000
 
 export const TRANSFER = 'VHJhbnNmZXI='
 
-export const getAddressFromSriptHash = async hash => {
-  const hex = await NeoConvertor.StringHex.stringToHex(hash)
-  const address = wallet.getAddressFromScriptHash(u.reverseHex(hex))
-  return address
+export const getAddressFromSriptHash = hash => {
+  var d = Buffer.from(hash, 'base64')
+  let inputData = Buffer.alloc(21)
+  inputData.writeInt8(0x35, 0)
+  inputData.fill(d, 1)
+  return bs58check.encode(inputData)
 }
 
 export const hexToAscii = async str1 => {

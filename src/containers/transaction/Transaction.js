@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import moment from 'moment'
-import { isEmpty } from 'lodash-es'
+import { isEmpty, get } from 'lodash-es'
 
 import { fetchTransaction } from '../../actions/transactionActions'
 import { disassemble } from '../../utils/disassemble'
@@ -32,17 +32,16 @@ const generateTransfersArr = async transaction => {
           const asset = ASSETS.find(
             asset => asset.scripthash === notification.contract,
           )
-
           const integerNotfication = notification.state.value.find(
             value => value.type === 'Integer',
           )
           const amount = integerNotfication ? integerNotfication.value : 0
 
-          const from_address = await getAddressFromSriptHash(
-            notification.state.value[1].value,
+          const from_address = getAddressFromSriptHash(
+            notification.state.value[1].value || '',
           )
-          const to_address = await getAddressFromSriptHash(
-            notification.state.value[2].value,
+          const to_address = getAddressFromSriptHash(
+            notification.state.value[2].value || '',
           )
           transfers.push({
             name: asset.name,
@@ -74,9 +73,9 @@ class Transaction extends React.Component {
     hasParsedTransfers: false,
     rawScriptIsOpen: false,
     disassembledScriptIsOpen: false,
-    opCodeInvocation: '',
-    opCodeVerification: '',
-    script: '',
+    // opCodeInvocation: '',
+    // opCodeVerification: '',
+    // script: '',
   }
 
   async componentDidMount() {
@@ -89,22 +88,6 @@ class Transaction extends React.Component {
     }
   }
 
-  async decodeScript() {
-    const { transaction } = this.props
-    const opCodeInvocation = await disassemble(
-      transaction.witnesses[0].invocation,
-    )
-    const opCodeVerification = await disassemble(
-      transaction.witnesses[0].verification,
-    )
-    const script = await disassemble(transaction.script)
-    this.setState({
-      opCodeInvocation,
-      opCodeVerification,
-      script,
-    })
-  }
-
   async componentDidUpdate(prevProps) {
     const id = this.props.match.params.id
     if (prevProps.match.params.id !== id) {
@@ -112,7 +95,6 @@ class Transaction extends React.Component {
     }
 
     if (this.props.transaction !== prevProps.transaction) {
-      this.decodeScript()
       const transfers = await generateTransfersArr(this.props.transaction)
       this.setState({ transfers, hasParsedTransfers: true })
     }
@@ -124,9 +106,10 @@ class Transaction extends React.Component {
       transfers,
       // opCodeInvocation,
       // opCodeVerification,
-      script,
+      // script,
     } = this.state
     const pre = { whiteSpace: 'pre-wrap' }
+
     return (
       <div className="wrapper">
         {transaction && !isLoading ? (
@@ -224,7 +207,7 @@ class Transaction extends React.Component {
               </div>
             </div>
 
-            {/* <div className="panel-header-and-explore-row">
+            <div className="panel-header-and-explore-row">
               <h1>Disassembled Script</h1>
               <ExploreButton
                 handleOpen={isOpen =>
@@ -241,13 +224,25 @@ class Transaction extends React.Component {
             >
               <div className="secondary-panels-column">
                 <div className="bold-subtitle"> Opcode invocation script</div>
-                <Panel style={pre} secondary value={opCodeInvocation} />
+                <Panel
+                  style={pre}
+                  secondary
+                  value={disassemble(
+                    get(transaction, 'witnesses[0].invocation', ''),
+                  )}
+                />
               </div>
               <div className="secondary-panels-column">
                 <div className="bold-subtitle"> Opcode verification script</div>
-                <Panel style={pre} secondary value={opCodeVerification} />
+                <Panel
+                  style={pre}
+                  secondary
+                  value={disassemble(
+                    get(transaction, 'witnesses[0].verification', ''),
+                  )}
+                />
               </div>
-            </div> */}
+            </div>
 
             <div
               className="secondary-panels-row"
@@ -257,7 +252,11 @@ class Transaction extends React.Component {
             >
               <div className="secondary-panels-column">
                 <div className="bold-subtitle">Script</div>
-                <Panel style={pre} secondary value={script} />
+                <Panel
+                  style={pre}
+                  secondary
+                  value={disassemble(transaction.script)}
+                />
               </div>
               <div className="secondary-panels-column">
                 <div className="bold-subtitle"></div>
