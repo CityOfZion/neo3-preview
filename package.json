@@ -12,7 +12,7 @@
     "moment": "^2.24.0",
     "neo-convertor": "0.0.2",
     "no-scroll": "^2.1.1",
-    "node-sass": "^4.13.1",
+    "node-sass": "^7.0.0",
     "react": "^16.10.1",
     "react-burger-menu": "^2.6.11",
     "react-dom": "^16.10.1",
